@@ -1,0 +1,16 @@
+{
+  "name": "slot-machine-expert-power-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Property-based tests for slot-machine-expert Kiro Power",
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "fast-check": "^3.22.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
