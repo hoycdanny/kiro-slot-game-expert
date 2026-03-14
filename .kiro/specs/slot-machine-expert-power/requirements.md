@@ -2,7 +2,7 @@
 
 ## 簡介
 
-本功能為一個 Kiro Power，安裝後將使 Kiro 成為老虎機遊戲開發的專業顧問。此 Power 涵蓋 RNG 實作、數學模型設計、認證合規、負責任博弈等業界核心知識，以 2025-2026 年最新標準指導開發者完成從概念到認證的完整老虎機開發流程。
+本功能為一個 Kiro Power，安裝後將使 Kiro 成為老虎機遊戲開發的專業顧問。此 Power 涵蓋 RNG 實作、數學模型設計、認證合規、負責任遊戲等業界核心知識，以 2025-2026 年最新標準指導開發者完成從概念到認證的完整老虎機開發流程。
 
 ## 詞彙表
 
@@ -11,14 +11,14 @@
 - **Steering**：Power 中的工作流程指引檔案，放置於 steering/ 目錄下，用於引導特定開發情境
 - **RNG**：隨機數生成器（Random Number Generator），老虎機核心元件，負責產生不可預測的隨機結果
 - **PRNG**：偽隨機數生成器（Pseudo-Random Number Generator），使用演算法產生統計上隨機的數列
-- **CSPRNG**：密碼學安全偽隨機數生成器（Cryptographically Secure PRNG），符合博弈業界安全標準的 RNG 實作
+- **CSPRNG**：密碼學安全偽隨機數生成器（Cryptographically Secure PRNG），符合遊戲業界安全標準的 RNG 實作
 - **RTP**：返還率（Return to Player），長期統計平均回報百分比，如 96% 表示每投注 $100 平均回報 $96
 - **Volatility**：波動性，衡量老虎機風險等級的指標，決定獎金大小與頻率的分佈
 - **Hit_Frequency**：命中頻率，任一次旋轉產生獲勝組合的機率百分比
 - **Virtual_Reel**：虛擬捲軸，使用加權映射系統的邏輯捲軸，用於控制符號出現機率
 - **Paytable**：賠率表，定義各符號組合對應獎金倍數的對照表
 - **Reel_Strip**：捲軸帶，定義每個捲軸上符號排列順序與數量的配置
-- **GLI-11**：Gaming Laboratories International 發布的電子博弈機技術標準，全球最廣泛採用
+- **GLI-11**：Gaming Laboratories International 發布的電子遊戲機技術標準，全球最廣泛採用
 - **GLI-19**：GLI 發布的遠端遊戲伺服器（RGS）技術標準
 - **Payline**：賠線，捲軸上判定獲勝組合的連線路徑
 - **Wild**：百搭符號，可替代其他符號形成獲勝組合的特殊符號
@@ -29,7 +29,7 @@
 - **Progressive_Jackpot**：累積獎金，隨玩家投注持續累積的大獎池
 - **Spin_Lifecycle**：旋轉生命週期，從玩家發送旋轉請求到返回結果的完整處理流程
 - **Certification_Lab**：認證測試實驗室，如 GLI、BMM Testlabs、eCOGRA、iTech Labs 等第三方機構
-- **Responsible_Gaming**：負責任博弈，保護玩家的功能與機制，包含存款限制、自我排除等
+- **Responsible_Gaming**：負責任遊戲，保護玩家的功能與機制，包含存款限制、自我排除等
 
 ## 需求
 
@@ -85,15 +85,15 @@
 
 #### 驗收條件
 
-1. WHEN 開發者詢問認證相關問題，THE Power SHALL 提供 GLI-11（電子博弈機標準）與 GLI-19（遠端遊戲伺服器標準）的合規要求說明
-2. THE Power SHALL 指導開發者準備認證測試所需的文件，涵蓋 RNG 驗證報告、RTP 準確性證明、功能邏輯說明、Paytable 驗算、負責任博弈 UX 設計、錯誤處理機制與審計日誌格式
+1. WHEN 開發者詢問認證相關問題，THE Power SHALL 提供 GLI-11（電子遊戲機標準）與 GLI-19（遠端遊戲伺服器標準）的合規要求說明
+2. THE Power SHALL 指導開發者準備認證測試所需的文件，涵蓋 RNG 驗證報告、RTP 準確性證明、功能邏輯說明、Paytable 驗算、負責任遊戲 UX 設計、錯誤處理機制與審計日誌格式
 3. WHEN 開發者選定目標市場，THE Power SHALL 提供該司法管轄區的監管機構資訊（如 Malta Gaming Authority、UK Gambling Commission、AGCO）與特定合規要求
 4. THE Power SHALL 告知開發者認證時程預估（標準老虎機 2 至 4 個月、複雜遊戲 4 至 6 個月）與費用範圍（單一司法管轄區 $35,000 至 $140,000）
 5. IF 開發者的 RTP 設定低於 92%，THEN THE Power SHALL 發出警告，說明某些市場禁止 RTP 低於此門檻
 
-### 需求 6：負責任博弈功能指導
+### 需求 6：負責任遊戲功能指導
 
-**使用者故事：** 身為老虎機開發者，我希望獲得負責任博弈功能的實作指導，以保護玩家並符合監管要求。
+**使用者故事：** 身為老虎機開發者，我希望獲得負責任遊戲功能的實作指導，以保護玩家並符合監管要求。
 
 #### 驗收條件
 
@@ -102,7 +102,7 @@
 3. THE Power SHALL 指導開發者實作會話時間限制功能，在玩家持續遊戲達到設定時間時發出提醒
 4. THE Power SHALL 指導開發者實作勝負追蹤功能，向玩家即時顯示當前會話的淨盈虧金額
 5. WHEN 開發者的目標市場限制或禁止自動播放功能，THE Power SHALL 指導開發者依據該市場規範調整或移除自動播放機制
-6. THE Power SHALL 指導開發者在遊戲介面中顯示風險訊息，包含 RTP 百分比與博弈風險提示
+6. THE Power SHALL 指導開發者在遊戲介面中顯示風險訊息，包含 RTP 百分比與遊戲風險提示
 
 ### 需求 7：技術棧建議
 
@@ -123,7 +123,7 @@
 1. THE Power SHALL 提供數學模型設計工作流程指引，涵蓋 Paytable 設計、Reel_Strip 配置、RTP 計算與 Volatility 調校
 2. THE Power SHALL 提供 RNG 與遊戲邏輯實作工作流程指引，涵蓋 CSPRNG 選擇、Spin_Lifecycle 實作與規則引擎開發
 3. THE Power SHALL 提供認證準備工作流程指引，涵蓋文件準備、測試計畫與認證實驗室對接流程
-4. THE Power SHALL 提供負責任博弈實作工作流程指引，涵蓋玩家保護功能開發與合規檢查清單
+4. THE Power SHALL 提供負責任遊戲實作工作流程指引，涵蓋玩家保護功能開發與合規檢查清單
 
 ### 需求 9：資料來源標註
 

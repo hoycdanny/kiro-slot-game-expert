@@ -748,10 +748,10 @@ interface WinLine {
 
 | 實驗室 | 總部 | 主要服務市場 | 特色 |
 |--------|------|-------------|------|
-| **GLI（Gaming Laboratories International）** | 美國 | 全球（北美、歐洲、亞太） | 全球最大的博弈測試實驗室，制定 GLI-11/GLI-19 標準 |
-| **iTech Labs** | 澳洲 | 歐洲、亞太、拉丁美洲 | 專精 RNG 測試與線上博弈認證 |
+| **GLI（Gaming Laboratories International）** | 美國 | 全球（北美、歐洲、亞太） | 全球最大的遊戲測試實驗室，制定 GLI-11/GLI-19 標準 |
+| **iTech Labs** | 澳洲 | 歐洲、亞太、拉丁美洲 | 專精 RNG 測試與線上遊戲認證 |
 | **eCOGRA** | 英國 | 歐洲（UK、Malta、Gibraltar） | 獨立的公平性認證機構，提供「Safe and Fair」認證標章 |
-| **BMM Testlabs** | 美國 | 全球（北美、歐洲、亞太） | 歷史悠久的博弈測試實驗室，提供全方位認證服務 |
+| **BMM Testlabs** | 美國 | 全球（北美、歐洲、亞太） | 歷史悠久的遊戲測試實驗室，提供全方位認證服務 |
 
 ### 7.2 RNG 驗證測試項目
 

@@ -1,7 +1,7 @@
 ---
 name: slot-machine-expert
 displayName: 老虎機開發專家
-description: 使 Kiro 成為老虎機遊戲開發的專業顧問，涵蓋 RNG、數學模型、認證合規與負責任博弈
+description: 使 Kiro 成為老虎機遊戲開發的專業顧問，涵蓋 RNG、數學模型、認證合規與負責任遊戲
 keywords:
   - slot machine
   - gambling
@@ -18,7 +18,7 @@ keywords:
 
 # 老虎機開發專家
 
-歡迎使用老虎機開發專家 Power。本 Power 將使 Kiro 成為您的老虎機遊戲開發專業顧問，涵蓋 RNG 實作、數學模型設計、認證合規與負責任博弈等核心領域。
+歡迎使用老虎機開發專家 Power。本 Power 將使 Kiro 成為您的老虎機遊戲開發專業顧問，涵蓋 RNG 實作、數學模型設計、認證合規與負責任遊戲等核心領域。
 
 ## Onboarding
 
@@ -71,8 +71,8 @@ keywords:
 
 ### responsible-gaming.md
 - file: steering/responsible-gaming.md
-- trigger: 當開發者詢問負責任博弈功能相關問題時觸發，包括存款限制、自我排除、會話時間限制、勝負追蹤、自動播放管控、風險訊息顯示
-- description: 負責任博弈實作工作流程指引，涵蓋玩家保護功能開發與合規檢查清單
+- trigger: 當開發者詢問負責任遊戲功能相關問題時觸發，包括存款限制、自我排除、會話時間限制、勝負追蹤、自動播放管控、風險訊息顯示
+- description: 負責任遊戲實作工作流程指引，涵蓋玩家保護功能開發與合規檢查清單
 
 ## 技術棧建議（Tech Stack Recommendations）
 
@@ -113,7 +113,7 @@ Assets/
 │   │   └── RTPCalculator.cs        # RTP 計算引擎
 │   └── UI/
 │       ├── SlotUI.cs               # 遊戲介面
-│       └── ResponsibleGaming.cs    # 負責任博弈 UI
+│       └── ResponsibleGaming.cs    # 負責任遊戲 UI
 ├── Resources/
 │   ├── ReelStrips/                  # 捲軸帶配置 JSON
 │   └── Paytables/                   # 賠率表配置 JSON
@@ -141,7 +141,7 @@ assets/
 │   │   └── RTPCalculator.ts        # RTP 計算引擎
 │   └── ui/
 │       ├── SlotUI.ts               # 遊戲介面
-│       └── ResponsibleGaming.ts    # 負責任博弈 UI
+│       └── ResponsibleGaming.ts    # 負責任遊戲 UI
 ├── resources/
 │   ├── reel-strips/                 # 捲軸帶配置 JSON
 │   └── paytables/                   # 賠率表配置 JSON
@@ -196,7 +196,7 @@ project/
 │   │   └── rtp_calculator.gd       # RTP 計算引擎
 │   └── ui/
 │       ├── slot_ui.gd              # 遊戲介面
-│       └── responsible_gaming.gd   # 負責任博弈 UI
+│       └── responsible_gaming.gd   # 負責任遊戲 UI
 ├── resources/
 │   ├── reel_strips/                 # 捲軸帶配置資源
 │   └── paytables/                   # 賠率表配置資源
@@ -226,7 +226,7 @@ src/
 │   └── SymbolSprite.ts             # 符號精靈管理
 ├── ui/
 │   ├── SlotUI.ts                   # 遊戲介面
-│   └── ResponsibleGaming.ts        # 負責任博弈 UI
+│   └── ResponsibleGaming.ts        # 負責任遊戲 UI
 ├── config/
 │   ├── reel-strips.json            # 捲軸帶配置
 │   └── paytable.json               # 賠率表配置

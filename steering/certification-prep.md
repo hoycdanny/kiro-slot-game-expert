@@ -8,14 +8,14 @@
 
 ### 1.1 標準概述
 
-GLI-11（Gaming Laboratories International Technical Standard - Electronic Gaming Devices in Casinos）是全球最廣泛採用的電子博弈機技術標準，適用於實體賭場中的老虎機與電子博弈設備。
+GLI-11（Gaming Laboratories International Technical Standard - Electronic Gaming Devices in Casinos）是全球最廣泛採用的電子遊戲機技術標準，適用於實體賭場中的老虎機與電子遊戲設備。
 
 **適用範圍**
 
 - 實體賭場中的老虎機（Slot Machines）
 - 電子桌面遊戲（Electronic Table Games）
 - 視頻彩票終端機（Video Lottery Terminals, VLT）
-- 伺服器端博弈系統（Server-Based Gaming）
+- 伺服器端遊戲系統（Server-Based Gaming）
 
 ### 1.2 核心技術要求
 
@@ -68,14 +68,14 @@ GLI-11（Gaming Laboratories International Technical Standard - Electronic Gamin
 
 ### 2.1 標準概述
 
-GLI-19（Gaming Laboratories International Technical Standard - Interactive Gaming Systems / Remote Gaming Server）適用於遠端遊戲伺服器（RGS）與互動式博弈系統，涵蓋線上老虎機與行動博弈平台。
+GLI-19（Gaming Laboratories International Technical Standard - Interactive Gaming Systems / Remote Gaming Server）適用於遠端遊戲伺服器（RGS）與互動式遊戲系統，涵蓋線上老虎機與行動遊戲平台。
 
 **適用範圍**
 
 - 遠端遊戲伺服器（Remote Gaming Server, RGS）
-- 線上博弈平台（Online Gaming Platforms）
-- 行動博弈應用程式（Mobile Gaming Applications）
-- 點對點博弈系統（Peer-to-Peer Gaming Systems）
+- 線上遊戲平台（Online Gaming Platforms）
+- 行動遊戲應用程式（Mobile Gaming Applications）
+- 點對點遊戲系統（Peer-to-Peer Gaming Systems）
 
 ### 2.2 核心技術要求
 
@@ -105,7 +105,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 | 存款限制 | 系統必須支援玩家設定投注上限 |
 | 會話時間限制 | 系統必須支援遊戲時間提醒機制 |
 | 未成年人保護 | 系統必須具備年齡驗證機制 |
-| 負責任博弈資訊 | 遊戲介面必須顯示負責任博弈相關資訊與求助連結 |
+| 負責任遊戲資訊 | 遊戲介面必須顯示負責任遊戲相關資訊與求助連結 |
 
 #### 系統架構要求
 
@@ -124,7 +124,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 | RNG 位置 | 機台內部 | 伺服器端 |
 | 通訊安全 | 內部網路 | 網際網路（需 TLS 加密） |
 | 玩家驗證 | 實體場所管控 | 線上身份驗證 |
-| 負責任博弈 | 基本要求 | 強化要求（存款限制、自我排除等） |
+| 負責任遊戲 | 基本要求 | 強化要求（存款限制、自我排除等） |
 | 審計日誌 | 本地儲存 | 集中式儲存與備份 |
 | 軟體更新 | 現場更新 | 遠端部署（需版本控制） |
 
@@ -204,9 +204,9 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 | 機率計算 | 每種獲勝組合的出現機率推導 |
 | 交叉驗證 | Paytable 獎金與 RTP 計算的交叉驗證結果 |
 
-### 3.5 文件五：負責任博弈 UX 設計
+### 3.5 文件五：負責任遊戲 UX 設計
 
-**目的**：說明遊戲如何實作玩家保護功能，符合負責任博弈要求。
+**目的**：說明遊戲如何實作玩家保護功能，符合負責任遊戲要求。
 
 **必要內容**
 
@@ -216,9 +216,9 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 | 自我排除 | 暫停與永久停止機制的 UI 流程與實作說明 |
 | 會話時間提醒 | 遊戲時間提醒的觸發條件、顯示方式與玩家操作選項 |
 | 勝負追蹤 | 淨盈虧金額的顯示位置與更新頻率 |
-| 風險訊息 | RTP 百分比與博弈風險提示的顯示方式 |
+| 風險訊息 | RTP 百分比與遊戲風險提示的顯示方式 |
 | 自動播放管控 | 自動播放功能的限制條件（依目標市場調整） |
-| UI 截圖 | 所有負責任博弈功能的 UI 截圖或線框圖 |
+| UI 截圖 | 所有負責任遊戲功能的 UI 截圖或線框圖 |
 
 ### 3.6 文件六：錯誤處理機制
 
@@ -259,7 +259,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 - [ ] RTP 準確性證明（含蒙地卡羅模擬報告）
 - [ ] 功能邏輯說明（含狀態轉換圖）
 - [ ] Paytable 驗算（含完整機率計算）
-- [ ] 負責任博弈 UX 設計（含 UI 截圖）
+- [ ] 負責任遊戲 UX 設計（含 UI 截圖）
 - [ ] 錯誤處理機制（含錯誤碼清單）
 - [ ] 審計日誌格式（含日誌範例）
 
@@ -274,15 +274,15 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 
 | 司法管轄區 | 監管機構 | 適用標準 | 特色 |
 |-----------|----------|----------|------|
-| **馬爾他** | Malta Gaming Authority (MGA) | GLI-19 + MGA 技術標準 | 歐盟內最受歡迎的博弈牌照，認可度高 |
+| **馬爾他** | Malta Gaming Authority (MGA) | GLI-19 + MGA 技術標準 | 歐盟內最受歡迎的遊戲牌照，認可度高 |
 | **英國** | UK Gambling Commission (UKGC) | GLI-19 + UKGC LCCP/RTS | 全球最嚴格的監管體系之一，強調玩家保護 |
-| **安大略省（加拿大）** | Alcohol and Gaming Commission of Ontario (AGCO) / iGaming Ontario | GLI-19 + AGCO 標準 | 北美最大的合法線上博弈市場之一 |
-| **直布羅陀** | Gibraltar Gambling Commissioner | GLI-19 + 直布羅陀技術標準 | 歷史悠久的博弈監管區，稅率優惠 |
+| **安大略省（加拿大）** | Alcohol and Gaming Commission of Ontario (AGCO) / iGaming Ontario | GLI-19 + AGCO 標準 | 北美最大的合法線上遊戲市場之一 |
+| **直布羅陀** | Gibraltar Gambling Commissioner | GLI-19 + 直布羅陀技術標準 | 歷史悠久的遊戲監管區，稅率優惠 |
 | **曼島** | Isle of Man Gambling Supervision Commission (GSC) | GLI-19 + GSC 技術標準 | 以靈活的監管框架著稱 |
-| **瑞典** | Spelinspektionen (Swedish Gambling Authority) | GLI-19 + 瑞典博弈法 | 2019 年開放線上博弈市場 |
-| **內華達州（美國）** | Nevada Gaming Control Board (NGCB) | GLI-11 + Nevada 技術標準 | 全球最知名的實體博弈監管區 |
-| **紐澤西州（美國）** | New Jersey Division of Gaming Enforcement (DGE) | GLI-11/GLI-19 + NJ 技術標準 | 美國線上博弈先驅州 |
-| **菲律賓** | Philippine Amusement and Gaming Corporation (PAGCOR) | GLI-19 + PAGCOR 標準 | 亞太地區主要的線上博弈牌照發放機構 |
+| **瑞典** | Spelinspektionen (Swedish Gambling Authority) | GLI-19 + 瑞典遊戲法 | 2019 年開放線上遊戲市場 |
+| **內華達州（美國）** | Nevada Gaming Control Board (NGCB) | GLI-11 + Nevada 技術標準 | 全球最知名的實體遊戲監管區 |
+| **紐澤西州（美國）** | New Jersey Division of Gaming Enforcement (DGE) | GLI-11/GLI-19 + NJ 技術標準 | 美國線上遊戲先驅州 |
+| **菲律賓** | Philippine Amusement and Gaming Corporation (PAGCOR) | GLI-19 + PAGCOR 標準 | 亞太地區主要的線上遊戲牌照發放機構 |
 | **庫拉索** | Curaçao Gaming Control Board | 基本技術要求 | 門檻較低，適合初期進入市場 |
 
 ### 4.2 各市場特定合規要求
@@ -293,7 +293,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 |----------|----------|
 | RTP 要求 | 無強制最低 RTP，但須在遊戲規則中明確標示 |
 | RNG 認證 | 必須由 MGA 認可的測試實驗室認證 |
-| 負責任博弈 | 必須實作存款限制、自我排除、會話時間提醒 |
+| 負責任遊戲 | 必須實作存款限制、自我排除、會話時間提醒 |
 | 資料保護 | 須符合 GDPR 要求 |
 | 審計日誌 | 保留至少 5 年 |
 | 自動播放 | 允許，但須提供停止條件設定 |
@@ -304,7 +304,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 |----------|----------|
 | RTP 要求 | 須在遊戲介面中明確顯示 RTP 百分比 |
 | RNG 認證 | 必須由 UKGC 認可的測試實驗室認證 |
-| 負責任博弈 | 最嚴格的要求：強制存款限制、自我排除（GamStop 整合）、淨盈虧顯示 |
+| 負責任遊戲 | 最嚴格的要求：強制存款限制、自我排除（GamStop 整合）、淨盈虧顯示 |
 | 自動播放 | **2025 年起嚴格限制**：每次自動旋轉間必須顯示淨盈虧、設定損失上限 |
 | 速度限制 | 每次旋轉最少間隔 2.5 秒 |
 | 審計日誌 | 保留至少 3 年 |
@@ -316,7 +316,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 |----------|----------|
 | RTP 要求 | 須在遊戲資訊中提供 RTP 範圍 |
 | RNG 認證 | 必須由 AGCO 認可的測試實驗室認證 |
-| 負責任博弈 | 必須實作存款限制、自我排除、遊戲時間提醒 |
+| 負責任遊戲 | 必須實作存款限制、自我排除、遊戲時間提醒 |
 | 在地化 | 須提供英語與法語介面 |
 | 資料儲存 | 玩家資料須儲存於加拿大境內 |
 
@@ -328,7 +328,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 | RNG 認證 | 必須由州認可的測試實驗室認證 |
 | 地理圍欄 | 必須實作 GPS/IP 地理位置驗證，確保玩家在合法州境內 |
 | 年齡驗證 | 必須驗證玩家年滿 21 歲 |
-| 合作夥伴 | 線上博弈須與持牌實體賭場合作營運 |
+| 合作夥伴 | 線上遊戲須與持牌實體賭場合作營運 |
 
 ### 4.3 認證實驗室與市場對應
 
@@ -346,10 +346,10 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 
 若開發者的目標市場不在上述清單中，建議：
 
-1. 查詢該國家或地區的博弈監管機構官方網站
+1. 查詢該國家或地區的遊戲監管機構官方網站
 2. 確認該市場是否接受 GLI-11 或 GLI-19 標準
 3. 聯繫當地認可的測試實驗室了解具體要求
-4. 諮詢專業的博弈法律顧問
+4. 諮詢專業的遊戲法律顧問
 
 
 ---
@@ -383,7 +383,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 | RNG 認證 | $10,000–$30,000 | 首次 RNG 模組認證 |
 | 遊戲數學模型審查 | $8,000–$25,000 | RTP 驗算與 Paytable 審查 |
 | 功能測試 | $10,000–$50,000 | 遊戲邏輯與規則驗證 |
-| 負責任博弈審查 | $5,000–$15,000 | 玩家保護功能驗證 |
+| 負責任遊戲審查 | $5,000–$15,000 | 玩家保護功能驗證 |
 | 平台安全審查 | $15,000–$40,000 | 僅適用於 GLI-19（RGS 平台） |
 | 額外市場認證 | $15,000–$60,000 / 每個市場 | 已認證遊戲進入新市場的增量費用 |
 
@@ -439,7 +439,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 | 紐澤西州 | ≥ 83% | 線上與實體均適用 |
 | 安大略省 | 無強制最低值 | 須在遊戲資訊中提供 |
 | 丹麥 | ≥ 90% | 歐洲較高門檻市場之一 |
-| 比利時 | ≥ 84% | 適用於所有博弈類型 |
+| 比利時 | ≥ 84% | 適用於所有遊戲類型 |
 
 ### 6.3 低 RTP 的市場影響
 
@@ -447,7 +447,7 @@ GLI-19（Gaming Laboratories International Technical Standard - Interactive Gami
 
 1. **市場進入受限**：部分歐洲市場（如丹麥）要求 RTP ≥ 90%，低於 92% 的遊戲可能無法進入多個市場
 2. **玩家接受度降低**：業界標準 RTP 為 94%–98%，低於 92% 的遊戲在玩家評價中通常較差
-3. **營運商合作困難**：多數線上博弈營運商偏好 RTP ≥ 94% 的遊戲，低 RTP 遊戲可能難以獲得營運商合作
+3. **營運商合作困難**：多數線上遊戲營運商偏好 RTP ≥ 94% 的遊戲，低 RTP 遊戲可能難以獲得營運商合作
 4. **認證審查加嚴**：部分測試實驗室會對低 RTP 遊戲進行額外審查，確認 RTP 標示清晰且玩家知情
 
 ### 6.4 建議行動
