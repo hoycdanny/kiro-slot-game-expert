@@ -1,0 +1,95 @@
+{
+  "templateType": "slot-machine-expert/certification-checklist-v1",
+  "name": "GLI Certification Submission Checklist",
+  "description": "Complete checklist for submitting a slot game to GLI (or equivalent lab) for GLI-11/GLI-19 certification. Based on official GLI submission requirements.",
+  "standard": "GLI-11 v3.1 / GLI-19 v3.0",
+  "categories": [
+    {
+      "name": "RNG Documentation",
+      "items": [
+        { "id": "RNG-01", "description": "CSPRNG algorithm name, version, and implementation source", "required": true },
+        { "id": "RNG-02", "description": "Seed management mechanism (entropy source, seed length >= 256 bits, update strategy)", "required": true },
+        { "id": "RNG-03", "description": "Spin independence guarantee documentation", "required": true },
+        { "id": "RNG-04", "description": "NIST SP 800-22 statistical test results (>= 1M samples, all p-value > 0.01)", "required": true },
+        { "id": "RNG-05", "description": "Complete RNG module source code", "required": true },
+        { "id": "RNG-06", "description": "Diehard test results (supplementary evidence)", "required": false }
+      ]
+    },
+    {
+      "name": "Mathematical Model",
+      "items": [
+        { "id": "MATH-01", "description": "Theoretical RTP derivation with all symbol combinations and probabilities", "required": true },
+        { "id": "MATH-02", "description": "RTP contribution breakdown (base game, free spins, bonus, multiplier, progressive)", "required": true },
+        { "id": "MATH-03", "description": "Monte Carlo simulation results (>= 10M spins, RTP convergence curve)", "required": true },
+        { "id": "MATH-04", "description": "Variance analysis (theoretical vs simulated RTP, error < 0.5%)", "required": true },
+        { "id": "MATH-05", "description": "Complete RTP calculation spreadsheet (Excel or equivalent)", "required": true },
+        { "id": "MATH-06", "description": "Multi-bet-level RTP verification (confirm RTP invariant across bet amounts)", "required": true }
+      ]
+    },
+    {
+      "name": "Game Logic",
+      "items": [
+        { "id": "LOGIC-01", "description": "Game overview (reel config, paylines, bet range)", "required": true },
+        { "id": "LOGIC-02", "description": "Spin Lifecycle 6-stage detailed description", "required": true },
+        { "id": "LOGIC-03", "description": "Rule engine: Wild substitution, Payline matching, Scatter triggers, Multiplier application", "required": true },
+        { "id": "LOGIC-04", "description": "Bonus features: trigger conditions, operation logic, retrigger rules", "required": true },
+        { "id": "LOGIC-05", "description": "Game state transition diagram (base game - free spin - bonus round)", "required": true },
+        { "id": "LOGIC-06", "description": "Boundary conditions: max win cap, multi-feature priority order", "required": true }
+      ]
+    },
+    {
+      "name": "Paytable Verification",
+      "items": [
+        { "id": "PAY-01", "description": "All symbol definitions (name, category, visual reference)", "required": true },
+        { "id": "PAY-02", "description": "Complete reel strip sequences and virtual reel weight tables", "required": true },
+        { "id": "PAY-03", "description": "Payout multiplier table (all combinations for 3/4/5 match)", "required": true },
+        { "id": "PAY-04", "description": "Probability calculation for each winning combination", "required": true },
+        { "id": "PAY-05", "description": "Cross-validation of paytable payouts vs RTP calculation", "required": true }
+      ]
+    },
+    {
+      "name": "Responsible Gaming",
+      "items": [
+        { "id": "RG-01", "description": "Deposit/betting limits UI flow and implementation", "required": true },
+        { "id": "RG-02", "description": "Self-exclusion mechanism (pause and permanent stop)", "required": true },
+        { "id": "RG-03", "description": "Session time reminder trigger conditions and display", "required": true },
+        { "id": "RG-04", "description": "Net win/loss tracking display and update frequency", "required": true },
+        { "id": "RG-05", "description": "RTP percentage and risk message display", "required": true },
+        { "id": "RG-06", "description": "Autoplay controls (market-specific restrictions)", "required": true },
+        { "id": "RG-07", "description": "UI screenshots or wireframes for all RG features", "required": true }
+      ]
+    },
+    {
+      "name": "Error Handling",
+      "items": [
+        { "id": "ERR-01", "description": "Network disconnection recovery mechanism", "required": true },
+        { "id": "ERR-02", "description": "Server failure game state preservation and recovery", "required": true },
+        { "id": "ERR-03", "description": "Concurrent conflict handling (multi-device same account)", "required": true },
+        { "id": "ERR-04", "description": "Fund anomaly detection and correction mechanism", "required": true },
+        { "id": "ERR-05", "description": "RNG failure safe-stop mechanism", "required": true },
+        { "id": "ERR-06", "description": "Complete error code list with player-facing messages", "required": true },
+        { "id": "ERR-07", "description": "Transaction rollback process", "required": true }
+      ]
+    },
+    {
+      "name": "Audit Log",
+      "items": [
+        { "id": "LOG-01", "description": "JSON structure definition with all required fields", "required": true },
+        { "id": "LOG-02", "description": "Field descriptions (data type, requirement level, purpose)", "required": true },
+        { "id": "LOG-03", "description": "At least 3 complete log examples (win, no-win, bonus trigger)", "required": true },
+        { "id": "LOG-04", "description": "Storage strategy (retention period, encryption, access control)", "required": true },
+        { "id": "LOG-05", "description": "Query interface for regulatory audit access", "required": true }
+      ]
+    }
+  ],
+  "estimatedTimeline": {
+    "standardSlot": "2-4 months",
+    "complexGame": "4-6 months",
+    "platformCertification": "6-12 months",
+    "incrementalUpdate": "1-2 months"
+  },
+  "estimatedCost": {
+    "singleGameSingleMarket": "$35,000 - $140,000 USD",
+    "additionalMarket": "$15,000 - $60,000 USD per market"
+  }
+}

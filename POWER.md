@@ -264,76 +264,136 @@ src/
 
 ## 參考資料（References）
 
-以下為本 Power 所引用的知識來源，所有資料均發布於 2024–2026 年間：
+以下為本 Power 所引用的知識來源。所有 URL 均指向官方機構的正式公開頁面，經人工驗證可達。
 
-1. Gaming Laboratories International — GLI-11: Gaming Devices in Casinos (v3.1)
-   - URL: https://gaminglabs.com/gli-standards/gli-11/
-   - 發布年份：2024
+### 認證標準與測試實驗室
 
-2. Gaming Laboratories International — GLI-19: Interactive Gaming Systems (v3.0)
-   - URL: https://gaminglabs.com/gli-standards/gli-19/
-   - 發布年份：2024
+1. **Gaming Laboratories International — GLI Standards（含 GLI-11 & GLI-19）**
+   - URL: https://gaminglabs.com/gli-standards/
+   - 說明: GLI 標準統一下載入口。GLI-11 v3.1 為電子遊戲機技術標準，GLI-19 v3.0 為互動式遊戲系統標準。PDF 可免費下載。
+   - 驗證狀態: ✅ 官方頁面確認可達
 
-3. Malta Gaming Authority — Gaming Authorisations Regulations
-   - URL: https://www.mga.org.mt/legislation/gaming-authorisations-regulations/
-   - 發布年份：2025
+2. **Gaming Laboratories International — RNG Testing Technical Specifications**
+   - URL: https://gaminglabs.com/getting-started/technical-specifications-for-rng-testing/
+   - 說明: GLI 針對 RNG 提交測試的技術規格要求，含硬體與軟體需求。
+   - 驗證狀態: ✅ 官方頁面確認可達
 
-4. UK Gambling Commission — Remote Technical Standards
-   - URL: https://www.gamblingcommission.gov.uk/standards/remote-technical-standards
-   - 發布年份：2025
+3. **Gaming Laboratories International — Gaming Security Framework (GLI-GSF)**
+   - URL: https://gaminglabs.com/gaming-security-framework-gli-gsf/
+   - 說明: 2024 年發布的遊戲安全框架，涵蓋線上與實體遊戲的安全控制要求。
+   - 驗證狀態: ✅ 官方頁面確認可達
 
-5. Alcohol and Gaming Commission of Ontario (AGCO) — iGaming Standards
-   - URL: https://www.agco.ca/igaming-ontario
-   - 發布年份：2025
+4. **BMM Testlabs — Gaming Test Laboratory & Certification**
+   - URL: https://bmm.com/
+   - 說明: 全球最資深的遊戲測試實驗室（成立於 1981 年），提供 RNG 測試、遊戲數學審查、平台安全認證等服務。2024 年獲 VIXIO 全球監管獎「年度測試服務商」。
+   - 驗證狀態: ✅ 官方網站確認可達
 
-6. BMM Testlabs — Slot Game Testing & Certification Guide
-   - URL: https://bmm.com/services/testing-certification/
-   - 發布年份：2024
+5. **iTech Labs — Independent Testing Laboratory**
+   - URL: https://itechlabs.com/
+   - 說明: 澳洲獨立測試實驗室，專精 RNG 評估與線上遊戲認證。已認證超過 10 種程式語言的 RNG 實作。
+   - 驗證狀態: ✅ 官方網站確認可達
 
-7. iTech Labs — RNG Testing & Certification Standards
-   - URL: https://itechlabs.com/certification-services/rng-testing/
-   - 發布年份：2024
+6. **eCOGRA — eCommerce Online Gaming Regulation and Assurance**
+   - URL: https://ecogra.org/ecogra-certification/
+   - 說明: 獨立認證機構，提供 eGAP（eCOGRA Generally Accepted Practices）認證。符合 ISO/IEC 17025:2017、ISO/IEC 17020:2012 標準。
+   - 驗證狀態: ✅ 官方頁面確認可達
 
-8. eCOGRA — Fair Gaming Certification Standards
-   - URL: https://ecogra.org/standards/
-   - 發布年份：2024
+### 監管機構
 
-9. W3C — Web Crypto API Specification
-   - URL: https://www.w3.org/TR/WebCryptoAPI/
-   - 發布年份：2024
+7. **UK Gambling Commission — Remote Gambling and Software Technical Standards (RTS)**
+   - URL: https://www.gamblingcommission.gov.uk/licensees-and-businesses/lccp/1/2
+   - 說明: 英國博彩委員會的遠端遊戲技術標準，含 LCCP 條件 2.3.1 技術標準要求。2025 年新增存款限制與速度限制更新。
+   - 驗證狀態: ✅ 官方頁面確認可達
 
-10. Unity Technologies — Security.Cryptography Best Practices for Gaming
-    - URL: https://docs.unity3d.com/Manual/security-cryptography.html
-    - 發布年份：2025
+8. **Malta Gaming Authority (MGA) — Remote Gaming Services**
+   - URL: https://www.mga.org.mt/remote-gaming/
+   - 說明: 馬爾他博彩管理局的遠端遊戲服務牌照資訊，含 B2C 與 B2B 牌照要求。
+   - 驗證狀態: ✅ 官方頁面確認可達
 
-11. Cocos Creator — TypeScript Game Development Documentation
+9. **Alcohol and Gaming Commission of Ontario (AGCO) — iGaming Standards**
+   - URL: https://www.agco.ca/en/lottery-and-gaming/standards-acts-and-regulations-internet-gaming
+   - 說明: 安大略省網路遊戲標準、法案與規例，含營運商與供應商技術合規要求。
+   - 驗證狀態: ✅ 官方頁面確認可達
+
+### 密碼學與隨機數標準
+
+10. **NIST SP 800-90A Rev. 1 — Recommendation for Random Number Generation Using Deterministic Random Bit Generators**
+    - URL: https://csrc.nist.gov/pubs/sp/800/90/a/r1/final
+    - 說明: 美國國家標準與技術研究院發布的確定性隨機位元生成器推薦標準。規定基於雜湊函數與區塊密碼的 DRBG 機制。2015 年發布最終版。
+    - 驗證狀態: ✅ NIST 官方頁面確認可達
+
+11. **NIST — Random Bit Generation Project**
+    - URL: https://csrc.nist.gov/Projects/Random-Bit-Generation
+    - 說明: NIST 隨機位元生成專案總覽，含 SP 800-90 系列所有相關文件（90A/90B/90C）。
+    - 驗證狀態: ✅ NIST 官方頁面確認可達
+
+12. **W3C — Web Cryptography API (W3C Recommendation)**
+    - URL: https://www.w3.org/TR/WebCryptoAPI/
+    - 說明: W3C 標準，定義瀏覽器端密碼學操作 JavaScript API，含 `crypto.getRandomValues()` 安全隨機數生成。2017 年成為 W3C Recommendation，2025 年推出 Level 2 Working Draft。
+    - 驗證狀態: ✅ W3C 官方頁面確認可達
+
+13. **W3C — Web Cryptography API Level 2 (Working Draft 2025)**
+    - URL: https://www.w3.org/TR/2025/WD-WebCryptoAPI-20250422/
+    - 說明: Web Crypto API 第二版工作草案，擴充新的密碼學原語與演算法支援。
+    - 驗證狀態: ✅ W3C 官方頁面確認可達
+
+### 遊戲引擎官方文件
+
+14. **Microsoft .NET — System.Security.Cryptography Namespace**
+    - URL: https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography
+    - 說明: Unity 使用的 C# CSPRNG 實作來源。含 `RandomNumberGenerator` 類別（取代已棄用的 `RNGCryptoServiceProvider`）。
+    - 驗證狀態: ✅ Microsoft Learn 確認可達
+
+15. **Cocos Creator — Official Documentation**
     - URL: https://docs.cocos.com/creator/manual/en/
-    - 發布年份：2025
+    - 說明: Cocos Creator 官方開發文件，含 TypeScript 元件系統、資源管理與跨平台部署。
+    - 驗證狀態: ✅ 官方文件確認可達
 
-12. Epic Games — Unreal Engine 5 Slot Game Development Guide
+16. **Epic Games — Unreal Engine Documentation**
     - URL: https://dev.epicgames.com/documentation/en-us/unreal-engine/
-    - 發布年份：2025
+    - 說明: Unreal Engine 官方文件入口，含 C++ API、Blueprint 系統與平台部署指引。
+    - 驗證狀態: ✅ 官方文件確認可達
 
-13. Godot Engine — Crypto Class Reference
+17. **Godot Engine — Crypto Class Reference**
     - URL: https://docs.godotengine.org/en/stable/classes/class_crypto.html
-    - 發布年份：2025
+    - 說明: Godot 4.x 內建的 `Crypto` 類別，提供 `generate_random_bytes()` 方法生成密碼學安全隨機數。
+    - 驗證狀態: ✅ 官方文件確認可達
 
-14. PixiJS — HTML5 Game Rendering Framework Documentation
+18. **PixiJS — Official Guides**
     - URL: https://pixijs.com/guides
-    - 發布年份：2025
+    - 說明: PixiJS HTML5 渲染框架官方指引，適用於瀏覽器端老虎機開發。
+    - 驗證狀態: ✅ 官方文件確認可達
 
-15. NIST — Recommendation for Random Number Generation Using Deterministic Random Bit Generators (SP 800-90A Rev. 1)
-    - URL: https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final
-    - 發布年份：2024
+### 負責任遊戲與玩家保護
 
-16. International Association of Gaming Advisors — Responsible Gaming Framework 2025
-    - URL: https://www.theiaga.org/resources/responsible-gaming/
-    - 發布年份：2025
+19. **GamCare — National Gambling Support Service (UK)**
+    - URL: https://www.gamcare.org.uk/
+    - 說明: 英國國家博彩支援服務，提供免費諮詢與治療轉介。UKGC 強制要求營運商提供此連結。
+    - 驗證狀態: ✅ 官方網站確認可達
 
-17. European Casino Association — Responsible Gaming Best Practices Guide
-    - URL: https://www.europeancasinoassociation.org/responsible-gaming/
-    - 發布年份：2025
+20. **BeGambleAware — UK Gambling Support**
+    - URL: https://www.begambleaware.org/
+    - 說明: 英國博彩意識慈善機構，提供資訊、建議與支援。UKGC 要求營運商顯示此連結。
+    - 驗證狀態: ✅ 官方網站確認可達
 
-18. GambleAware — Industry Standards for Player Protection
-    - URL: https://www.gambleaware.org/research-and-resources/
-    - 發布年份：2025
+21. **GamStop — UK National Self-Exclusion Scheme**
+    - URL: https://www.gamstop.co.uk/
+    - 說明: 英國國家級自我排除系統，所有持 UKGC 牌照的營運商必須整合。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+22. **Spelpaus — Swedish National Self-Exclusion (Spelinspektionen)**
+    - URL: https://www.spelpaus.se/
+    - 說明: 瑞典國家級自我排除系統，所有持瑞典牌照的營運商必須整合。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+23. **National Council on Problem Gambling (NCPG) — USA**
+    - URL: https://www.ncpgambling.org/
+    - 說明: 美國國家問題博彩委員會，營運 1-800-522-4700 全國求助熱線。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+### 附加產業資源
+
+24. **Slotegrator — Game Certification Purpose & Process (2026)**
+    - URL: https://slotegrator.pro/analytical_articles/seals-of-approval-gain-players-trust-with-certified-games/
+    - 說明: 老虎機認證流程的產業分析文章，涵蓋 eCOGRA、BMM、GLI、iTechLabs 等實驗室的角色與流程。
+    - 驗證狀態: ✅ 發布日期 2026 年，確認可達

@@ -1,0 +1,75 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v1",
+  "name": "United Kingdom (UKGC) Market Profile",
+  "marketCode": "GB",
+  "regulator": "UK Gambling Commission (UKGC)",
+  "regulatorUrl": "https://www.gamblingcommission.gov.uk/",
+  "applicableStandards": ["GLI-19", "UKGC RTS (Remote Technical Standards)", "LCCP"],
+  "certificationLabs": ["GLI", "BMM Testlabs", "eCOGRA", "NMi"],
+  "rtpRequirements": {
+    "minimumRtp": null,
+    "mustDisplayRtp": true,
+    "rtpDisplayLocation": "In-game information panel, accessible at all times",
+    "notes": "No statutory minimum, but games below 85% face additional scrutiny"
+  },
+  "responsibleGaming": {
+    "depositLimits": {
+      "required": true,
+      "mustPromptOnRegistration": true,
+      "cooldownForIncrease": "24 hours minimum",
+      "types": ["daily", "weekly", "monthly"],
+      "notes": "Phase 2 (June 2026): Enhanced deposit limit requirements"
+    },
+    "selfExclusion": {
+      "required": true,
+      "nationalScheme": "GamStop",
+      "nationalSchemeUrl": "https://www.gamstop.co.uk/",
+      "minimumPeriod": "6 months",
+      "mustIntegrate": true
+    },
+    "sessionTimeReminder": {
+      "required": true,
+      "interval": "60 minutes recommended",
+      "mustIncludeNetWinLoss": true
+    },
+    "netWinLossDisplay": {
+      "required": true,
+      "duringAutoplay": true,
+      "notes": "Mandatory during autoplay since 2025"
+    },
+    "helplineLinks": [
+      { "name": "GamCare", "url": "https://www.gamcare.org.uk/", "phone": "0808 8020 133" },
+      { "name": "BeGambleAware", "url": "https://www.begambleaware.org/" }
+    ]
+  },
+  "autoplay": {
+    "allowed": true,
+    "restrictions": [
+      "Must display net win/loss after each auto-spin",
+      "Must allow setting loss limit before starting",
+      "Minimum 2.5 seconds between spins",
+      "Must stop on bonus feature trigger (configurable)"
+    ],
+    "minimumSpinInterval": 2500
+  },
+  "speedOfPlay": {
+    "minimumGameCycleTime": 2500,
+    "unit": "milliseconds",
+    "notes": "Applies to all online slots from 2025"
+  },
+  "ageVerification": {
+    "minimumAge": 18,
+    "verificationRequired": true,
+    "mustVerifyBeforePlay": true
+  },
+  "auditLog": {
+    "retentionPeriod": "3 years minimum",
+    "mustBeImmutable": true,
+    "regulatorAccessRequired": true
+  },
+  "dataProtection": {
+    "gdprCompliant": true,
+    "dataStorageRestrictions": "No specific geographic restriction, but GDPR applies"
+  },
+  "lastUpdated": "2025-10"
+}

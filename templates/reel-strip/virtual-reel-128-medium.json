@@ -1,0 +1,105 @@
+{
+  "templateType": "slot-machine-expert/reel-strip-v1",
+  "name": "Virtual Reel 128 Positions - Medium Volatility",
+  "description": "A 5-reel virtual reel strip configuration with 128 total weight per reel, designed for medium volatility gameplay.",
+  "totalWeightPerReel": 128,
+  "reels": [
+    {
+      "reelIndex": 0,
+      "name": "Reel 1",
+      "entries": [
+        { "symbol": "H1", "weight": 3, "probability": "2.34%" },
+        { "symbol": "H2", "weight": 5, "probability": "3.91%" },
+        { "symbol": "M1", "weight": 10, "probability": "7.81%" },
+        { "symbol": "M2", "weight": 12, "probability": "9.38%" },
+        { "symbol": "L1", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L2", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L3", "weight": 18, "probability": "14.06%" },
+        { "symbol": "L4", "weight": 18, "probability": "14.06%" },
+        { "symbol": "WILD", "weight": 3, "probability": "2.34%" },
+        { "symbol": "SCATTER", "weight": 4, "probability": "3.13%" },
+        { "symbol": "BLANK", "weight": 15, "probability": "11.72%" }
+      ],
+      "totalWeight": 128
+    },
+    {
+      "reelIndex": 1,
+      "name": "Reel 2",
+      "entries": [
+        { "symbol": "H1", "weight": 3, "probability": "2.34%" },
+        { "symbol": "H2", "weight": 5, "probability": "3.91%" },
+        { "symbol": "M1", "weight": 10, "probability": "7.81%" },
+        { "symbol": "M2", "weight": 12, "probability": "9.38%" },
+        { "symbol": "L1", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L2", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L3", "weight": 18, "probability": "14.06%" },
+        { "symbol": "L4", "weight": 18, "probability": "14.06%" },
+        { "symbol": "WILD", "weight": 3, "probability": "2.34%" },
+        { "symbol": "SCATTER", "weight": 4, "probability": "3.13%" },
+        { "symbol": "BLANK", "weight": 15, "probability": "11.72%" }
+      ],
+      "totalWeight": 128
+    },
+    {
+      "reelIndex": 2,
+      "name": "Reel 3 (Center - Slightly Lower High Pay)",
+      "entries": [
+        { "symbol": "H1", "weight": 2, "probability": "1.56%" },
+        { "symbol": "H2", "weight": 4, "probability": "3.13%" },
+        { "symbol": "M1", "weight": 10, "probability": "7.81%" },
+        { "symbol": "M2", "weight": 12, "probability": "9.38%" },
+        { "symbol": "L1", "weight": 22, "probability": "17.19%" },
+        { "symbol": "L2", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L3", "weight": 18, "probability": "14.06%" },
+        { "symbol": "L4", "weight": 18, "probability": "14.06%" },
+        { "symbol": "WILD", "weight": 2, "probability": "1.56%" },
+        { "symbol": "SCATTER", "weight": 4, "probability": "3.13%" },
+        { "symbol": "BLANK", "weight": 16, "probability": "12.50%" }
+      ],
+      "totalWeight": 128
+    },
+    {
+      "reelIndex": 3,
+      "name": "Reel 4",
+      "entries": [
+        { "symbol": "H1", "weight": 3, "probability": "2.34%" },
+        { "symbol": "H2", "weight": 5, "probability": "3.91%" },
+        { "symbol": "M1", "weight": 10, "probability": "7.81%" },
+        { "symbol": "M2", "weight": 12, "probability": "9.38%" },
+        { "symbol": "L1", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L2", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L3", "weight": 18, "probability": "14.06%" },
+        { "symbol": "L4", "weight": 18, "probability": "14.06%" },
+        { "symbol": "WILD", "weight": 3, "probability": "2.34%" },
+        { "symbol": "SCATTER", "weight": 4, "probability": "3.13%" },
+        { "symbol": "BLANK", "weight": 15, "probability": "11.72%" }
+      ],
+      "totalWeight": 128
+    },
+    {
+      "reelIndex": 4,
+      "name": "Reel 5",
+      "entries": [
+        { "symbol": "H1", "weight": 3, "probability": "2.34%" },
+        { "symbol": "H2", "weight": 5, "probability": "3.91%" },
+        { "symbol": "M1", "weight": 10, "probability": "7.81%" },
+        { "symbol": "M2", "weight": 12, "probability": "9.38%" },
+        { "symbol": "L1", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L2", "weight": 20, "probability": "15.63%" },
+        { "symbol": "L3", "weight": 18, "probability": "14.06%" },
+        { "symbol": "L4", "weight": 18, "probability": "14.06%" },
+        { "symbol": "WILD", "weight": 3, "probability": "2.34%" },
+        { "symbol": "SCATTER", "weight": 4, "probability": "3.13%" },
+        { "symbol": "BLANK", "weight": 15, "probability": "11.72%" }
+      ],
+      "totalWeight": 128
+    }
+  ],
+  "designNotes": [
+    "Total weight 128 (power of 2) optimizes RNG mapping efficiency",
+    "Center reel (Reel 3) has lower high-pay symbol weight to increase difficulty",
+    "BLANK symbols represent non-winning positions on the virtual reel",
+    "Adjust individual reel weights independently to fine-tune RTP",
+    "Validate: sum of all weights per reel MUST equal totalWeightPerReel"
+  ]
+}

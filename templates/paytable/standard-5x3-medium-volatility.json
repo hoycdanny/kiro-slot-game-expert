@@ -1,0 +1,58 @@
+{
+  "templateType": "slot-machine-expert/paytable-v1",
+  "name": "Standard 5x3 Medium Volatility Paytable",
+  "description": "A balanced paytable template for 5-reel 3-row slot machines targeting 96% RTP with medium volatility. Suitable for most regulated markets.",
+  "reelConfig": {
+    "reels": 5,
+    "rows": 3,
+    "paylines": 20
+  },
+  "targetMetrics": {
+    "rtp": 0.96,
+    "rtpRange": [0.94, 0.98],
+    "volatility": "medium",
+    "hitFrequency": [0.25, 0.35],
+    "maxWinMultiplier": 2500
+  },
+  "symbols": [
+    { "id": "H1", "name": "Diamond", "category": "high", "description": "Highest paying regular symbol" },
+    { "id": "H2", "name": "Crown", "category": "high", "description": "Second highest paying symbol" },
+    { "id": "M1", "name": "Bell", "category": "medium", "description": "Medium tier symbol" },
+    { "id": "M2", "name": "Star", "category": "medium", "description": "Medium tier symbol" },
+    { "id": "L1", "name": "Ace", "category": "low", "description": "Low tier card symbol" },
+    { "id": "L2", "name": "King", "category": "low", "description": "Low tier card symbol" },
+    { "id": "L3", "name": "Queen", "category": "low", "description": "Low tier card symbol" },
+    { "id": "L4", "name": "Jack", "category": "low", "description": "Low tier card symbol" },
+    { "id": "WILD", "name": "Wild", "category": "special", "description": "Substitutes for all except Scatter" },
+    { "id": "SCATTER", "name": "Scatter", "category": "special", "description": "Triggers Free Spins (3+ anywhere)" }
+  ],
+  "payouts": {
+    "H1": { "3": 50, "4": 200, "5": 1000 },
+    "H2": { "3": 30, "4": 100, "5": 500 },
+    "M1": { "3": 15, "4": 50, "5": 200 },
+    "M2": { "3": 10, "4": 30, "5": 100 },
+    "L1": { "3": 5, "4": 15, "5": 50 },
+    "L2": { "3": 5, "4": 15, "5": 50 },
+    "L3": { "3": 3, "4": 10, "5": 30 },
+    "L4": { "3": 3, "4": 10, "5": 30 },
+    "WILD": { "3": 50, "4": 200, "5": 2500 }
+  },
+  "scatterPayouts": {
+    "3": { "freeSpins": 10, "multiplier": 2 },
+    "4": { "freeSpins": 15, "multiplier": 3 },
+    "5": { "freeSpins": 20, "multiplier": 5 }
+  },
+  "rtpBreakdown": {
+    "baseGame": 0.85,
+    "freeSpins": 0.075,
+    "scatterPay": 0.015,
+    "wildContribution": 0.02,
+    "total": 0.96
+  },
+  "notes": [
+    "Adjust H1/H2 weights to shift volatility up/down",
+    "RTP breakdown must sum to target RTP (with 0.5% tolerance)",
+    "Run Monte Carlo simulation (10M+ spins) to validate",
+    "Verify all target market RTP thresholds before deployment"
+  ]
+}

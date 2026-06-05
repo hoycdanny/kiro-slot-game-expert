@@ -1,86 +1,182 @@
-# 老虎機開發專家 Kiro Power
+# Slot Machine Expert — Kiro Power
 
-使 Kiro 成為老虎機遊戲開發的專業顧問，涵蓋 RNG 實作、數學模型設計、認證合規與負責任遊戲。
+[English](README.md) | [繁體中文](README_TW.md)
 
-## 名詞解釋
+> Note on language availability: README is available in English and Traditional Chinese.
+> Steering files (domain knowledge) are in Traditional Chinese with industry-standard
+> English terminology. The Power responds in the developer's preferred language.
 
-| 名詞 | 說明 |
-|------|------|
-| **Kiro Power** | Kiro IDE 的擴充功能模組，透過文件定義讓 Kiro 具備特定領域的專業知識 |
-| **POWER.md** | Power 的主定義檔，包含元資料、引導步驟與指令設定，是 Kiro 讀取此 Power 的進入點 |
-| **Steering** | 工作流程指引檔案，放在 `steering/` 目錄下，當你向 Kiro 提問特定主題時會自動載入對應的指引 |
-| **Onboarding** | 安裝 Power 後的初始引導流程，Kiro 會詢問你的遊戲引擎、專案類型等資訊，以提供更精準的建議 |
-| **RNG** | 隨機數生成器（Random Number Generator），老虎機的核心元件，負責產生每次旋轉的隨機結果 |
-| **CSPRNG** | 密碼學安全的隨機數生成器（Cryptographically Secure PRNG），符合遊戲產業安全標準的 RNG 實作方式 |
-| **RTP** | 返還率（Return to Player），玩家長期平均能拿回的百分比，例如 96% 表示每投注 $100 平均回報 $96 |
-| **Volatility** | 波動性，衡量老虎機的風險等級——高波動代表大獎但不常中，低波動代表小獎但常中 |
-| **Hit Frequency** | 命中頻率，任一次旋轉產生獲勝組合的機率百分比 |
-| **Paytable** | 賠率表，定義各符號組合對應的獎金倍數 |
-| **Reel Strip** | 捲軸帶，定義每個捲軸上符號的排列順序與數量 |
-| **Virtual Reel** | 虛擬捲軸，透過加權映射控制每個符號的實際出現機率，是調整 RTP 與波動性的關鍵機制 |
-| **Spin Lifecycle** | 旋轉生命週期，從玩家按下旋轉到顯示結果的完整處理流程（共六個階段） |
-| **GLI-11** | Gaming Laboratories International 發布的電子遊戲機技術標準，全球最廣泛採用的老虎機認證標準 |
-| **GLI-19** | GLI 發布的遠端遊戲伺服器（RGS）技術標準，適用於線上老虎機 |
-| **fast-check** | TypeScript/JavaScript 的屬性測試（Property-Based Testing）函式庫，用於自動生成大量隨機測試案例驗證程式正確性 |
+Transform your IDE into a slot machine game development expert consultant. This Power provides AI-assisted guidance on RNG implementation, mathematical model design, regulatory certification compliance, and responsible gaming — covering the full development lifecycle from concept to GLI certification.
 
-## 安裝方式
+> Key Concepts:
+>
+> • **CSPRNG** (Cryptographically Secure Pseudo-Random Number Generator): The only acceptable RNG type for certified slot machines
+> • **RTP** (Return to Player): Long-term statistical average payout percentage (industry standard: 94%–98%)
+> • **GLI-11**: Global standard for electronic gaming devices in casinos
+> • **GLI-19**: Global standard for interactive/remote gaming systems (online slots)
+> • **Virtual Reel**: Weighted mapping system that controls actual symbol probabilities, independent of physical reel layout
 
-1. 將本專案資料夾放入 Kiro Powers 目錄
-2. 在 Kiro 中啟用此 Power
-3. 依照 Onboarding 步驟選擇遊戲引擎、專案類型、目標市場與開發階段
+## Features
 
-## 專案結構
+- 🎰 **Math Model Design** — Paytable design, reel strip configuration, RTP calculation, volatility tuning, hit frequency analysis, bonus feature RTP contribution
+- 🔐 **RNG & Game Logic** — CSPRNG selection (per engine), seed management, 6-stage spin lifecycle, rule engine, audit logging
+- 📋 **Certification Prep** — GLI-11/GLI-19 compliance, 7 certification documents, market regulatory info, timeline & cost estimates
+- 🛡️ **Responsible Gaming** — Deposit limits, self-exclusion, session time limits, win/loss tracking, autoplay controls, risk messages
+- 🌍 **Multi-Market Support** — UK, Malta, Ontario, Nevada, New Jersey, Sweden, Denmark, Philippines, and more
+- 🎮 **Multi-Engine** — Unity, Cocos Creator, Unreal Engine, Godot, HTML5/PixiJS with engine-specific CSPRNG guidance
+
+## Architecture
 
 ```
-├── POWER.md                          # Power 主定義檔（進入點）
-├── steering/
-│   ├── math-model.md                 # 數學模型設計指引
-│   ├── rng-game-logic.md             # RNG 與遊戲邏輯指引
-│   ├── certification-prep.md         # 認證準備指引
-│   └── responsible-gaming.md         # 負責任遊戲指引
-├── tests/                            # 屬性測試（fast-check + vitest）
-│   ├── power-md-structure.test.ts    # 屬性 1：POWER.md 結構完整性
-│   ├── hit-frequency.test.ts         # 屬性 2：Hit Frequency 公式
-│   ├── rtp-sum.test.ts               # 屬性 3：RTP 加總不變量
-│   ├── virtual-reel-mapping.test.ts  # 屬性 4：Virtual Reel 映射
-│   ├── audit-log-completeness.test.ts# 屬性 5：審計日誌完整性
-│   ├── low-rtp-warning.test.ts       # 屬性 6：低 RTP 警告
-│   ├── session-net-winloss.test.ts   # 屬性 7：淨盈虧計算
-│   ├── engine-techstack-mapping.test.ts # 屬性 8：技術棧映射
-│   └── reference-entry-validity.test.ts # 屬性 9：參考資料有效性
-├── package.json
-├── tsconfig.json
-└── vitest.config.ts
+Developer (Natural Language)
+    → AI Layer (Intent Understanding & Planning)
+        → Slot Machine Expert Power (Domain Knowledge)
+            → Certified Game Implementation
+
+Slot Machine Expert (Intelligence Layer)
+├── POWER.md          → Main document defining workflows & references
+├── steering/         → 4 domain knowledge files
+├── templates/        → Reusable configuration templates
+│   ├── paytable/     → Paytable templates (by volatility)
+│   ├── reel-strip/   → Virtual reel configurations
+│   ├── certification/→ GLI submission checklists
+│   └── market-profiles/ → Regulatory market profiles (UK, Malta, Ontario)
+├── hooks/            → IDE automation hooks
+└── tests/            → Property-based tests (fast-check + vitest)
 ```
 
-## Steering 指引說明
+## Prerequisites
 
-| 檔案 | 觸發時機 | 涵蓋內容 |
-|------|----------|----------|
-| `math-model.md` | 詢問數學模型相關問題 | Paytable 設計、Reel Strip 配置、RTP 計算、Volatility 調校、Hit Frequency、獎勵功能 RTP 貢獻 |
-| `rng-game-logic.md` | 詢問 RNG 或遊戲邏輯 | CSPRNG 選擇（各引擎）、種子管理、Spin Lifecycle 六階段、規則引擎、審計日誌 |
-| `certification-prep.md` | 詢問認證或合規 | GLI-11/GLI-19 標準、七項認證文件、市場監管資訊、時程與費用、RTP 門檻警告 |
-| `responsible-gaming.md` | 詢問負責任遊戲功能 | 存款限制、自我排除、會話時間限制、勝負追蹤、自動播放管控、風險訊息顯示 |
+- [Kiro IDE](https://kiro.dev/docs/getting-started/installation) installed
+- Node.js 18+ (for development/testing of this Power only)
 
-## 支援的遊戲引擎
+## Installation
 
-| 引擎 | 語言 | CSPRNG |
-|------|------|--------|
-| Unity | C# | `System.Security.Cryptography` |
-| Cocos Creator | TypeScript | Web Crypto API / Node.js crypto |
+### Step 1 — Install this Power in Kiro
+
+Open Kiro → Left panel click Powers icon → Click "+" → Select "Add Custom Power" → Select this project's root directory
+
+### Step 2 — Install Auto-Guidance Hook (Recommended)
+
+This hook ensures the AI automatically loads the correct Steering File before processing each request:
+
+```bash
+mkdir -p .kiro/hooks
+cp hooks/pre-slot-tool.kiro.hook .kiro/hooks/
+```
+
+Without this hook, you may need to manually remind the AI to use expert knowledge.
+
+### Verify Installation
+
+Type any slot machine development question in Kiro (e.g., "Design a 96% RTP medium volatility 5×3 slot math model"). If the AI responds with expert-level guidance referencing GLI standards, the installation is successful.
+
+## Usage
+
+Once installed, just talk to Kiro in natural language. The AI will automatically activate the Power, load the relevant Steering File, and respond as a slot machine development expert.
+
+### What Can You Ask?
+
+| Domain | Example Questions |
+|--------|-------------------|
+| Math Model | "Design a paytable for medium volatility 96% RTP", "Calculate Free Spin RTP contribution", "Set up a virtual reel with 128 total weight" |
+| RNG | "How to implement CSPRNG in Unity?", "What fields are required in the audit log?", "Show me the 6-stage spin lifecycle" |
+| Certification | "What documents do I need for GLI-11 certification?", "What are the UK market requirements?", "Estimated certification timeline and cost?" |
+| Responsible Gaming | "How to implement deposit limits?", "What are Sweden's autoplay restrictions?", "Show me session time reminder best practices" |
+
+### Example Workflow: Design a Complete Slot Game Math Model
+
+```
+1. "I'm building a 5×3 slot with 20 paylines targeting the UK market. 
+    Design a medium volatility math model with 96% RTP."
+
+2. "Set up the virtual reel weight tables for all 5 reels."
+
+3. "Calculate the hit frequency and verify against target range."
+
+4. "Design a Free Spin bonus triggered by 3+ Scatters, 
+    with 10/15/20 free spins and 2x/3x/5x multipliers."
+
+5. "Verify total RTP: base game + free spins + scatter pays."
+
+6. "Run through the GLI-11 certification checklist for this game."
+```
+
+## Supported Game Engines
+
+| Engine | Language | CSPRNG |
+|--------|----------|--------|
+| Unity | C# | `System.Security.Cryptography.RandomNumberGenerator` |
+| Cocos Creator | TypeScript | Web Crypto API / Node.js `crypto` |
 | Unreal Engine | C++/Blueprint | OpenSSL `RAND_bytes` |
 | Godot | GDScript/C# | `Crypto` class |
-| HTML5/PixiJS | JS/TS | Web Crypto API |
+| HTML5/PixiJS | JS/TS | Web Crypto API (`crypto.getRandomValues`) |
 
-## 執行測試
+## Development
 
 ```bash
 npm install
-npx vitest --run
+npm test              # Run all tests (13 property-based tests)
+npx tsc --noEmit     # TypeScript type checking
 ```
 
-共 9 個測試檔案、13 個屬性測試，驗證數學模型公式、資料結構完整性與映射一致性。
+## Project Structure
 
-## 授權
+```
+kiro-slot-game-expert/
+├── POWER.md                          # Power main definition (entry point)
+├── steering/
+│   ├── math-model.md                 # Math model design guide
+│   ├── rng-game-logic.md             # RNG & game logic guide
+│   ├── certification-prep.md         # Certification prep guide
+│   └── responsible-gaming.md         # Responsible gaming guide
+├── templates/
+│   ├── paytable/                     # Paytable templates
+│   ├── reel-strip/                   # Virtual reel configurations
+│   ├── certification/                # GLI submission checklists
+│   └── market-profiles/              # Market regulatory profiles
+├── hooks/
+│   └── pre-slot-tool.kiro.hook       # Auto-guidance hook
+├── tests/                            # Property-based tests (fast-check + vitest)
+├── package.json
+├── tsconfig.json
+├── vitest.config.ts
+├── LICENSE
+├── CONTRIBUTING.md
+└── CODE_OF_CONDUCT.md
+```
 
-本 Power 中的知識內容均標註 2024–2026 年間的公開資料來源，詳見 POWER.md 參考資料區塊。
+## Official References
+
+All domain knowledge in this Power is sourced from verified official documentation:
+
+| Source | URL | Domain |
+|--------|-----|--------|
+| GLI Standards (GLI-11/GLI-19) | https://gaminglabs.com/gli-standards/ | Certification Standards |
+| UKGC Technical Standards | https://www.gamblingcommission.gov.uk/ | UK Regulation |
+| Malta Gaming Authority | https://www.mga.org.mt/ | EU Regulation |
+| AGCO iGaming Standards | https://www.agco.ca/ | Ontario Regulation |
+| NIST SP 800-90A Rev.1 | https://csrc.nist.gov/pubs/sp/800/90/a/r1/final | RNG Standards |
+| W3C Web Crypto API | https://www.w3.org/TR/WebCryptoAPI/ | Browser CSPRNG |
+| BMM Testlabs | https://bmm.com/ | Testing Lab |
+| iTech Labs | https://itechlabs.com/ | Testing Lab |
+| eCOGRA | https://ecogra.org/ecogra-certification/ | Testing Lab |
+| GamStop (UK) | https://www.gamstop.co.uk/ | Self-Exclusion |
+
+See POWER.md for the complete list of 24 verified references.
+
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| AI not responding as expert | Ensure hook is copied to `.kiro/hooks/` directory |
+| Tests failing | Run `npm install` then retry `npm test` |
+| TypeScript type errors | Run `npx tsc --noEmit` after `npm install` |
+
+## Security
+
+See [CONTRIBUTING.md](CONTRIBUTING.md#security-issue-notifications) for security issue reporting.
+
+## License
+
+MIT License. See the [LICENSE](LICENSE) file.

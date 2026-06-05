@@ -1,2 +1,21 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+
+# IDE and editor
+.kiro/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# Logs
+*.log

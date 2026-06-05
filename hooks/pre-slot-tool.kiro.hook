@@ -1,0 +1,12 @@
+{
+  "name": "Slot Machine Expert Auto-Guidance",
+  "version": "1.2.0",
+  "description": "Automatically activates the Slot Machine Expert Power and loads the appropriate Steering File before processing each request. Ensures the AI leverages domain knowledge for RNG, math models, certification, and responsible gaming.",
+  "when": {
+    "type": "promptSubmit"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Before responding, activate the slot-machine-expert Power and review available Steering Files. Based on the user's question, load the most relevant Steering File:\n\n- math-model.md → For paytable design, reel strip configuration, RTP calculation, volatility tuning, hit frequency, bonus feature RTP contribution\n- rng-game-logic.md → For CSPRNG selection, seed management, spin independence, spin lifecycle implementation, rule engine, audit logs\n- certification-prep.md → For GLI-11/GLI-19 compliance, certification documents, market regulations, timelines, costs, RTP thresholds\n- responsible-gaming.md → For deposit limits, self-exclusion, session time limits, win/loss tracking, autoplay controls, risk messages\n\nIf the question spans multiple domains, load all relevant Steering Files. Always consider the user's game engine (Unity/Cocos/Unreal/Godot/PixiJS) and target market when providing recommendations.\n\nKnown pitfalls to avoid:\n1. Never recommend Math.random(), System.Random, or rand() for game outcome logic\n2. Never suggest compensation mechanisms that violate spin independence\n3. Always check target market RTP thresholds before finalizing math models\n4. Always reference official GLI/UKGC/MGA standards, not blog posts"
+  }
+}

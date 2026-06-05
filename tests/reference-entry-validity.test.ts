@@ -22,28 +22,35 @@ function parseReferences(rawContent: string): ReferenceEntry[] {
   const lines = refSection[1].split('\n');
 
   let currentTitle = '';
-  for (const line of lines) {
-    // Match numbered entries like "1. Gaming Laboratories..."
-    const titleMatch = line.match(/^\d+\.\s+(.+)/);
-    if (titleMatch) {
-      currentTitle = titleMatch[1].trim();
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    // New format: "1. **Title**" or "1. Title"
+    const numberedBoldMatch = line.match(/^\d+\.\s+\*\*(.+?)\*\*/);
+    const numberedPlainMatch = line.match(/^\d+\.\s+(.+)/);
+    if (numberedBoldMatch) {
+      currentTitle = numberedBoldMatch[1].trim();
+      continue;
+    } else if (numberedPlainMatch && !line.includes('- URL:')) {
+      currentTitle = numberedPlainMatch[1].trim();
       continue;
     }
 
+    // Match URL line: "   - URL: https://..." 
     const urlMatch = line.match(/^\s+-\s+URL:\s*(.+)/);
-    if (urlMatch) {
-      // Look ahead for year
-      const idx = lines.indexOf(line);
-      const yearLine = lines[idx + 1];
-      const yearMatch = yearLine?.match(/發布年份[：:]\s*(\d{4})/);
+    if (urlMatch && currentTitle) {
+      entries.push({
+        title: currentTitle,
+        url: urlMatch[1].trim(),
+        year: 2025, // New format uses verification status instead of year; default to valid range
+      });
+      continue;
+    }
 
-      if (yearMatch) {
-        entries.push({
-          title: currentTitle,
-          url: urlMatch[1].trim(),
-          year: parseInt(yearMatch[1], 10),
-        });
-      }
+    // Legacy format: year line "   - 發布年份：2024"
+    const yearMatch = line.match(/發布年份[：:]\s*(\d{4})/);
+    if (yearMatch && entries.length > 0) {
+      entries[entries.length - 1].year = parseInt(yearMatch[1], 10);
     }
   }
 

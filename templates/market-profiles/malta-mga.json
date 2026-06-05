@@ -1,0 +1,66 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v1",
+  "name": "Malta (MGA) Market Profile",
+  "marketCode": "MT",
+  "regulator": "Malta Gaming Authority (MGA)",
+  "regulatorUrl": "https://www.mga.org.mt/",
+  "applicableStandards": ["GLI-19", "MGA Technical Standards"],
+  "certificationLabs": ["GLI", "BMM Testlabs", "eCOGRA", "iTech Labs", "NMi"],
+  "rtpRequirements": {
+    "minimumRtp": null,
+    "mustDisplayRtp": true,
+    "rtpDisplayLocation": "Game rules or information page",
+    "notes": "No statutory minimum RTP, but must be clearly stated in game rules"
+  },
+  "responsibleGaming": {
+    "depositLimits": {
+      "required": true,
+      "mustPromptOnRegistration": false,
+      "cooldownForIncrease": "Recommended 24-72 hours",
+      "types": ["daily", "weekly", "monthly"]
+    },
+    "selfExclusion": {
+      "required": true,
+      "nationalScheme": null,
+      "minimumPeriod": "6 months",
+      "mustIntegrate": false,
+      "notes": "Operator-level self-exclusion required"
+    },
+    "sessionTimeReminder": {
+      "required": true,
+      "interval": "Operator discretion, recommended 60 minutes"
+    },
+    "netWinLossDisplay": {
+      "required": false,
+      "recommended": true
+    },
+    "helplineLinks": [
+      { "name": "Responsible Gaming Foundation Malta", "url": "https://www.rgf.org.mt/" }
+    ]
+  },
+  "autoplay": {
+    "allowed": true,
+    "restrictions": [
+      "Must provide stop conditions (loss limit, win limit, spin count)",
+      "Player must be able to set parameters before starting"
+    ]
+  },
+  "ageVerification": {
+    "minimumAge": 18,
+    "verificationRequired": true
+  },
+  "auditLog": {
+    "retentionPeriod": "5 years minimum",
+    "mustBeImmutable": true,
+    "regulatorAccessRequired": true
+  },
+  "dataProtection": {
+    "gdprCompliant": true,
+    "dataStorageRestrictions": "EU/EEA preferred"
+  },
+  "licensing": {
+    "types": ["B2C Gaming Service Licence", "B2B Critical Supply Licence"],
+    "notes": "B2C required for any Malta/EU entity offering gaming services from Malta"
+  },
+  "lastUpdated": "2025-06"
+}

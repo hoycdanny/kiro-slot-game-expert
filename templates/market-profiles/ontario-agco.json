@@ -1,0 +1,59 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v1",
+  "name": "Ontario, Canada (AGCO) Market Profile",
+  "marketCode": "CA-ON",
+  "regulator": "Alcohol and Gaming Commission of Ontario (AGCO)",
+  "regulatorUrl": "https://www.agco.ca/",
+  "operatingEntity": "iGaming Ontario",
+  "applicableStandards": ["GLI-19", "AGCO iGaming Standards"],
+  "certificationLabs": ["GLI", "BMM Testlabs", "iTech Labs", "eCOGRA"],
+  "rtpRequirements": {
+    "minimumRtp": null,
+    "mustDisplayRtp": true,
+    "rtpDisplayLocation": "Game information section (RTP range)",
+    "notes": "Must provide RTP range in game information"
+  },
+  "responsibleGaming": {
+    "depositLimits": {
+      "required": true,
+      "mustPromptOnRegistration": true,
+      "types": ["daily", "weekly", "monthly"]
+    },
+    "selfExclusion": {
+      "required": true,
+      "nationalScheme": "ConnexOntario",
+      "nationalSchemeUrl": "https://www.connexontario.ca/",
+      "phone": "1-866-531-2600"
+    },
+    "sessionTimeReminder": {
+      "required": true,
+      "interval": "Operator discretion"
+    },
+    "helplineLinks": [
+      { "name": "ConnexOntario", "url": "https://www.connexontario.ca/", "phone": "1-866-531-2600" }
+    ]
+  },
+  "autoplay": {
+    "allowed": true,
+    "restrictions": [
+      "Must provide stop conditions (loss limit, win limit, spin count)"
+    ]
+  },
+  "localization": {
+    "requiredLanguages": ["en", "fr"],
+    "notes": "Must provide both English and French interfaces"
+  },
+  "dataStorage": {
+    "mustStoreInCanada": true,
+    "notes": "Player data must be stored within Canadian borders"
+  },
+  "ageVerification": {
+    "minimumAge": 19,
+    "verificationRequired": true
+  },
+  "auditLog": {
+    "retentionPeriod": "5 years",
+    "regulatorAccessRequired": true
+  },
+  "lastUpdated": "2025-06"
+}
