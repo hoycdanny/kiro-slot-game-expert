@@ -1,0 +1,81 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "US-MI",
+  "name": "Michigan (MGCB) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Michigan Gaming Control Board (MGCB)",
+    "url": "https://www.michigan.gov/mgcb",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    { "name": "Lawful Internet Gaming Act, 2019 PA 152 (MCL 432.301 et seq.)", "confidence": "HIGH" },
+    { "name": "Mich. Admin. Code R 432.601-432.699 (internet gaming rules)", "confidence": "HIGH" },
+    {
+      "name": "MGCB Technical Bulletins, e.g. TB 2020-05 Data Logging Standards",
+      "url": "https://www.michigan.gov/mgcb/internet-gaming-and-fantasy-contests",
+      "confidence": "HIGH"
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": "80% minimum and 100% maximum (online)",
+      "confidence": "MEDIUM",
+      "source": "R 432.633b(1)",
+      "notes": "Each house-banked internet game requiring a wager must have RTP at or above 80% and at or below 100%, unless otherwise authorised by the Board. RTP must be calculated at BOTH the highest and lowest skill levels where skill affects RTP - relevant to any skill-influenced feature."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": {
+    "blockingSoftware": { "value": "State-funded Gamban blocking software access", "confidence": "MEDIUM" }
+  },
+  "selfExclusion": {
+    "nationalScheme": "Internet Gaming and Sports Betting Responsible Gaming Database (online) AND the Disassociated Persons List (land-based)",
+    "url": "https://www.michigan.gov/mgcb",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "notes": "TWO SEPARATE SCHEMES. An integration that assumes one list per market will miss one of them."
+  },
+  "playerAccount": { "minimumAge": { "value": 21, "confidence": "MEDIUM" } },
+  "auditLog": {
+    "retentionPeriod": {
+      "value": "Minimum 5 years",
+      "confidence": "MEDIUM",
+      "source": "R 432.632b",
+      "notes": "MGCB TB 2020-05 sets the data logging specifications (existence HIGH)."
+    }
+  },
+  "dataResidency": { "requirement": { "value": null, "confidence": "UNVERIFIED" } },
+  "certification": {
+    "labModel": "MGCB-approved laboratories",
+    "confidence": "HIGH",
+    "notes": "GLI and BMM are the labs copied on MGCB technical bulletins and submission memos (HIGH for those two). eCOGRA states it is MGCB-approved and the first test lab headquartered outside the US to receive MGCB approval (MEDIUM, self-reported)."
+  },
+  "recentChanges": [
+    { "date": "2026-07-13", "change": "MGCB authorised DraftKings to launch multi-state shared-liquidity online poker in Michigan", "confidence": "HIGH" },
+    { "date": "2026-08-01", "change": "New MGCB Chair (Jim Townsend) effective", "confidence": "HIGH" }
+  ],
+  "verificationRequired": [
+    "Whether the R 432.633b(1) RTP text matches the official Michigan Administrative Code - obtain the official ARD/JCAR final rule PDF",
+    "MGCB in-state server / data residency requirement",
+    "Minimum game cycle duration, stake and win caps, autoplay treatment",
+    "Land-based (Detroit commercial casinos) minimum RTP"
+  ],
+  "consultantNotes": [
+    "Michigan's 80%-100% band is notable for having an explicit UPPER bound as well as a lower one. A game must not be capable of exceeding 100% RTP in any configuration.",
+    "The requirement to compute RTP at both highest and lowest skill levels means any skill-influenced element needs two documented RTP figures in the PAR sheet, not one."
+  ],
+  "lastUpdated": "2026-07"
+}

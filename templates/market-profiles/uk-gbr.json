@@ -1,75 +1,166 @@
 {
-  "templateType": "slot-machine-expert/market-profile-v1",
-  "name": "United Kingdom (UKGC) Market Profile",
+  "templateType": "slot-machine-expert/market-profile-v2",
   "marketCode": "GB",
-  "regulator": "UK Gambling Commission (UKGC)",
-  "regulatorUrl": "https://www.gamblingcommission.gov.uk/",
-  "applicableStandards": ["GLI-19", "UKGC RTS (Remote Technical Standards)", "LCCP"],
-  "certificationLabs": ["GLI", "BMM Testlabs", "eCOGRA", "NMi"],
-  "rtpRequirements": {
-    "minimumRtp": null,
-    "mustDisplayRtp": true,
-    "rtpDisplayLocation": "In-game information panel, accessible at all times",
-    "notes": "No statutory minimum, but games below 85% face additional scrutiny"
+  "name": "United Kingdom (UKGC) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Gambling Commission (UKGC)",
+    "url": "https://www.gamblingcommission.gov.uk/",
+    "confidence": "HIGH"
   },
-  "responsibleGaming": {
-    "depositLimits": {
-      "required": true,
-      "mustPromptOnRegistration": true,
-      "cooldownForIncrease": "24 hours minimum",
-      "types": ["daily", "weekly", "monthly"],
-      "notes": "Phase 2 (June 2026): Enhanced deposit limit requirements"
+  "bindingStandards": [
+    {
+      "name": "Remote gambling and software technical standards (RTS)",
+      "url": "https://www.gamblingcommission.gov.uk/standards/remote-gambling-and-software-technical-standards",
+      "notes": "Mandatory via licence condition 2.3.1. Statutory basis: Gambling Act 2005 ss.89 and 97. Updated 2025-10-31; RTS 14 amended 2026-01-12; further changes effective 2026-06-30.",
+      "confidence": "HIGH"
     },
-    "selfExclusion": {
-      "required": true,
-      "nationalScheme": "GamStop",
-      "nationalSchemeUrl": "https://www.gamstop.co.uk/",
-      "minimumPeriod": "6 months",
-      "mustIntegrate": true
+    {
+      "name": "Licence Conditions and Codes of Practice (LCCP)",
+      "url": "https://www.gamblingcommission.gov.uk/licensees-and-businesses/lccp/1/2",
+      "confidence": "HIGH"
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": {
+      "value": 2500,
+      "confidence": "HIGH",
+      "source": "RTS 14D",
+      "notes": "HARD per-round floor for slots, not an average. Must require release and re-press of the start button; continued contact must not start a new cycle. UKGC has enforced this: Stakelogic settled at GBP 122,835 over 16 titles with cycles of 0.001-0.675s (MEDIUM). Non-slot casino games are 5000 ms under RTS 14G."
     },
-    "sessionTimeReminder": {
-      "required": true,
-      "interval": "60 minutes recommended",
-      "mustIncludeNetWinLoss": true
+    "maxStakePerSpin": {
+      "value": { "age25plus": "GBP 5", "age18to24": "GBP 2" },
+      "confidence": "HIGH",
+      "source": "Statutory instrument, in force 2025-04-09",
+      "notes": "AGE-TIERED. Player age must be resolvable at the game layer, not just a boolean adult check."
     },
-    "netWinLossDisplay": {
-      "required": true,
-      "duringAutoplay": true,
-      "notes": "Mandatory during autoplay since 2025"
+    "maxWinPerRound": {
+      "value": "none",
+      "confidence": "HIGH",
+      "source": "RTS 3A treats maximum wins as a disclosure item only"
     },
-    "helplineLinks": [
-      { "name": "GamCare", "url": "https://www.gamcare.org.uk/", "phone": "0808 8020 133" },
-      { "name": "BeGambleAware", "url": "https://www.begambleaware.org/" }
+    "autoplay": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "RTS 8A",
+      "notes": "Player must commit to each game cycle individually. Only exception is auto-posting blinds in peer-to-peer poker. NOTE: GLI-19 section 4.9.2 permits autoplay; GLI certification is therefore NOT sufficient for the UK."
+    },
+    "turboSlamStop": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "RTS 14E",
+      "notes": "Turbo, quick spin and slam stop are named explicitly. Applies regardless of whether the cycle already meets 2.5s. Carve-outs: bonus/feature games requiring no additional stake, scratch-all/reveal-all, and games where inaction forfeits the stake."
+    },
+    "featureBuy": {
+      "status": "unverified",
+      "confidence": "UNVERIFIED",
+      "source": null,
+      "notes": "No explicit RTS prohibition found. Confirm UKGC treatment under RTS 14A, and how the GBP 5 / GBP 2 stake cap applies to a feature-buy price."
+    },
+    "jackpots": {
+      "status": "allowed",
+      "confidence": "HIGH",
+      "source": "RTS 9",
+      "notes": "Permitted, but jackpot RTP must be disclosed."
+    },
+    "multiGame": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "RTS 14C"
+    },
+    "celebrationOfNonWin": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "RTS 14F",
+      "notes": "No celebration of returns less than or equal to the stake. Requires the game to distinguish hit frequency from net-win frequency."
+    },
+    "otherProhibitions": [
+      { "item": "Reverse withdrawals", "source": "RTS 14B", "confidence": "HIGH" },
+      { "item": "Encouraging loss chasing", "source": "RTS 14A", "confidence": "HIGH" }
     ]
   },
-  "autoplay": {
-    "allowed": true,
-    "restrictions": [
-      "Must display net win/loss after each auto-spin",
-      "Must allow setting loss limit before starting",
-      "Minimum 2.5 seconds between spins",
-      "Must stop on bonus feature trigger (configurable)"
-    ],
-    "minimumSpinInterval": 2500
+  "rtp": {
+    "minimum": {
+      "value": "none",
+      "confidence": "HIGH",
+      "source": "No statutory RTP floor",
+      "notes": "No minimum, but disclosure is mandatory."
+    },
+    "disclosure": {
+      "value": "RTP or chance of winning must be disclosed before the player commits",
+      "confidence": "HIGH",
+      "source": "RTS 3C; jackpot RTP under RTS 9"
+    }
   },
-  "speedOfPlay": {
-    "minimumGameCycleTime": 2500,
-    "unit": "milliseconds",
-    "notes": "Applies to all online slots from 2025"
+  "responsibleGaming": {
+    "financialLimits": {
+      "value": "Prompted at registration and first deposit, with limit-setting as the DEFAULT and an active opt-out. Periods of 24h / 7d / 1 month; the lowest prevails. Increases only after at least 24h cooling-off plus positive confirmation; decreases immediate. Six-monthly account review prompt; annual prompt where no limits set. Limit links on homepage and deposit screens.",
+      "confidence": "HIGH",
+      "source": "RTS 12A, 12C, 12D, 12E",
+      "notes": "The default-on with opt-out design is stricter than most markets and is a common gap in products built for other jurisdictions first."
+    },
+    "realityChecks": {
+      "value": "At a customer-set frequency, must be acknowledged, and must block the next game in an autoplay sequence",
+      "confidence": "HIGH",
+      "source": "RTS 13B"
+    },
+    "elapsedTimeDisplay": {
+      "value": "Required; continuous elapsed time for casino",
+      "confidence": "HIGH",
+      "source": "RTS 13A, 13C"
+    },
+    "bonusRestrictions": {
+      "value": "Maximum bonus wagering requirement 10x, from 2026-01-19",
+      "confidence": "MEDIUM",
+      "source": "Industry reporting"
+    }
   },
-  "ageVerification": {
-    "minimumAge": 18,
-    "verificationRequired": true,
-    "mustVerifyBeforePlay": true
+  "selfExclusion": {
+    "nationalScheme": "GAMSTOP",
+    "url": "https://www.gamstop.co.uk/",
+    "integrationMandatory": true,
+    "confidence": "MEDIUM",
+    "source": "LCCP social responsibility code 3.5.5",
+    "notes": "Near-certain but the LCCP condition page is JavaScript-rendered and the condition text was not read directly."
+  },
+  "helplineLinks": [
+    { "name": "GamCare", "url": "https://www.gamcare.org.uk/", "phone": "0808 8020 133" },
+    { "name": "BeGambleAware", "url": "https://www.begambleaware.org/" }
+  ],
+  "playerAccount": {
+    "minimumAge": { "value": 18, "confidence": "MEDIUM" },
+    "ageVerificationBeforePlay": { "value": true, "confidence": "MEDIUM" }
   },
   "auditLog": {
-    "retentionPeriod": "3 years minimum",
-    "mustBeImmutable": true,
-    "regulatorAccessRequired": true
+    "retentionPeriod": { "value": null, "confidence": "UNVERIFIED", "source": null }
   },
-  "dataProtection": {
-    "gdprCompliant": true,
-    "dataStorageRestrictions": "No specific geographic restriction, but GDPR applies"
+  "dataResidency": {
+    "requirement": { "value": null, "confidence": "UNVERIFIED" }
   },
-  "lastUpdated": "2025-10"
+  "certification": {
+    "labModel": "Must use a UKGC-approved Test House from the published list",
+    "approvedLabCount": 14,
+    "confidence": "HIGH",
+    "notes": "Framework built with UKAS. Testing includes source-code review of the RNG implementation. Games and RNG results must be filed to the Games Register before release. Annual games-testing audit and annual independent security audit required.",
+    "url": "https://www.gamblingcommission.gov.uk/about-us/freedomofinformation/test-houses"
+  },
+  "recentChanges": [
+    { "date": "2025-04-09", "change": "Statutory stake caps GBP 5 / GBP 2 in force", "confidence": "HIGH" },
+    { "date": "2025-10-31", "change": "RTS 12 (financial limits) rewritten", "confidence": "HIGH" },
+    { "date": "2026-01-12", "change": "RTS 14 amended", "confidence": "HIGH" },
+    { "date": "2026-01-19", "change": "Maximum 10x bonus wagering", "confidence": "MEDIUM" },
+    { "date": "2026-06-30", "change": "Further RTS changes effective", "confidence": "HIGH" }
+  ],
+  "verificationRequired": [
+    "Feature buy / bonus buy treatment under RTS 14A, and how the stake cap applies to a feature-buy price",
+    "Audit log retention period",
+    "Data residency requirements",
+    "GAMSTOP mandate confirmed against LCCP condition 3.5.5 text",
+    "Minimum age confirmed against statute"
+  ],
+  "consultantNotes": [
+    "The UK has the most detailed technical standard and the most active enforcement. Write RTS clause numbers (8A, 12A-12E, 13A-13C, 14A-14G) directly into the requirements traceability matrix.",
+    "At least three RTS changes occurred within 15 months. Treating certification as a one-off will produce periods of non-compliance."
+  ],
+  "lastUpdated": "2026-07"
 }

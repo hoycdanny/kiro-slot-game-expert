@@ -74,6 +74,46 @@ keywords:
 - trigger: 當開發者詢問負責任遊戲功能相關問題時觸發，包括存款限制、自我排除、會話時間限制、勝負追蹤、自動播放管控、風險訊息顯示
 - description: 負責任遊戲實作工作流程指引，涵蓋玩家保護功能開發與合規檢查清單
 
+### jurisdiction-matrix.md
+- file: steering/jurisdiction-matrix.md
+- trigger: 當開發者詢問特定市場或跨市場合規差異時觸發，包括最小旋轉間隔、最大投注額、autoplay 是否允許、turbo/slam stop、jackpot 限制、多局同時進行、各市場 RTP 下限、資料落地要求、稽核日誌保存期、測試實驗室市場接受度、以及多市場產品架構策略
+- description: 全球司法管轄區合規矩陣，提供逐市場技術約束對照、資料信心等級標註、跨市場架構策略與查證 SOP
+
+### advisory-engagement.md
+- file: steering/advisory-engagement.md
+- trigger: 當開發者尋求合規諮詢、市場進入評估、落差分析、風險評估，或詢問「我們該怎麼開始」「需要準備什麼」類型的顧問問題時觸發；亦於需要釐清 B2B/B2C/平台商責任邊界時觸發
+- description: 顧問參與流程指引，涵蓋需求釐清、合規落差評估、風險登記冊、修復路線圖、交付物與責任邊界劃分
+
+### math-verification.md
+- file: steering/math-verification.md
+- trigger: 當開發者詢問 RTP 驗證、Monte Carlo 模擬樣本量、模擬值與理論值不一致的排查、PAR sheet 撰寫、投注配置矩陣、波動性指標計算，或送測前數學驗證時觸發
+- description: 數學模型驗證與 PAR Sheet 指引，涵蓋理論 RTP 計算、模擬樣本量推導、一致性判定、常見驗證失敗原因與 PAR sheet 規格
+
+### platform-systems-compliance.md
+- file: steering/platform-systems-compliance.md
+- trigger: 當開發者詢問系統層合規時觸發，包括 RGS 架構、伺服器端結果決定、斷線與未完成局處理、錢包幂等性、game recall、軟體完整性驗證、監管機關中央系統整合（LUGAS、OASIS、Spelpaus、CRUKS、ROFUS、GAMSTOP）、稽核日誌基礎設施、資料落地部署拓撲、獎池控制器
+- description: 平台與系統層合規指引，涵蓋 GLI-19 系統範圍、韌性設計、中央系統整合與部署架構要求
+
+### change-management-recert.md
+- file: steering/change-management-recert.md
+- trigger: 當開發者詢問認證後的變更、是否需要重新送測、版本管理、熱修復流程、法規變動影響，或詢問「改這個需要重新認證嗎」時觸發
+- description: 變更管理與重新認證指引，涵蓋變更分類框架、各市場通報要求、建置與認證綁定管理及法規變動追蹤
+
+### incident-malfunction-handling.md
+- file: steering/incident-malfunction-handling.md
+- trigger: 當開發者詢問故障處理、事故分級、玩家補償、監管機關通報、證據保全、malfunction voids pays 條款，或發生 RTP 偏離、餘額錯誤、自我排除失效等事故時觸發
+- description: 事故與故障處理指引，涵蓋事故分類、止血與證據保全程序、玩家補償判定、監管通報與預防性設計
+
+### aml-kyc-player-account.md
+- file: steering/aml-kyc-player-account.md
+- trigger: 當開發者詢問年齡驗證、身分驗證（KYC）、反洗錢監控、玩家帳戶狀態機、重複帳戶偵測、玩家限額的帳戶層實作、自我排除者獲利處理、支付約束時觸發
+- description: AML／KYC 與玩家帳戶合規指引，涵蓋各市場最低年齡與年齡分級投注上限、帳戶狀態機、洗錢風險模式與跨營運商限額
+
+### data-protection-privacy.md
+- file: steering/data-protection-privacy.md
+- trigger: 當開發者詢問 GDPR、個資處理、資料保存與刪除的衝突、資料落地與跨境傳輸、資料主體權利、控制者與處理者角色、資料外洩通報、資安標準對應時觸發
+- description: 資料保護與隱私合規指引，處理博彩監管長期保存義務與資料保護最小化要求的衝突，涵蓋資料分類、跨境傳輸與資安標準對應
+
 ## 技術棧建議（Tech Stack Recommendations）
 
 依據遊戲引擎與專案類型，以下為 2026 年適用的老虎機開發技術棧建議。
@@ -397,3 +437,105 @@ src/
     - URL: https://slotegrator.pro/analytical_articles/seals-of-approval-gain-players-trust-with-certified-games/
     - 說明: 老虎機認證流程的產業分析文章，涵蓋 eCOGRA、BMM、GLI、iTechLabs 等實驗室的角色與流程。
     - 驗證狀態: ✅ 發布日期 2026 年，確認可達
+
+### 各市場監管技術標準（2026 年查證）
+
+25. **UK Gambling Commission — Remote gambling and software technical standards (RTS)**
+    - URL: https://www.gamblingcommission.gov.uk/standards/remote-gambling-and-software-technical-standards
+    - 說明: 英國遠端博彩技術標準全文，透過牌照條件 2.3.1 強制。含 RTS 8A（禁 autoplay）、RTS 12A–12E（財務限額）、RTS 13A–13C（時間與 reality check）、RTS 14A–14G（負責任產品設計，含 2,500 ms 遊戲循環與禁 turbo/slam stop）。2025-10-31 更新，RTS 14 於 2026-01-12 修訂，另有 2026-06-30 生效變更。
+    - 驗證狀態: ✅ 官方頁面確認可達
+
+26. **Germany — Glücksspielstaatsvertrag 2021 §22a（虛擬機台遊戲）**
+    - URL: https://www.gesetze-bayern.de/Content/Document/StVGlueStV2021-22a
+    - 說明: 德國虛擬老虎機的法定技術限制原文。含逐款 GGL 許可、5 秒平均循環、禁 autoplay、Jackpotverbot（禁累積獎金）、禁多局、禁非歐元換算、禁「Casino」字樣、投注上限調整授權。
+    - 驗證狀態: ✅ 官方法規資料庫確認可達
+
+27. **Germany — GlüStV 2021 §6h（並行遊戲、經過時間、等待期）**
+    - URL: https://www.gesetze-bayern.de/Content/Document/StVGlueStV2021-6h
+    - 說明: 跨營運商並行遊戲控管、60 分鐘強制通知與確認、切換營運商 5 分鐘等待期、30 分鐘無活動自動停用，以及並行遊戲資料的強制刪除義務。
+    - 驗證狀態: ✅ 官方法規資料庫確認可達
+
+28. **Germany — Gemeinsame Glücksspielbehörde der Länder (GGL)**
+    - URL: https://www.gluecksspiel-behoerde.de/
+    - 說明: 德國各邦共同博彩監理機關，負責虛擬機台遊戲的逐款許可、LUGAS 與 Limitdatei 中央系統。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+29. **Sweden — Spellag (2018:1138)**
+    - URL: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/spellag-20181138_sfs-2018-1138/
+    - 說明: 瑞典博彩法原文。第 14 章含強制入金限額、禁近似中獎設計、免費試玩機率須與真錢相同、禁信用資金、紅利僅限首次遊玩、24 小時即時自我排除。第 16 章含遊戲系統須位於瑞典境內與 5 年資料保存期。
+    - 驗證狀態: ✅ 瑞典國會官方法規資料庫確認可達
+
+30. **Sweden — Spelinspektionen（瑞典博彩管理局）**
+    - URL: https://www.spelinspektionen.se/
+    - 說明: 瑞典博彩監管機關，營運 Spelpaus 全國自我排除系統。2026-08-01 起要求以主管機關發放的 Actor ID／API key 查詢，含直效行銷前查詢。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+31. **Denmark — Spillemyndigheden 線上娛樂場認證方案**
+    - URL: https://spillemyndigheden.dk/en-us/businesses-and-associations/games-which-require-a-licence/online-casino/certification-programme-for-online-casino
+    - 說明: 丹麥模組化認證方案：SCP.00 總則、SCP.01 RNG、SCP.02 基礎平台、SCP.03 ISMS、SCP.04 滲透測試、SCP.05 弱點掃描、SCP.06 變更管理、SCP.07 遊戲要求。修訂版 2025-07-01 起強制。適合作為內部合規檢查清單骨架。
+    - 驗證狀態: ✅ 官方頁面確認可達
+
+32. **Ontario — AGCO Registrar's Standards for Internet Gaming**
+    - URL: https://www.agco.ca/en/lottery-and-gaming/guides/registrars-standards-internet-gaming
+    - 說明: 安大略網路博彩註冊官標準。含 2.16 禁老虎機 autoplay、2.17 禁多局、2.18 最小 2,500 ms 循環、2.19 禁 turbo/quick spin/slam stop、2.20 禁慶祝回報 ≤ 投注額、2.21 加元淨部位顯示、4.08 遊戲與 RNG 認證含後續修改、1.09 三年保存期。
+    - 驗證狀態: ✅ 官方頁面確認可達
+
+33. **Nevada Gaming Control Board — Regulation 14**
+    - URL: https://gaming.nv.gov
+    - 說明: 內華達機台與遊戲的製造、銷售、發行與核准規例。含 14.040(1)(a) 最低 75% 派彩率（適用每一可下注選項）與 14.400 獨立測試實驗室提交要求。2026-02-26 修訂生效。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+34. **Connecticut DCP — Gaming Division 技術標準**
+    - URL: https://portal.ct.gov/gaming
+    - 說明: 康乃迪克線上娛樂場技術標準（2024-12-02 版）。美國州級中細節最完整且公開可取得者，含 §4.1.37 最低 80% RTP、§4.1.50 autoplay 受限要求（近似 GLI-19 §4.9.2）、§2.1.38 資料保存與時間戳。適合了解 GLI-19 如何在州級落地。
+    - 驗證狀態: ✅ 官方頁面確認可達
+
+35. **West Virginia — 179 CSR 10 互動投注規則**
+    - URL: https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=58895&Format=PDF
+    - 說明: 西維吉尼亞互動投注規則，2026-04-27 生效。含 §2.15 資料倉儲須位於州內、§5.11.1 相對派彩率約束（實質禁止同款遊戲的低 RTP 變體）、§10.4 五年保存期、§8.22 開發文件生命週期加七年。
+    - 驗證狀態: ✅ 州務卿行政法規資料庫確認可達
+
+36. **Brazil — Secretaria de Prêmios e Apostas (SPA), Ministério da Fazenda**
+    - URL: https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas
+    - 說明: 巴西博彩監管機關。Law 14.790/2023 開放線上娛樂場含老虎機，2025-01-01 市場上線。要求巴西境內資料中心、巴西法人且本地股東持股 ≥20%、`.bet.br` 網域、以葡萄牙文經 SIGAP 提交認證。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+37. **Curaçao Gaming Authority（LOK 制度）**
+    - URL: https://gamingcontrolcuracao.org
+    - 說明: 古拉索博彩管理局。LOK（P.B. 2024 no. 157）廢除母／子牌照模式，要求古拉索法人、法定所在地在古拉索、至少一名居住當地的自然人董事，技術認證須由持第 5.17 條證書的測試機構執行。2026-07 發布清算規則。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+38. **Philippines — PAGCOR**
+    - URL: https://www.pagcor.ph
+    - 說明: 菲律賓娛樂博彩公司。境內線上遊戲需 PAGCOR 牌照；離岸（POGO／IGL）自 2024-12-31 起禁止（EO 74）。最低年齡 2025 年調升至 21 歲。實體 EGM 最低 RTP 90%（表格 GLDD 971／CRM F11），線上專屬數字未公開。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+39. **Australia — Interactive Gambling Act 2001 (Cth)**
+    - URL: https://www.legislation.gov.au/C2004A00851
+    - 說明: ⛔ 澳洲互動博彩法。線上娛樂場／老虎機屬禁止的互動博彩服務，向身處澳洲之人提供即為犯罪。澳洲**不存在**線上娛樂場牌照。監管與執法機關為 ACMA（https://www.acma.gov.au）。
+    - 驗證狀態: ✅ 澳洲聯邦立法資料庫確認可達
+
+40. **NIST SP 800-90C — Recommendation for Random Bit Generator (RBG) Constructions**
+    - URL: https://csrc.nist.gov/pubs/sp/800/90/c/final
+    - 說明: 2025 年 9 月發布最終版，完成 SP 800-90 系列。定義 RBG1、RBG2、RBG3 與 RBGC 建構方式。與 800-90A（DRBG）、800-90B（熵源）共同構成 CSPRNG 設計與熵源評估的正確依據。
+    - 驗證狀態: ✅ NIST 官方頁面確認可達
+
+41. **NIST — Decision to Revise SP 800-22 Rev. 1a**
+    - URL: https://csrc.nist.gov/News/2022/decision-to-revise-nist-sp-800-22-rev-1a
+    - 說明: ⚠️ 重要警告來源。NIST 的改版決定**明確包含「釐清本套件的用途，特別是拒絕將其用於評估密碼學隨機數產生器」**。博彩業仍廣泛引用 SP 800-22 作為 RNG 評估基礎，此立場與現行 NIST 指引不一致，顧問應主動指出而非沿用。
+    - 驗證狀態: ✅ NIST 官方公告確認可達
+
+42. **Gaming Laboratories International — GLI 投資 iTech Labs 新聞稿**
+    - URL: https://gaminglabs.com/press-releases/gaming-laboratories-international-gli-group-invests-in-itech-labs/
+    - 說明: ⚠️ 實驗室獨立性揭露來源。GLI 於 2023-05-19 宣布取得 iTech Global Pty Ltd 全部股份，iTech Labs 現為 GLI Australia Pty Ltd 全資子公司。若市場或合約要求實驗室獨立性或第二意見認證，兩者不得視為獨立選項。
+    - 驗證狀態: ✅ 官方新聞稿確認可達
+
+43. **Kahnawà:ke Gaming Commission**
+    - URL: https://gamingcommission.ca
+    - 說明: Kahnawà:ke 博彩委員會，依 Kahnawà:ke 博彩法與互動博彩規則運作（2026-03-25 版）。非加拿大聯邦或省級牌照。要求境內併置：僅能自單一 Interactive Gaming Licence 持有人的設施營運。無最低派彩率，改以定期內部統計檢視。
+    - 驗證狀態: ✅ 官方網站確認可達
+
+44. **National Indian Gaming Commission (NIGC) — Class II 技術標準**
+    - URL: https://www.ecfr.gov/current/title-25/chapter-III/subchapter-D/part-547
+    - 說明: 25 CFR Part 547，美國部落 Class II 遊戲系統與設備的最低技術標準。**Class III 無聯邦技術標準**，其機台標準來自部落－州協議（compact）並由部落博彩監理機關執行。
+    - 驗證狀態: ✅ 美國聯邦法規電子版確認可達

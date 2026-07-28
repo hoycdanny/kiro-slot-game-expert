@@ -1,0 +1,79 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "BE",
+  "name": "Belgium (Gaming Commission) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Kansspelcommissie / Commission des jeux de hasard",
+    "url": "https://www.gamingcommission.be/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    { "name": "Gaming Act of 7 May 1999 and Royal Decrees, including the RD on online games of chance and the amended RD on advertising and age", "confidence": "MEDIUM" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": [
+      {
+        "item": "ALL bonus inducements banned",
+        "confidence": "MEDIUM",
+        "notes": "From September 2024. If confirmed, this removes the entire bonus and free-spin promotional layer, which affects both product design and commercial modelling."
+      }
+    ]
+  },
+  "rtp": { "minimum": { "value": null, "confidence": "UNVERIFIED" }, "disclosure": { "value": null, "confidence": "UNVERIFIED" } },
+  "responsibleGaming": {
+    "defaultDepositLimit": {
+      "value": "EUR 200 per week per operator by default, raisable only after checks including the National Bank credit register",
+      "confidence": "MEDIUM",
+      "notes": "A credit-register check as a precondition for raising a limit is an unusual integration requirement."
+    }
+  },
+  "selfExclusion": {
+    "nationalScheme": "EPIS (Excluded Persons Information System)",
+    "integrationMandatory": true,
+    "confidence": "MEDIUM",
+    "notes": "Mandatory pre-play check. NOTE: \"EPA\" is not the Belgian register name."
+  },
+  "playerAccount": {
+    "minimumAge": {
+      "value": 21,
+      "confidence": "MEDIUM",
+      "notes": "21 for casino-type games and slots, raised from 18 in September 2024. The national lottery remains 18. Belgium is a notable European outlier - do not hardcode 18."
+    }
+  },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "Belgium has historically required online gaming servers in Belgium linked to a land-based licence (the .be co-location model). Current status must be confirmed; if it still applies it is a major architectural constraint."
+    }
+  },
+  "certification": { "labModel": null, "confidence": "UNVERIFIED" },
+  "recentChanges": [
+    { "date": "2024-09", "change": "Minimum age raised to 21 for casino-type games; bonus inducements banned", "confidence": "MEDIUM" },
+    { "date": "2024-2025", "change": "Radio advertising ban; GGR fell 4.86% to EUR 1.61bn in 2024, land-based down 7.59%", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "Whether the .be server co-location requirement still applies - highest priority, architectural",
+    "Confirmation of the bonus inducement ban and its exact scope",
+    "Minimum age 21 confirmed against the Royal Decree",
+    "The default EUR 200 weekly deposit limit and the credit-register check mechanism",
+    "The entire technical constraint matrix",
+    "Minimum RTP, audit retention, accepted laboratories"
+  ],
+  "consultantNotes": [
+    "Belgium is commercially difficult for reasons unrelated to game design: age 21, a possible total bonus ban, a low default deposit limit, and a possible in-country server requirement tied to a land-based licence.",
+    "Almost everything here is MEDIUM or UNVERIFIED. A Belgian engagement should start with local counsel rather than with product configuration."
+  ],
+  "lastUpdated": "2026-07"
+}

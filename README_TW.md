@@ -27,11 +27,32 @@
 
 ## 功能特色
 
+- 🌍 **司法管轄區合規矩陣** — 26 個市場的產品硬約束對照：最小遊戲循環時間、投注上限、autoplay、turbo/slam stop、jackpot、多局同時進行、RTP 下限、資料落地、稽核保存期，每項都附法源條號與信心等級
+- 🧭 **顧問參與流程** — 需求釐清 → 合規落差評估 → 風險登記冊 → 修復路線圖 → 交付物，含 B2B／B2C／平台商責任邊界矩陣
 - 🎰 **數學模型設計** — Paytable 設計、Reel Strip 配置、RTP 計算、Volatility 調校、Hit Frequency 計算
+- 🔬 **數學模型驗證** — Monte Carlo 樣本量由目標精度與實測 σ 反推（而非沿用慣例數字）、理論值與模擬值一致性判定、PAR sheet 十五章節規格、八類常見驗證失敗原因
 - 🔐 **RNG 與遊戲邏輯** — CSPRNG 選擇（各引擎）、種子管理、Spin Lifecycle 六階段、規則引擎、審計日誌
-- 📋 **認證準備** — GLI-11/GLI-19 合規、七項認證文件準備、市場監管資訊、時程與費用預估
+- 🖧 **平台與系統層合規** — GLI-19 系統範圍、伺服器端決定結果、斷線與未完成局處理、錢包幂等性、game recall、監管機關中央系統整合（LUGAS、OASIS、Spelpaus、CRUKS、ROFUS、GAMSTOP、iGO、SAFE/TamperToken）
+- 📋 **認證準備** — GLI-11/GLI-19 合規、七項認證文件、實驗室選擇、時程與費用預估
+- 🔁 **變更管理與重新認證** — 變更分類框架、哪些變更會觸發重新送測、建置與認證綁定管理、法規變動追蹤
+- 🚨 **事故與故障處理** — 事故分級、先停後修與證據保全、玩家補償判定、監管機關通報
 - 🛡️ **負責任遊戲** — 存款限制、自我排除、會話時間限制、勝負追蹤、自動播放管控、風險訊息顯示
-- 🌍 **多市場支援** — UK、Malta、Ontario、Nevada、New Jersey、Sweden、Denmark、Philippines 等
+- 🔍 **AML/KYC 與資料保護** — 年齡分級、帳戶狀態機，以及博彩長期保存義務與資料保護最小化要求的衝突處理
+- ⛔ **禁止市場登記冊** — 明確警示線上老虎機不合法的市場（澳洲、日本、韓國、新加坡、印度、南非），而不是讓人以為認證可以解決法律地位問題
+
+## 這個 Power 的定位
+
+**這是合規顧問，不是程式碼產生器。** 當你要求某個功能，它會先告訴你這個功能在你的目標市場是否合法，再給你合規的實作方式。
+
+| | Accelerator（加速器） | 本 Power（Expert 顧問） |
+|---|---|---|
+| 被問到功能 | 直接實作 | 先問這個功能在目標市場合法嗎 |
+| 被問到數字 | 給一個可用的值 | 給值 **＋ 信心等級 ＋ 法源 ＋ 查證方式** |
+| 成功標準 | 東西動起來了 | 你知道自己承擔什麼風險 |
+
+每個法規數值都標註信心等級：`HIGH`（已從官方法規原文確認）、`MEDIUM`（權威次級來源）、`UNVERIFIED`（**未確認，絕不填猜測值**）。
+
+合規顧問寫錯一個數字，比留白更糟——留白會觸發查證，錯誤數字會直接進入產品規格，直到送測才被發現。
 
 ## 架構
 
@@ -39,19 +60,28 @@
 Developer (Natural Language)
     → AI Layer (Intent Understanding & Planning)
         → Slot Machine Expert Power (Domain Knowledge)
-            → Certified Game Implementation
+            → 風險知情的決策，然後才是合規實作
 
 Slot Machine Expert (Intelligence Layer)
-├── POWER.md          → Main document defining workflows & references
-├── steering/         → 4 domain knowledge files
-├── templates/        → Reusable configuration templates
-│   ├── paytable/     → Paytable templates (by volatility)
-│   ├── reel-strip/   → Virtual reel configurations
-│   ├── certification/→ GLI submission checklists
-│   └── market-profiles/ → Regulatory market profiles
-├── hooks/            → IDE automation hooks
-└── tests/            → Property-based tests (fast-check + vitest)
+├── POWER.md              → 定義工作流程與參考資料的主文件
+├── steering/             → 12 份領域知識指引
+├── templates/
+│   ├── market-profiles/  → 26 個市場設定檔 + schema + 禁止市場登記冊
+│   ├── certification/    → PAR sheet、RNG 送測包、變更申請、GLI 檢查清單
+│   ├── advisory/         → 落差評估、風險登記冊、路線圖、事故通報
+│   ├── paytable/         → 賠率表範本（依波動性）
+│   └── reel-strip/       → 虛擬捲軸配置
+├── hooks/                → IDE 自動化 hook
+└── tests/                → 屬性測試（fast-check + vitest）
 ```
+
+## 市場覆蓋
+
+**已建立設定檔的受監管市場**：英國（UKGC）、德國（GGL）、瑞典（Spelinspektionen）、丹麥（Spillemyndigheden）、馬爾他（MGA）、安大略（AGCO）、內華達、紐澤西、密西根、賓州、西維吉尼亞、康乃迪克、德拉瓦、美國部落 Class III、巴西（SPA）、菲律賓（PAGCOR）、希臘、比利時、義大利、西班牙、荷蘭、羅馬尼亞、葡萄牙、曼島、直布羅陀、古拉索（LOK）、哥倫比亞、秘魯、Kahnawà:ke
+
+**標示為禁止或灰色**：澳洲、日本、韓國、新加坡、印度、南非、墨西哥、哥斯大黎加
+
+各設定檔深度不一。**未能取得官方來源的市場以「研究骨架」形式提供，明確標記 `UNVERIFIED` 並附查證清單**，而不是填入看起來合理的數字。
 
 ## 安裝方式
 
@@ -115,10 +145,27 @@ kiro-slot-game-expert/
 
 | 檔案 | 觸發時機 | 涵蓋內容 |
 |------|----------|----------|
+| `jurisdiction-matrix.md` | 詢問特定市場或跨市場合規差異 | 逐市場產品硬約束對照、資料信心等級制度、跨市場架構策略（最嚴共同基準／能力旗標／市場專屬版本）、測試實驗室市場接受度、查證 SOP |
+| `advisory-engagement.md` | 尋求合規諮詢、市場進入評估、落差分析 | 顧問五階段流程、B2B／B2C／平台商責任邊界、五種常見客戶情境應對、必須主動提出的警示 |
 | `math-model.md` | 詢問數學模型相關問題 | Paytable 設計、Reel Strip 配置、RTP 計算、Volatility 調校、Hit Frequency、獎勵功能 RTP 貢獻 |
+| `math-verification.md` | 詢問 RTP 驗證、模擬樣本量、PAR sheet | 理論 RTP 計算、Monte Carlo 樣本量推導、信賴區間判定、投注配置矩陣、八類常見驗證失敗原因 |
 | `rng-game-logic.md` | 詢問 RNG 或遊戲邏輯 | CSPRNG 選擇（各引擎）、種子管理、Spin Lifecycle 六階段、規則引擎、審計日誌 |
+| `platform-systems-compliance.md` | 詢問系統層合規 | GLI-19 系統範圍、伺服器端決定結果、斷線復原、錢包幂等性、game recall、中央系統整合、資料落地部署拓撲 |
 | `certification-prep.md` | 詢問認證或合規 | GLI-11/GLI-19 標準、七項認證文件、市場監管資訊、時程與費用、RTP 門檻警告 |
 | `responsible-gaming.md` | 詢問負責任遊戲功能 | 存款限制、自我排除、會話時間限制、勝負追蹤、自動播放管控、風險訊息顯示 |
+| `change-management-recert.md` | 詢問認證後變更、是否需重新送測 | 變更分類框架、易誤判為呈現層的變更、各市場通報要求、建置與認證對應表、法規變動追蹤 |
+| `incident-malfunction-handling.md` | 詢問故障處理、事故分級、玩家補償 | 事故分類、先停後修程序、證據保全清單、玩家補償判定、監管通報、預防性設計 |
+| `aml-kyc-player-account.md` | 詢問年齡驗證、KYC、AML、帳戶狀態 | 各市場最低年齡（18／19／21）與年齡分級投注上限、帳戶狀態機、洗錢風險模式、跨營運商限額、支付約束 |
+| `data-protection-privacy.md` | 詢問 GDPR、個資、保存與刪除衝突 | 資料分類與差異化生命週期、法律依據選擇、跨境傳輸、控制者／處理者角色、資安標準對應 |
+
+### 兩項值得注意的更正
+
+本次研究發現兩個業界廣泛流傳但無法證實的說法：
+
+1. **馬爾他「最低 RTP 92%」無法在任何 MGA 現行文件中確認**，且 MGA 已發布政策文件探討調整為 85%。本 Power 將馬爾他最低 RTP 記為 `UNVERIFIED`，不重複該數字。
+2. **NIST 自身立場是 SP 800-22 不應用於評估密碼學 RNG**，但它仍被普遍引用為博彩 RNG 合規依據。本 Power 指出此落差，而非沿用。
+
+另也揭露 **GLI 與 iTech Labs 自 2023 年 5 月起屬同一企業集團**——當市場或合約要求實驗室獨立性時，這一點很重要。
 
 ## 支援的遊戲引擎
 

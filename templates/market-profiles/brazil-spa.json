@@ -1,0 +1,102 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "BR",
+  "name": "Brazil (SPA/MF) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Secretaria de Premios e Apostas (SPA), Ministerio da Fazenda",
+    "url": "https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas",
+    "confidence": "HIGH",
+    "notes": "Created by Decreto 11.907/2024. Filing portal: SIGAP, https://sigap.fazenda.gov.br"
+  },
+  "bindingStandards": [
+    {
+      "name": "Law 14.790/2023",
+      "confidence": "HIGH",
+      "notes": "Legalised fixed-odds betting AND online casino games including slots at federal level. Regulated market launched 2025-01-01. Only SPA-authorised operators are lawful."
+    },
+    { "name": "Portaria SPA/MF nº 722/2024 and the December 2024 amending ordinance (technical and data-centre requirements)", "confidence": "MEDIUM" },
+    { "name": "Portaria SPA/MF nº 300/2024 (recognition of certifying entities)", "confidence": "MEDIUM" },
+    { "name": "Normative Instruction 3/2025 (2025-01-14, certification backlog relief)", "confidence": "MEDIUM" },
+    { "name": "SPA online-gaming technical ordinance of August 2024", "confidence": "MEDIUM", "notes": "Exact ordinance number UNVERIFIED; this is the instrument understood to carry the RTP rule." }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": [
+      {
+        "item": "Government preparing to ban Fortune Tiger-style games ahead of the October 2026 election",
+        "confidence": "MEDIUM",
+        "notes": "A theme and game-family level ban, not a mechanic ban. Monitor: this could remove an entire product category from the market."
+      }
+    ]
+  },
+  "rtp": {
+    "minimum": {
+      "value": "85%",
+      "confidence": "MEDIUM",
+      "source": "SPA online-gaming technical ordinance, August 2024 (via multiple law firm and industry sources)",
+      "notes": "Theoretical RTP per game over its expected life cycle. Well corroborated across independent secondary sources but NOT read from the official text. Additional rule: the advertised top prize must be winnable at least once per 100 MILLION plays - this is a maximum-prize probability floor, which constrains extreme long-tail jackpot design and must be computed explicitly in the PAR sheet."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": {
+    "requirements": { "value": null, "confidence": "UNVERIFIED" },
+    "socialProgrammeRestriction": {
+      "value": "Government preparing to block betting access for Bolsa Familia and BPC benefit recipients",
+      "confidence": "MEDIUM",
+      "notes": "If enacted this becomes a player-eligibility check against a government dataset, an integration requirement."
+    }
+  },
+  "selfExclusion": { "nationalScheme": null, "confidence": "UNVERIFIED" },
+  "playerAccount": { "minimumAge": { "value": null, "confidence": "UNVERIFIED" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": "STRICT. The betting system must run and its data be stored in data centres LOCATED IN BRAZILIAN TERRITORY. The only exception is a country holding an international judicial-cooperation agreement with Brazil in BOTH civil and criminal matters and complying with Brazilian data protection law.",
+      "confidence": "MEDIUM",
+      "source": "Portaria SPA/MF nº 722/2024 plus the December 2024 amending ordinance",
+      "notes": "One of the strictest data residency regimes in this dataset. Determines deployment topology and must be settled in phase 1 of market entry assessment."
+    }
+  },
+  "localEntityRequirement": {
+    "value": "Brazilian legal entity required, with a Brazilian partner holding at least 20%, and a mandatory .bet.br domain",
+    "confidence": "MEDIUM",
+    "notes": "The 20% local shareholding is a corporate structuring requirement, not a technical one, but it materially affects market entry feasibility and timeline."
+  },
+  "certification": {
+    "labModel": "Mandatory. The betting system, the sports-betting server and the REMOTE GAMING (slots) SERVER must each be certified by an SPA-recognised certifying entity, filed in Portuguese via SIGAP.",
+    "confidence": "MEDIUM",
+    "notes": "Accreditation regime under Portaria SPA/MF nº 300/2024. Six accredited certifiers as of January 2025, confirmed to include GLI and eCOGRA. Trisigma was authorised in November 2024 (Portaria SPA/MF nº 1.775) and its authorisation was REVOKED in November 2025 - verify a certifier's current standing before engaging. Full current list UNVERIFIED. Note also that filings must be in Portuguese, which adds translation lead time for technical documentation."
+  },
+  "recentChanges": [
+    { "date": "2025-01-01", "change": "Regulated market went live: 14 full plus 52 provisional licences at launch, 43 full by 2025-02-18", "confidence": "MEDIUM" },
+    { "date": "2025-11", "change": "Trisigma certifier authorisation revoked", "confidence": "MEDIUM" },
+    { "date": "2026", "change": "Portaria SPA/MF nº 1.964 tightened advertising, amending Portaria 1.231/2024", "confidence": "MEDIUM" },
+    { "date": "2026-07", "change": "Public Consultation Notice 3/2026 reopening the authorisation ordinance (827/2024)", "confidence": "MEDIUM" },
+    { "date": "2026-08-05", "change": "STF to rule on the constitutionality of the general gambling ban (RE 966.177)", "confidence": "MEDIUM", "notes": "A constitutional ruling with potential to reshape the framework. Track this date." },
+    { "date": "2026", "change": "100+ Ministry of Finance legal actions against unlicensed sites", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "The exact ordinance number carrying the 85% RTP rule, and the official text",
+    "Official text of Portaria 722/2024 and the December 2024 data-centre exception ordinance",
+    "Full current list of SPA-accredited certifying entities",
+    "The entire technical constraint matrix: cycle time, stake and win caps, autoplay, turbo, feature buy, jackpots",
+    "Minimum age, audit retention, self-exclusion scheme",
+    "Scope and status of the Fortune Tiger-style game ban",
+    "Outcome of STF RE 966.177"
+  ],
+  "consultantNotes": [
+    "Brazil is the largest newly regulated slot market in this dataset. The binding constraints are less about game mechanics and more about STRUCTURE: in-country data centres, a Brazilian entity with a 20% local partner, a .bet.br domain, Portuguese-language certification filings, and a specific accredited certifier.",
+    "The 'top prize winnable at least once per 100 million plays' rule is a maximum-prize PROBABILITY floor. It is a genuine maths model constraint, and it is the mirror image of Germany's requirement to disclose the maximum-prize probability. Both require the same computation.",
+    "Framework volatility is high: an advertising ordinance, a reopened authorisation consultation, a possible game-family ban and a constitutional challenge are all live in 2026. Do not treat a Brazilian licence as a stable baseline."
+  ],
+  "lastUpdated": "2026-07"
+}

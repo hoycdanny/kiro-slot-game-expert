@@ -1,0 +1,89 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "DK",
+  "name": "Denmark (Spillemyndigheden) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Spillemyndigheden (Danish Gambling Authority)",
+    "url": "https://www.spillemyndigheden.dk/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    {
+      "name": "Certification programme for online casino",
+      "url": "https://spillemyndigheden.dk/en-us/businesses-and-associations/games-which-require-a-licence/online-casino/certification-programme-for-online-casino",
+      "confidence": "HIGH",
+      "notes": "Modular: SCP.00 general, SCP.01 RNG, SCP.02 base platform, SCP.03 ISMS, SCP.04 penetration testing, SCP.05 vulnerability scanning, SCP.06 change management, SCP.07 requirements for games (separate online-casino version)."
+    },
+    { "name": "Technical requirements for SAFE, TamperToken, ROFUS and standard records", "confidence": "HIGH" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED", "notes": "Would sit in SCP.07." },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED", "notes": "Would sit in SCP.07." },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED", "notes": "Would sit in SCP.07." },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": { "value": null, "confidence": "UNVERIFIED", "notes": "Would sit in SCP.07." },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": {
+    "rofusCheck": {
+      "value": "ROFUS presence check before play is a technical licence requirement",
+      "confidence": "HIGH"
+    }
+  },
+  "selfExclusion": {
+    "nationalScheme": "ROFUS",
+    "url": "https://www.spillemyndigheden.dk/rofus",
+    "integrationMandatory": true,
+    "confidence": "HIGH"
+  },
+  "playerAccount": {
+    "minimumAge": { "value": 18, "confidence": "MEDIUM" }
+  },
+  "auditLog": {
+    "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" },
+    "regulatorAccessMechanism": {
+      "value": "Continuous transfer of gambling data to the authority's SAFE data warehouse, secured by TamperToken",
+      "confidence": "HIGH",
+      "notes": "This is an architectural integration, not a reporting process. It must be designed in, not added later."
+    }
+  },
+  "dataResidency": {
+    "requirement": {
+      "value": "No Denmark-hosting rule found; the binding requirement is authority access via SAFE",
+      "confidence": "MEDIUM"
+    }
+  },
+  "certification": {
+    "labModel": "Accredited testing companies filing standard reports (SCP.XX.XX.EN) via the Games Register",
+    "confidence": "MEDIUM",
+    "notes": "Subcontracting is addressed in SCP.00. No named laboratory list."
+  },
+  "recentChanges": [
+    {
+      "date": "2025-07-01",
+      "change": "Revised certification programme mandatory (effective 2025-01-01 with a six-month transition). Licence holders and game suppliers now each submit their own certifications directly.",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "verificationRequired": [
+    "The entire SCP.07 game requirements set: minimum RTP, stake and win caps, cycle time, autoplay, turbo, feature buy, jackpots",
+    "Audit log retention period",
+    "Minimum age confirmed against statute",
+    "Named accredited testing companies"
+  ],
+  "consultantNotes": [
+    "Denmark's SCP.01 through SCP.07 is the BEST PUBLIC SKELETON for an internal compliance checklist, because it decomposes RNG, platform, information security, penetration testing and change management into separately auditable units. It is worth using for self-assessment even when Denmark is not a target market.",
+    "SCP.06 is a ready-made change management standard; see steering/change-management-recert.md.",
+    "SCP.03/04/05 are a usable baseline for the security programme; see steering/data-protection-privacy.md section 6."
+  ],
+  "lastUpdated": "2026-07"
+}

@@ -1,0 +1,99 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "PH",
+  "name": "Philippines (PAGCOR) Market Profile - domestic-facing only",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Philippine Amusement and Gaming Corporation (PAGCOR)",
+    "url": "https://www.pagcor.ph",
+    "confidence": "HIGH",
+    "notes": "Regulatory section: https://pagcor.ph/regulatory/"
+  },
+  "bindingStandards": [
+    {
+      "name": "PAGCOR licensing framework for domestic e-games / e-casino / live dealer",
+      "confidence": "HIGH",
+      "notes": "Domestic-facing online gaming is lawful under a PAGCOR licence. OFFSHORE-FACING operations (POGO / IGL) have been PROHIBITED since 2024-12-31 under EO 74."
+    },
+    { "name": "B2B accreditation framework effective 2025-10-02", "confidence": "MEDIUM" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "A Senate bill proposing a minimum bet of PHP 10,000 and minimum top-up of PHP 5,000 is NOT ENACTED. Note it would be a MINIMUM, not a maximum - an affordability measure that would exclude low-stake play."
+    },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": [
+      {
+        "item": "All gambling billboards and out-of-home advertising removed by 2025-08-15; Ads Standards Council pre-approval MOA required",
+        "confidence": "HIGH"
+      }
+    ]
+  },
+  "rtp": {
+    "minimum": {
+      "value": "90% (land-based electronic gaming machines)",
+      "confidence": "HIGH",
+      "source": "PAGCOR form GLDD 971 / CRM F11",
+      "notes": "This figure is for LAND-BASED EGMs. NO ONLINE-SLOT-SPECIFIC RTP FIGURE WAS FOUND - do not assume the 90% carries over to online without confirmation."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": { "nationalScheme": null, "confidence": "UNVERIFIED" },
+  "playerAccount": {
+    "minimumAge": {
+      "value": 21,
+      "confidence": "HIGH",
+      "notes": "Raised to 21 in 2025. Do not assume 18 for this market."
+    }
+  },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": "The remote gaming platform must be PAGCOR-approved and ACCESSIBLE ONLY FROM WITHIN THE PHILIPPINES",
+      "confidence": "HIGH",
+      "notes": "This is a geo-restriction requirement rather than a confirmed server-location mandate. An explicit server-in-country rule is UNVERIFIED."
+    }
+  },
+  "localEntityRequirement": {
+    "value": "All B2B parties - content, aggregation, payments, marketing and testing laboratories - require local PAGCOR accreditation under the framework effective 2025-10-02",
+    "confidence": "MEDIUM",
+    "notes": "A game supplier cannot rely on the operator's licence alone; it needs its own accreditation."
+  },
+  "certification": {
+    "labModel": "Test report from a PAGCOR-accredited Independent Gaming Testing Laboratory (ITL)",
+    "confidence": "HIGH",
+    "notes": "PAGCOR's published accredited-lab list names Eclipse Compliance Testing and GLI Australia. GLI was announced as the first accredited iGAMING ITL on 2026-03-23, with a B2B deadline of 2026-03-31. The full current list of accredited iGaming ITLs is UNVERIFIED."
+  },
+  "recentChanges": [
+    { "date": "2024-12-31", "change": "EO 74 POGO / offshore gaming ban fully effective", "confidence": "HIGH" },
+    { "date": "2025-01-01", "change": "Remote gaming GGR share cut from 35% to 30%", "confidence": "HIGH" },
+    { "date": "2025-08-15", "change": "All gambling billboards and OOH advertising removed; Ads Standards Council pre-approval required", "confidence": "HIGH" },
+    { "date": "2025", "change": "Minimum age raised to 21", "confidence": "HIGH" },
+    { "date": "2025-10-02", "change": "B2B accreditation framework effective for all B2B parties", "confidence": "MEDIUM" },
+    { "date": "2026-03-23", "change": "GLI accredited as the first iGaming ITL", "confidence": "HIGH" }
+  ],
+  "verificationRequired": [
+    "Online-slot-specific minimum RTP (only the 90% land-based EGM figure is verified)",
+    "Explicit statutory server-location mandate",
+    "Full current list of PAGCOR-accredited iGaming ITLs",
+    "The entire technical constraint matrix",
+    "Responsible gambling requirements, self-exclusion scheme, audit retention",
+    "Status of the Senate minimum-bet bill"
+  ],
+  "consultantNotes": [
+    "The single most important point: the Philippines is now a DOMESTIC-FACING market only. The offshore (POGO) model is prohibited. Any client whose plan is 'get a Philippine licence to serve players elsewhere' is describing a model that no longer exists.",
+    "The 90% figure circulating for the Philippines is a land-based EGM requirement. Do not apply it to an online product without confirmation.",
+    "Minimum age is 21, and B2B suppliers need their own PAGCOR accreditation. Both are commonly missed."
+  ],
+  "lastUpdated": "2026-07"
+}

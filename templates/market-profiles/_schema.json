@@ -1,0 +1,61 @@
+{
+  "templateType": "slot-machine-expert/market-profile-schema-v2",
+  "description": "Schema for slot machine market compliance profiles. Every regulatory value is wrapped in a confidence-annotated object so that consultants never cite an unverified number as fact.",
+  "confidenceLevels": {
+    "HIGH": "Confirmed from the regulator's official document, the statute text, or the standard body text. Usable as a design baseline.",
+    "MEDIUM": "From a regulator website summary, an authoritative industry source, or a law firm analysis. Usable as a planning assumption but MUST be upgraded to HIGH before certification submission.",
+    "UNVERIFIED": "Not confirmed. A guessed value MUST NOT be filled in. Must be added to verificationRequired."
+  },
+  "valueObject": {
+    "value": "The regulatory value. Use null when unknown, and set confidence to UNVERIFIED. Use \"none\" (string) when the market has been confirmed to impose no such limit.",
+    "confidence": "HIGH | MEDIUM | UNVERIFIED",
+    "source": "Citation precise enough to retrieve: instrument name plus article/section number.",
+    "notes": "Optional. Caveats, measurement basis, engineering implications."
+  },
+  "requiredTopLevelFields": [
+    "templateType",
+    "marketCode",
+    "name",
+    "legalStatus",
+    "regulator",
+    "productConstraints",
+    "rtp",
+    "playerAccount",
+    "auditLog",
+    "dataResidency",
+    "certification",
+    "verificationRequired",
+    "lastUpdated"
+  ],
+  "legalStatusValues": [
+    "regulated",
+    "regulated-provincial-crown",
+    "compact-based",
+    "prohibited",
+    "grey",
+    "offshore-only",
+    "in-transition"
+  ],
+  "featureStatusValues": [
+    "allowed",
+    "restricted",
+    "prohibited",
+    "unverified"
+  ],
+  "productConstraintKeys": {
+    "minGameCycleMs": "Minimum time from game start to when the next cycle may begin. Note whether it is a hard per-round floor or an average.",
+    "maxStakePerSpin": "Maximum stake per game round. Note any age or behavioural risk tiering.",
+    "maxWinPerRound": "Win cap per round or per prize. Note the basis.",
+    "autoplay": "featureStatus plus restrictions.",
+    "turboSlamStop": "Any feature that shortens the time to result.",
+    "featureBuy": "Bonus buy / feature purchase.",
+    "jackpots": "Progressive or accumulated prizes.",
+    "multiGame": "Simultaneous play of multiple games, split screen, parallel play.",
+    "celebrationOfNonWin": "Audio or visual win celebration where the return is less than or equal to the stake.",
+    "otherProhibitions": "Array of market specific bans that do not fit the keys above."
+  },
+  "notes": [
+    "An absence of a published rule is NOT proof that no rule exists. Many technical limits sit in licence conditions that are not public. Record such cases as UNVERIFIED, not as \"none\".",
+    "This profile is a technical compliance starting point, not legal advice. See steering/jurisdiction-matrix.md section 0."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "PT",
+  "name": "Portugal (SRIJ) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Servico de Regulacao e Inspecao de Jogos (SRIJ), part of Turismo de Portugal",
+    "url": "https://www.srij.turismodeportugal.pt/",
+    "confidence": "MEDIUM",
+    "notes": "Site not fetched during research."
+  },
+  "bindingStandards": [
+    { "name": "Decreto-Lei n.º 66/2015, Regime Juridico dos Jogos e Apostas Online (RJO)", "confidence": "MEDIUM" },
+    { "name": "SRIJ technical requirements and per-game regulamentos", "confidence": "MEDIUM" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": { "minimum": { "value": null, "confidence": "UNVERIFIED" }, "disclosure": { "value": null, "confidence": "UNVERIFIED" } },
+  "responsibleGaming": {
+    "playerTools": {
+      "value": "Licensees must offer deposit and wager limits and a play-break facility",
+      "confidence": "MEDIUM"
+    }
+  },
+  "selfExclusion": {
+    "nationalScheme": "SRIJ central autoexclusao",
+    "integrationMandatory": true,
+    "confidence": "MEDIUM",
+    "notes": "SRIJ launched a REDESIGNED CENTRALISED SELF-EXCLUSION PORTAL ON 2026-04-08, with reported operator integration difficulties. Any pre-2026 integration must be revalidated."
+  },
+  "playerAccount": { "minimumAge": { "value": 18, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "Historically hosting or mirroring in Portugal or the EU with SRIJ access."
+    }
+  },
+  "certification": { "labModel": null, "confidence": "UNVERIFIED" },
+  "recentChanges": [
+    {
+      "date": "2026-04-08",
+      "change": "New centralised self-exclusion portal live, with reported operator integration challenges",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "verificationRequired": [
+    "The new self-exclusion portal integration specification - immediate practical priority",
+    "The entire technical constraint matrix",
+    "Minimum RTP and disclosure requirements",
+    "Data residency, audit retention, accepted laboratories"
+  ],
+  "consultantNotes": [
+    "This profile is a research skeleton. The one time-critical item is the April 2026 self-exclusion portal migration, which has reportedly caused integration problems for operators."
+  ],
+  "lastUpdated": "2026-07"
+}

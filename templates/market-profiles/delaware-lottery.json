@@ -1,0 +1,74 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "US-DE",
+  "name": "Delaware (Delaware Lottery) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Delaware Lottery, Office of the State Lottery, Department of Finance",
+    "url": "https://delottery.com",
+    "confidence": "HIGH",
+    "notes": "Enforcement co-regulator: Delaware Division of Gaming Enforcement, Department of Safety and Homeland Security (created by HB 310, 145th GA). Official URL UNVERIFIED."
+  },
+  "bindingStandards": [
+    { "name": "10 DE Admin. Code 203 (Video Lottery and Table Game Regulations)", "url": "https://regulations.delaware.gov/AdminCode/title10/203", "confidence": "HIGH" },
+    { "name": "29 Del. C. Ch. 48, including section 4805 (rulemaking) and section 4826 (Internet lottery)", "confidence": "MEDIUM" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": "87% to 95% annually (land-based video lottery)",
+      "confidence": "HIGH",
+      "source": "29 Del. C. section 4805 as amended; Delaware Lottery states all games must return between 87% and 95% of wagers annually",
+      "notes": "Not less than 87% of total proceeds on an AVERAGE ANNUAL basis. This is an annual-average obligation, structurally different from a per-game theoretical floor. Charitable video lottery machines: not less than 60% and not greater than 86% annually (29 Del. C. section 4819A, MEDIUM). Whether the 87-95% band applies to iGaming is UNVERIFIED."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": {
+    "nationalScheme": "Delaware Lottery iGaming Self-Exclusion Program",
+    "url": "https://delottery.com/More/iGaming/Self-Exclusion-Program/",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "notes": "Entering a gaming area while on the list is a Class A misdemeanour, and winnings collected while listed are subject to FORFEITURE. Relevant to incident handling: see steering/incident-malfunction-handling.md section 4.1."
+  },
+  "playerAccount": { "minimumAge": { "value": 21, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": "Internet lottery games may not be conducted unless the software or equipment can verify the player is physically present in the State",
+      "confidence": "MEDIUM",
+      "source": "29 Del. C. section 4826(b)"
+    }
+  },
+  "certification": { "labModel": null, "confidence": "UNVERIFIED" },
+  "recentChanges": [
+    {
+      "date": "2025-03",
+      "change": "Final regulations adopted revising in-person enrollment and removal requirements for self-exclusion under 10 DE Admin. Code 203 (28 DE Reg 665)",
+      "confidence": "HIGH"
+    }
+  ],
+  "verificationRequired": [
+    "Whether a distinct internet-gaming technical standards chapter exists, and its Admin Code number",
+    "Whether the 87-95% band applies to iGaming or only to physical video lottery",
+    "Delaware Division of Gaming Enforcement official URL",
+    "The entire technical constraint matrix",
+    "Audit log retention, accepted laboratories"
+  ],
+  "consultantNotes": [
+    "Delaware's RTP obligation is expressed as an ANNUAL AVERAGE across proceeds, not a per-game theoretical percentage. That is an operator-level reporting obligation as much as a game design constraint, and it changes who owns compliance.",
+    "Delaware is a small market operating on a lottery-led model. Confirm whether the product is being supplied to the Lottery rather than to a commercial operator, because that changes the contracting and approval path."
+  ],
+  "lastUpdated": "2026-07"
+}

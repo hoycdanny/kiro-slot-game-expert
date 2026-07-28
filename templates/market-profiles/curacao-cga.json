@@ -1,0 +1,80 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "CW",
+  "name": "Curacao (CGA) Market Profile - LOK transition",
+  "legalStatus": "in-transition",
+  "regulator": {
+    "name": "Curacao Gaming Authority (CGA), formerly the Gaming Control Board",
+    "url": "https://gamingcontrolcuracao.org",
+    "confidence": "HIGH",
+    "notes": "Licence portal: https://portal.gamingcontrolcuracao.org"
+  },
+  "bindingStandards": [
+    {
+      "name": "LOK - Landsverordening op de kansspelen (P.B. 2024 no. 157)",
+      "confidence": "HIGH",
+      "notes": "Offering online gaming in or from Curacao WITHOUT a CGA licence is prohibited, and that prohibition explicitly extends to entities that directly or indirectly control player databases and player transactions. THE OLD MASTER / SUB-LICENCE MODEL NO LONGER EXISTS."
+    },
+    { "name": "LOK Article 5.17 - certification of gaming test houses", "confidence": "HIGH" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": { "value": null, "confidence": "UNVERIFIED", "notes": "No published minimum RTP or payout percentage located in LOK material." },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": { "nationalScheme": null, "confidence": "UNVERIFIED" },
+  "playerAccount": { "minimumAge": { "value": null, "confidence": "UNVERIFIED" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": { "value": null, "confidence": "UNVERIFIED", "notes": "No explicit server-location rule found." }
+  },
+  "localEntityRequirement": {
+    "value": "HARD REQUIREMENT. Only legal entities established under Curacao law with a statutory seat in Curacao may hold an online gaming or supplier licence, and the entity must be managed by at least one natural-person managing director RESIDENT IN CURACAO (or by a Curacao company with such a director).",
+    "confidence": "HIGH",
+    "notes": "A separate SUPPLIER LICENCE for gaming-related critical services and goods applies to suppliers established in Curacao and takes effect two years after LOK entry into force. B2B game suppliers should check whether they fall within this."
+  },
+  "certification": {
+    "labModel": "Technical certification via gaming test houses that themselves hold a CGA certificate under LOK Article 5.17",
+    "confidence": "HIGH",
+    "notes": "CGA publishes a register of Article 5.17 certificate holders (edition dated 2026-01-16). The NAMES of certified test houses are UNVERIFIED because the register PDF was not machine-readable. Verify a test house holds a current Article 5.17 certificate before engaging it."
+  },
+  "recentChanges": [
+    { "date": "2024-12", "change": "LOK in force. Master licences revoked; former sub-licensees pushed onto direct CGA licences", "confidence": "HIGH" },
+    { "date": "2025-06-24", "change": "First provisional LOK licence term expired (6 months)", "confidence": "HIGH" },
+    { "date": "2025-10-15", "change": "Widely reported transition cut-off for legacy sublicence operators", "confidence": "MEDIUM" },
+    { "date": "2025-12-24", "change": "Second provisional term expiry, ahead of indefinite licences", "confidence": "MEDIUM" },
+    {
+      "date": "2026-07",
+      "change": "CGA issued WIND-DOWN RULES: operators refused a second provisional term or an indefinite licence get six weeks to wind down, must stop using the CGA seal, stop new business, stop all wagering, and file a signed wind-down report",
+      "confidence": "MEDIUM"
+    },
+    { "date": "2026", "change": "Licensing portal reopened with an application surge; CGA running a public enforcement register and issuing clone-domain warnings", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "WHICH LICENCE STATE A GIVEN OPERATOR IS ACTUALLY IN - provisional, indefinite, or winding down. This is the first question for any Curacao engagement",
+    "Names of CGA-certified Article 5.17 gaming test houses",
+    "Any minimum RTP or payout requirement",
+    "Exact LOK entry-into-force date from an official source",
+    "The entire technical constraint matrix",
+    "Whether a B2B game supplier requires a supplier licence, and from when",
+    "Server location rule, audit retention, RG requirements, minimum age"
+  ],
+  "consultantNotes": [
+    "CRITICAL: Curacao is no longer the light-touch master-licence jurisdiction it was historically understood to be. The master/sub-licence model is gone, the prohibition reaches entities controlling player databases and transactions, a Curacao-resident managing director is required, and the CGA is now issuing wind-down orders and running a public enforcement register.",
+    "If a client says 'we have a Curacao licence', establish whether that is a legacy sub-licence (no longer valid), a provisional LOK licence (time-limited), or an indefinite LOK licence. These have entirely different risk profiles.",
+    "The technical constraint matrix is almost entirely unverified. Do not read that as permissive - read it as unknown. Certification via an Article 5.17 test house is mandatory regardless."
+  ],
+  "lastUpdated": "2026-07"
+}

@@ -1,0 +1,70 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "IM",
+  "name": "Isle of Man (GSC) Market Profile",
+  "legalStatus": "in-transition",
+  "regulator": {
+    "name": "Gambling Supervision Commission (GSC)",
+    "url": "https://www.gamblingsupervision.im/",
+    "confidence": "MEDIUM",
+    "notes": "Site did not respond during research (HTTP 000)."
+  },
+  "bindingStandards": [
+    { "name": "Online Gambling Regulation Act 2001 (OGRA) and regulations", "confidence": "MEDIUM" },
+    {
+      "name": "Gambling (Amendment) Act 2026",
+      "confidence": "MEDIUM",
+      "notes": "Recently approved. Broadens GSC inspection, investigation and information-gathering powers and enables regulatory directions."
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": { "minimum": { "value": null, "confidence": "UNVERIFIED" }, "disclosure": { "value": null, "confidence": "UNVERIFIED" } },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": {
+    "nationalScheme": "none identified",
+    "integrationMandatory": false,
+    "confidence": "MEDIUM",
+    "notes": "Operator-level only. No GAMSTOP equivalent identified."
+  },
+  "playerAccount": { "minimumAge": { "value": 18, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "OGRA has historically required Isle of Man incorporation with key equipment on-Island or approved elsewhere."
+    }
+  },
+  "certification": {
+    "labModel": "GSC-recognised independent test houses",
+    "confidence": "UNVERIFIED",
+    "notes": "List unconfirmed."
+  },
+  "recentChanges": [
+    { "date": "2026", "change": "Gambling (Amendment) legislation approved, expanding GSC powers", "confidence": "MEDIUM" },
+    { "date": "recent", "change": "GBP 200,000 AML penalty against a former licensee", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "SUBSTANTIVE TECHNICAL STANDARDS FOR SLOTS WERE NOT LOCATED AT ALL. This is the primary gap",
+    "On-Island equipment and incorporation requirements",
+    "GSC-recognised test house list",
+    "Audit retention and RG requirements",
+    "Scope and commencement of the Gambling (Amendment) Act 2026"
+  ],
+  "consultantNotes": [
+    "Isle of Man is a licensing jurisdiction whose substantive technical standards were not publicly locatable in this research. Treat the technical matrix as entirely unknown rather than as permissive.",
+    "The 2026 amendment expands GSC powers, so a licensee should expect more active supervision than the historical baseline."
+  ],
+  "lastUpdated": "2026-07"
+}

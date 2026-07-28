@@ -1,59 +1,157 @@
 {
-  "templateType": "slot-machine-expert/market-profile-v1",
-  "name": "Ontario, Canada (AGCO) Market Profile",
+  "templateType": "slot-machine-expert/market-profile-v2",
   "marketCode": "CA-ON",
-  "regulator": "Alcohol and Gaming Commission of Ontario (AGCO)",
-  "regulatorUrl": "https://www.agco.ca/",
-  "operatingEntity": "iGaming Ontario",
-  "applicableStandards": ["GLI-19", "AGCO iGaming Standards"],
-  "certificationLabs": ["GLI", "BMM Testlabs", "iTech Labs", "eCOGRA"],
-  "rtpRequirements": {
-    "minimumRtp": null,
-    "mustDisplayRtp": true,
-    "rtpDisplayLocation": "Game information section (RTP range)",
-    "notes": "Must provide RTP range in game information"
+  "name": "Ontario, Canada (AGCO) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Alcohol and Gaming Commission of Ontario (AGCO), acting through the Registrar",
+    "url": "https://www.agco.ca/",
+    "confidence": "HIGH",
+    "notes": "Conduct-and-manage entity is iGaming Ontario (iGO). AGCO regulates; iGO contracts with operators."
+  },
+  "bindingStandards": [
+    {
+      "name": "Registrar's Standards for Internet Gaming",
+      "url": "https://www.agco.ca/en/lottery-and-gaming/guides/registrars-standards-internet-gaming",
+      "notes": "In force since 2022-04-04, with amendments. Statutory basis: Gaming Control Act 1992 ss.3.8, 3.9 and O. Reg. 78/12.",
+      "confidence": "HIGH"
+    },
+    {
+      "name": "AGCO Internet Gaming Notification Matrix, March 2026 v1.6",
+      "url": "https://www.agco.ca/sites/default/files/2026-05/AGCO%20Internet%20Gaming%20Notification%20Matrix%20March%202026%20v1-6%20EN%20final.pdf",
+      "notes": "Publicly available and item-by-item. Useful as a skeleton for an internal change-notification process even outside Ontario.",
+      "confidence": "HIGH"
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": {
+      "value": 2500,
+      "confidence": "HIGH",
+      "source": "Standard 2.18",
+      "notes": "It must always be necessary to release and then depress the start button or take equivalent action. Continued contact with a button, key or screen must not initiate a new game cycle."
+    },
+    "maxStakePerSpin": {
+      "value": "none",
+      "confidence": "HIGH",
+      "source": "No maximum stake found in the Registrar's Standards",
+      "notes": "Standard 4.07 requires disclosure of restrictions on play or betting, including maximum wins."
+    },
+    "maxWinPerRound": {
+      "value": "none",
+      "confidence": "HIGH",
+      "source": "No regulator-imposed cap found; maximum wins must be disclosed"
+    },
+    "autoplay": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "Standard 2.16",
+      "notes": "\"Games shall not provide auto-play features for slots.\" CORRECTION: earlier versions of this profile incorrectly recorded autoplay as allowed."
+    },
+    "turboSlamStop": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "Standard 2.19",
+      "notes": "For slots, the system must not permit a customer to reduce the time until the result is presented. Turbo, quick spin and slam stop are not permitted."
+    },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED", "notes": "No prohibition found. Maximum wins must be disclosed under Standard 4.07." },
+    "multiGame": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "Standard 2.17",
+      "notes": "No functionality facilitating simultaneous play of multiple slots games, including split-screen or multi-screen."
+    },
+    "celebrationOfNonWin": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "Standard 2.20",
+      "notes": "No win-associated audio or visual effects for returns less than or equal to the last total amount wagered."
+    },
+    "otherProhibitions": [
+      { "item": "Game design giving a perception that speed of play or skill affects outcome when it does not", "source": "Standard 2.x", "confidence": "HIGH" },
+      { "item": "Bets on minor league sports in Canada, including the CHL (not slot-specific)", "confidence": "HIGH" }
+    ]
+  },
+  "rtp": {
+    "minimum": {
+      "value": "none",
+      "confidence": "HIGH",
+      "source": "No numeric minimum RTP found in the Registrar's Standards",
+      "notes": "Any numeric figure quoted for Ontario is UNVERIFIED. Note that iGO operating agreements are not public and could contain further terms."
+    },
+    "disclosure": {
+      "value": "Restrictions on play or betting, including maximum wins, must be disclosed",
+      "confidence": "HIGH",
+      "source": "Standard 4.07"
+    }
   },
   "responsibleGaming": {
-    "depositLimits": {
-      "required": true,
-      "mustPromptOnRegistration": true,
-      "types": ["daily", "weekly", "monthly"]
+    "playerLimits": {
+      "value": "Players must be able to set financial and time limits at registration and thereafter",
+      "confidence": "HIGH",
+      "source": "Standard 2.23"
     },
-    "selfExclusion": {
-      "required": true,
-      "nationalScheme": "ConnexOntario",
-      "nationalSchemeUrl": "https://www.connexontario.ca/",
-      "phone": "1-866-531-2600"
+    "breakInPlay": { "value": "Break-in-play option required", "confidence": "HIGH", "source": "Standard 2.13" },
+    "netPositionDisplay": {
+      "value": "Slots sessions must display the customer's net position in Canadian dollars",
+      "confidence": "HIGH",
+      "source": "Standard 2.21"
     },
-    "sessionTimeReminder": {
-      "required": true,
-      "interval": "Operator discretion"
-    },
-    "helplineLinks": [
-      { "name": "ConnexOntario", "url": "https://www.connexontario.ca/", "phone": "1-866-531-2600" }
-    ]
+    "timeTracking": { "value": "Players must have the means to track the passage of time", "confidence": "HIGH", "source": "Standard 2.22" },
+    "currency": { "value": "All bets and payouts must be expressed in Canadian currency", "confidence": "HIGH" }
   },
-  "autoplay": {
-    "allowed": true,
-    "restrictions": [
-      "Must provide stop conditions (loss limit, win limit, spin count)"
-    ]
+  "selfExclusion": {
+    "nationalScheme": "Centralized Self-Exclusion Program administered by iGaming Ontario",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "source": "Standard 2.14.1; operator-level programs also required under Standard 2.14",
+    "notes": "Single registration covers all regulated igaming sites in Ontario. Term options of 6 months, 1 year and 5 years. iGO must add registrants no later than ONE HOUR after registration. Operators must block account creation and access, stop marketing within 24 HOURS of registry addition, and cancel and refund outstanding wagers within 24 hours (subject to a carve-out where the event commences within 24 hours). CORRECTION: ConnexOntario is a helpline, NOT the self-exclusion scheme."
   },
-  "localization": {
-    "requiredLanguages": ["en", "fr"],
-    "notes": "Must provide both English and French interfaces"
-  },
-  "dataStorage": {
-    "mustStoreInCanada": true,
-    "notes": "Player data must be stored within Canadian borders"
-  },
-  "ageVerification": {
-    "minimumAge": 19,
-    "verificationRequired": true
+  "helplineLinks": [
+    { "name": "ConnexOntario", "url": "https://www.connexontario.ca/", "phone": "1-866-531-2600", "notes": "Helpline and referral service, not a self-exclusion register." }
+  ],
+  "playerAccount": {
+    "minimumAge": {
+      "value": 19,
+      "confidence": "HIGH",
+      "notes": "An individual under 19 is ineligible, except where at least 18 and accessing the site solely to purchase a lottery ticket."
+    }
   },
   "auditLog": {
-    "retentionPeriod": "5 years",
-    "regulatorAccessRequired": true
+    "retentionPeriod": {
+      "value": "3 years minimum",
+      "confidence": "HIGH",
+      "source": "Standard 1.09",
+      "notes": "Information, including logs, related to compliance with the law, the Standards and Requirements, and adherence with control activities. CORRECTION: earlier versions of this profile recorded 5 years."
+    }
   },
-  "lastUpdated": "2025-06"
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "No server-location requirement found in the Registrar's Standards. CORRECTION: earlier versions of this profile asserted that player data must be stored within Canada; that could not be verified. iGO operating agreements are not public and may contain data location terms."
+    }
+  },
+  "certification": {
+    "labModel": "Registrar approval or certification by an independent testing laboratory registered by the Registrar",
+    "confidence": "HIGH",
+    "source": "Standard 4.08",
+    "notes": "Covers all igaming games, RNGs and igaming system components that accept, process, determine outcome of, display and log details about player bets, INCLUDING SUBSEQUENT MODIFICATIONS. Only Registrar-approved or ITL-certified games and remote gaming servers may be used. The registered ITL list was not retrieved."
+  },
+  "recentChanges": [
+    { "date": "2026-03", "change": "Internet Gaming Notification Matrix v1.6 published", "confidence": "HIGH" },
+    { "date": "recent", "change": "Centralized Self-Exclusion Program requirements added as Standard 2.14.1; the Standard 2.14 operator-program review note is pending", "confidence": "HIGH" }
+  ],
+  "verificationRequired": [
+    "Whether any numeric RTP floor exists outside the Registrar's Standards, e.g. in iGO operating agreements",
+    "Data residency requirements in iGO operating agreements",
+    "Registrar-registered ITL list",
+    "Feature buy and jackpot treatment",
+    "Whether an updated Standards version or date stamp exists beyond the February 2022 amendment markers"
+  ],
+  "consultantNotes": [
+    "Ontario is the closest thing in the Anglo-American system to the UKGC RTS: 2.5s cycle, no autoplay, no turbo/slam stop, no multi-game, no celebration of returns at or below stake. A product built for the UK usually ports to Ontario with modest change, and vice versa.",
+    "Localisation: English and French interfaces are expected in Ontario in practice; confirm the binding source before treating it as a certification requirement."
+  ],
+  "lastUpdated": "2026-07"
 }

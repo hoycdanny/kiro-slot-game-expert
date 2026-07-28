@@ -1,0 +1,71 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "RO",
+  "name": "Romania (ONJN) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Oficiul National pentru Jocuri de Noroc (ONJN)",
+    "url": "https://onjn.gov.ro/",
+    "confidence": "MEDIUM",
+    "notes": "Site not fetched during research."
+  },
+  "bindingStandards": [
+    { "name": "OUG 77/2009 with implementing norms (HG 111/2016)", "confidence": "MEDIUM" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "92% for slot-machine-type games is widely cited from OUG 77/2009, but applicability to ONLINE slots could not be confirmed. Do not assume the land-based figure carries over."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": {
+    "nationalScheme": "ONJN register of self-excluded persons",
+    "integrationMandatory": true,
+    "confidence": "UNVERIFIED",
+    "notes": "Name and URL unconfirmed."
+  },
+  "playerAccount": { "minimumAge": { "value": 18, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "Historically a mirrored safe server accessible in Romania. If confirmed, this is an architectural requirement."
+    }
+  },
+  "certification": {
+    "labModel": "ONJN-authorised testing bodies",
+    "confidence": "UNVERIFIED",
+    "notes": "List unconfirmed."
+  },
+  "recentChanges": [],
+  "verificationRequired": [
+    "Whether the 92% figure applies to online slots or only land-based",
+    "The safe server / data mirroring requirement - architectural",
+    "The entire technical constraint matrix",
+    "Self-exclusion register name, URL and integration mechanics",
+    "ONJN-authorised testing body list",
+    "Audit retention",
+    "2025-2026 regulatory changes"
+  ],
+  "consultantNotes": [
+    "This profile is a research skeleton, not an advisory baseline. Romania was not reached at official-source level during research.",
+    "The commonly quoted 92% is a land-based slot machine figure. Treating it as the online requirement is a typical error; verify before use."
+  ],
+  "lastUpdated": "2026-07"
+}

@@ -1,0 +1,81 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "ES",
+  "name": "Spain (DGOJ) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Direccion General de Ordenacion del Juego (DGOJ)",
+    "url": "https://www.ordenacionjuego.es/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    { "name": "Ley 13/2011", "confidence": "HIGH" },
+    { "name": "RD 958/2020 (comunicaciones comerciales)", "confidence": "HIGH" },
+    { "name": "RD 176/2023 de 14 de marzo (entornos mas seguros de juego)", "confidence": "MEDIUM" },
+    { "name": "DGOJ resoluciones on per-game technical requirements", "confidence": "MEDIUM", "notes": "Which instrument holds slot parameters was not confirmed." }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": [
+      {
+        "item": "Credit-card deposits prohibited for at-risk / intensive players",
+        "confidence": "MEDIUM",
+        "notes": "In force 2024-03-15."
+      }
+    ]
+  },
+  "rtp": { "minimum": { "value": null, "confidence": "UNVERIFIED" }, "disclosure": { "value": null, "confidence": "UNVERIFIED" } },
+  "responsibleGaming": {
+    "saferGamblingEnvironment": {
+      "value": "Session configuration with limits; automatic session termination when a limit is exhausted; option to pre-restrict access to a future session; enhanced protection for under-25s and players with sustained losses; mandatory adherence to DGOJ identity-impersonation prevention systems",
+      "confidence": "MEDIUM",
+      "source": "RD 176/2023 art.15",
+      "notes": "Read via a legislation aggregator, not the BOE. AUTOMATIC SESSION TERMINATION on limit exhaustion is a game-session-layer requirement, not just an account-layer one."
+    }
+  },
+  "selfExclusion": {
+    "nationalScheme": "RGIAJ (Registro General de Interdicciones de Acceso al Juego), DGOJ-operated",
+    "integrationMandatory": true,
+    "confidence": "MEDIUM",
+    "notes": "Mandatory checking. NOTE: \"RUA\" is not Spain's register."
+  },
+  "playerAccount": { "minimumAge": { "value": 18, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "Historically the Unidad Central de Juegos must be DGOJ-accessible and located in Spain or the EEA."
+    }
+  },
+  "certification": { "labModel": null, "confidence": "UNVERIFIED" },
+  "recentChanges": [
+    { "date": "2024", "change": "Staged entry into force of RD 176/2023 continued through 2024", "confidence": "MEDIUM" },
+    {
+      "date": "status unknown",
+      "change": "A further Real Decreto on AGGREGATE PER-PLAYER DEPOSIT LIMITS ACROSS OPERATORS went to public consultation",
+      "confidence": "MEDIUM",
+      "notes": "If adopted, this becomes a central-system integration requirement similar to Germany's Limitdatei. Status must be checked."
+    }
+  ],
+  "verificationRequired": [
+    "Status of the cross-operator aggregate deposit limit Real Decreto - architectural if adopted",
+    "Minimum RTP and the governing DGOJ resolucion",
+    "The entire technical constraint matrix",
+    "Unidad Central de Juegos location requirement",
+    "Audit retention, accepted laboratories"
+  ],
+  "consultantNotes": [
+    "The RD 176/2023 automatic session termination requirement reaches into the game session, not just the wallet. Products that only enforce limits at deposit time will not satisfy it.",
+    "Watch the cross-operator deposit limit proposal. If adopted, Spain joins Germany in requiring central limit integration, which no single operator can implement alone."
+  ],
+  "lastUpdated": "2026-07"
+}

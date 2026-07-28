@@ -1,0 +1,138 @@
+{
+  "templateType": "slot-machine-expert/market-entry-roadmap-v1",
+  "description": "Market entry and remediation roadmap. Phase 4 of the advisory engagement (see steering/advisory-engagement.md section 1).",
+  "sequencingPrinciples": [
+    "1. Red flags first. Non-CSPRNG outcome determination and client-side outcome determination block certification everywhere and require core rework.",
+    "2. Architectural differences before feature differences. Data residency, jackpot presence and RTP target change the design; an autoplay flag does not.",
+    "3. Strictest market first. Certifying the strictest market forces resolution of the hardest technical and documentation problems, and those results are reusable. Reverse sequencing usually requires substantial rework.",
+    "4. Run verification work in parallel with development. Resolving an UNVERIFIED value can take weeks (written regulator enquiry, counsel opinion). Do not schedule it after development."
+  ],
+  "externalLeadTimeItems": [
+    "Independent test laboratory scheduling",
+    "Regulator review cycles",
+    "Germany: per-game GGL permission, including supplying a playable build",
+    "Brazil: Portuguese-language certification filings via SIGAP, and confirming the certifier's current accreditation standing",
+    "Legal opinions from local counsel",
+    "Operator integration test windows",
+    "Central system integration onboarding (LUGAS, Limitdatei, OASIS, Spelpaus, CRUKS, ROFUS, GAMSTOP, iGO, SAFE/TamperToken)",
+    "Curacao: establishing a Curacao entity with a resident managing director",
+    "Brazil: establishing a Brazilian entity with a 20% local shareholder and a .bet.br domain",
+    "Philippines: separate PAGCOR accreditation for each B2B party"
+  ],
+  "engagement": {
+    "client": "",
+    "preparedBy": "",
+    "date": "",
+    "anchorMarket": "",
+    "anchorMarketRationale": "Which market is being certified first, and why it is the strictest in scope"
+  },
+  "phases": [
+    {
+      "phase": 0,
+      "name": "Red flag remediation",
+      "gate": "No red flag remains open",
+      "tasks": [
+        { "task": "Replace any non-cryptographic RNG in outcome determination", "owner": "", "dueDate": "", "blocksAllMarkets": true },
+        { "task": "Move all outcome determination server-side; remove client derivability", "owner": "", "dueDate": "", "blocksAllMarkets": true },
+        { "task": "Reconcile production builds against valid certification reports", "owner": "", "dueDate": "", "blocksAllMarkets": true },
+        { "task": "Close any path allowing self-excluded or under-age players to bet", "owner": "", "dueDate": "", "blocksAllMarkets": true }
+      ]
+    },
+    {
+      "phase": 1,
+      "name": "Market scoping and legal status confirmation",
+      "gate": "Every in-scope market has a confirmed lawful path",
+      "tasks": [
+        { "task": "Remove prohibited and grey markets from scope, or obtain local counsel opinion", "owner": "", "dueDate": "" },
+        { "task": "Confirm client role (B2B supplier / operator / platform / self-operated) and the responsibility matrix", "owner": "", "dueDate": "" },
+        { "task": "Confirm DATA RESIDENCY for every in-scope market", "owner": "", "dueDate": "", "notes": "Architectural. Must be settled before design commitments." },
+        { "task": "Confirm local entity and shareholding requirements", "owner": "", "dueDate": "" },
+        { "task": "Select the anchor (strictest) market", "owner": "", "dueDate": "" }
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "Verification of MEDIUM and UNVERIFIED values",
+      "gate": "Every value used in the product specification is HIGH confidence, or is an accepted named risk",
+      "runsInParallelWith": [3, 4],
+      "tasks": [
+        { "task": "Retrieve primary instruments for every product-driving value", "owner": "", "dueDate": "" },
+        { "task": "Submit written regulator enquiries where public sources are insufficient", "owner": "", "dueDate": "", "notes": "Long lead time. Start early." },
+        { "task": "Obtain licence condition summaries from operator partners (B2B)", "owner": "", "dueDate": "" },
+        { "task": "Confirm the current accreditation standing of each intended test laboratory", "owner": "", "dueDate": "" }
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "Architectural remediation",
+      "gate": "Architecture supports all in-scope markets",
+      "tasks": [
+        { "task": "Deployment topology aligned to data residency requirements", "owner": "", "dueDate": "" },
+        { "task": "maxStake refactored to a runtime-resolvable interface (age and risk tiering)", "owner": "", "dueDate": "" },
+        { "task": "Server-side enforced capability flags for autoplay, turbo, multi-game", "owner": "", "dueDate": "" },
+        { "task": "Session state machine supporting forced breaks (Germany 5-minute wait)", "owner": "", "dueDate": "" },
+        { "task": "Audit data classified with per-category retention and deletion rules", "owner": "", "dueDate": "" },
+        { "task": "Central system integrations built fail-closed, with all required checkpoints", "owner": "", "dueDate": "" },
+        { "task": "Separate maths model where jackpots must be removed and RTP redistributed", "owner": "", "dueDate": "" },
+        { "task": "Disconnect recovery, multi-stage persistence, wallet idempotency, game recall", "owner": "", "dueDate": "" }
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "Mathematics verification and documentation",
+      "gate": "PAR sheet complete and internally verified",
+      "tasks": [
+        { "task": "Theoretical RTP by enumeration or closed form, high-precision arithmetic", "owner": "", "dueDate": "" },
+        { "task": "Determine simulation sample size from target precision and measured sigma", "owner": "", "dueDate": "" },
+        { "task": "Simulate using production code path and production config", "owner": "", "dueDate": "" },
+        { "task": "Reconcile theoretical vs simulated within the 95% confidence interval; per-prize reconciliation", "owner": "", "dueDate": "" },
+        { "task": "Compute RTP for ALL wager configurations including the minimum bet", "owner": "", "dueDate": "" },
+        { "task": "Compute the probability of winning the maximum prize (Germany disclosure, Brazil 1-in-100-million rule)", "owner": "", "dueDate": "" },
+        { "task": "Compute effective hit frequency (returns exceeding stake) for celebration rules", "owner": "", "dueDate": "" },
+        { "task": "Produce the PAR sheet, all 15 sections, bound to the build hash", "owner": "", "dueDate": "" },
+        { "task": "Produce the seven certification documents", "owner": "", "dueDate": "", "notes": "See steering/certification-prep.md section 3." }
+      ]
+    },
+    {
+      "phase": 5,
+      "name": "Anchor market certification",
+      "gate": "Certification report obtained for the anchor market",
+      "tasks": [
+        { "task": "Pre-submission self-check against the submission checklist", "owner": "", "dueDate": "" },
+        { "task": "Engage the laboratory and book the slot", "owner": "", "dueDate": "", "notes": "External lead time." },
+        { "task": "Source code review support (UK requires RNG implementation review)", "owner": "", "dueDate": "" },
+        { "task": "Remediate laboratory findings", "owner": "", "dueDate": "" },
+        { "task": "Regulator filing (e.g. UK Games Register before release)", "owner": "", "dueDate": "" }
+      ]
+    },
+    {
+      "phase": 6,
+      "name": "Additional market rollout",
+      "gate": "Each market has its own valid approval",
+      "tasks": [
+        { "task": "Per-market delta assessment against the anchor certification", "owner": "", "dueDate": "" },
+        { "task": "Germany: per-game GGL permission application with playable build", "owner": "", "dueDate": "", "notes": "Sequential and revocable. Schedule accordingly." },
+        { "task": "Brazil: certification by an SPA-recognised certifier, filings in Portuguese via SIGAP", "owner": "", "dueDate": "" },
+        { "task": "Ontario: Registrar approval or registered ITL certification, including subsequent modifications", "owner": "", "dueDate": "" },
+        { "task": "Per-market central system integration testing", "owner": "", "dueDate": "" }
+      ]
+    },
+    {
+      "phase": 7,
+      "name": "Operational readiness and ongoing compliance",
+      "gate": "Ongoing obligations have owners and a cadence",
+      "tasks": [
+        { "task": "Build-to-certification mapping table in place", "owner": "", "dueDate": "" },
+        { "task": "Pre-deployment compliance gate operating, hotfixes included", "owner": "", "dueDate": "" },
+        { "task": "Change classification framework adopted", "owner": "", "dueDate": "" },
+        { "task": "Quarterly regulatory change review scheduled", "owner": "", "dueDate": "" },
+        { "task": "Live RTP monitoring with statistically-based alert thresholds", "owner": "", "dueDate": "" },
+        { "task": "Incident procedure with automated evidence preservation", "owner": "", "dueDate": "" },
+        { "task": "Annual audits scheduled where required (UK: games testing and independent security audit)", "owner": "", "dueDate": "" }
+      ]
+    }
+  ],
+  "marketSequence": [
+    { "order": 1, "market": "", "role": "anchor", "targetDate": "", "dependencies": [], "notes": "" }
+  ]
+}

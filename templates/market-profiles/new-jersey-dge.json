@@ -1,0 +1,79 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "US-NJ",
+  "name": "New Jersey (DGE) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "New Jersey Division of Gaming Enforcement (DGE)",
+    "url": "https://www.njoag.gov/about/divisions-and-offices/division-of-gaming-enforcement-home/",
+    "confidence": "HIGH",
+    "notes": "Licensing co-regulator: NJ Casino Control Commission, https://www.nj.gov/casinos"
+  },
+  "bindingStandards": [
+    { "name": "N.J.A.C. 13:69E (gaming equipment / slot machines)", "confidence": "HIGH" },
+    { "name": "N.J.A.C. 13:69O (internet gaming)", "url": "http://www.nj.gov/oag/ge/docs/Regulations/CHAPTER69O.pdf", "confidence": "HIGH", "notes": "Remote Gaming System rules at 13:69O-3.1." }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": "83% (land-based slot machines)",
+      "confidence": "MEDIUM",
+      "source": "N.J.A.C. 13:69E-1.28A(a)",
+      "notes": "83% theoretical RTP for each slot machine game requiring a wager. Skill-based games under 13:69E-1.28Y are EXEMPT from a minimum theoretical RTP. WHETHER THE 83% FLOOR APPLIES TO INTERNET SLOTS VIA 13:69O WAS NOT CONFIRMED - this is the key open question for an online product."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": {
+    "nationalScheme": "New Jersey Casino Gambling Self-Exclusion Program",
+    "url": "https://www.nj.gov/casinos/services/problem/",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "notes": "Separately selectable for land-based casinos/sports facilities, internet gaming/sports wagering, or both. A product must not assume a single combined list."
+  },
+  "playerAccount": { "minimumAge": { "value": 21, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": "Internet gaming computer equipment must be located in Atlantic City / New Jersey so that wagers are deemed placed there",
+      "confidence": "MEDIUM"
+    }
+  },
+  "certification": {
+    "labModel": "DGE approves independent testing laboratories",
+    "confidence": "UNVERIFIED",
+    "notes": "Current approved list not retrieved."
+  },
+  "recentChanges": [
+    {
+      "date": "2025-03-31",
+      "change": "NJ Governor's Responsible Gaming Task Force final report issued, covering online casino, sweepstakes, event-based contracts and skill-based wagering as under-regulated areas",
+      "url": "https://www.nj.gov/oag/ge/2025news/RGTF_Final_Report_to_GO_3.31.25.pdf",
+      "confidence": "HIGH",
+      "notes": "Signals likely future tightening for online casino. Worth reading as a forward indicator."
+    }
+  ],
+  "verificationRequired": [
+    "Whether the 83% floor applies to internet slot games via 13:69O - highest priority for online products",
+    "The DGE standalone technical standards document set (titles, versions, URLs) as distinct from the N.J.A.C. chapters",
+    "Minimum game cycle duration, stake and win caps, autoplay treatment",
+    "Audit log retention",
+    "Approved ITL list"
+  ],
+  "consultantNotes": [
+    "New Jersey is a mature US online casino market but its published technical constraints are thin relative to the UK or Ontario. Expect substantive requirements in the DGE technical standards document set and in licence conditions rather than in the code chapters.",
+    "The 2025 Responsible Gaming Task Force report is a forward indicator: plan for online casino RG requirements to tighten."
+  ],
+  "lastUpdated": "2026-07"
+}

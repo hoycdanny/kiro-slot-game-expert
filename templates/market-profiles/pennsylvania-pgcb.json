@@ -1,0 +1,73 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "US-PA",
+  "name": "Pennsylvania (PGCB) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Pennsylvania Gaming Control Board (PGCB)",
+    "url": "https://gamingcontrolboard.pa.gov",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    { "name": "58 Pa. Code Ch. 461a (slot machine, table game device, interactive game, sports wagering device, VGT and associated equipment testing and controls)", "confidence": "HIGH" },
+    { "name": "58 Pa. Code Ch. 1112a (VGTs)", "confidence": "HIGH" },
+    {
+      "name": "PGCB Technical Standards section 461b series",
+      "url": "https://gamingcontrolboard.pa.gov/regulations/statement-policy-and-technical-standard",
+      "confidence": "HIGH"
+    },
+    { "name": "58 Pa. Code Ch. 503 (self-exclusion)", "confidence": "HIGH" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": "85% minimum, and must not equal or exceed 100%",
+      "confidence": "HIGH",
+      "source": "58 Pa. Code section 461a.7(a) (MEDIUM); PGCB Technical Standard section 461b.6 (HIGH)",
+      "notes": "Computed at the LOWEST possible single-play wager for the 85% floor, and at the HIGHEST eligible wager for the sub-100% ceiling. PGCB Technical Standard section 461b.6 (Software Submissions) states that a theoretical payout percentage below 85% or at/above 100% WILL NOT BE CONSIDERED OR APPROVED. Identical rule for VGTs at section 1112a.7(a). Whether a distinct interactive-game figure exists is UNVERIFIED.",
+      "engineeringImplication": "Because the floor is measured at the LOWEST single-play wager, any design where RTP rises with stake (ante bet, extra paylines unlocked by higher stakes) risks failing at the minimum bet. See steering/math-verification.md section 3.2."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": {
+    "nationalScheme": "PGCB Self-Exclusion Programs - SEPARATE Casino, iGaming, VGT and Fantasy lists",
+    "url": "https://pgcb.pa.gov/SelfExclusion",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "notes": "FOUR separate lists. This is the strongest example of why a self-exclusion integration must not assume one list per jurisdiction. Also https://responsibleplay.pa.gov/self-exclusion/"
+  },
+  "playerAccount": { "minimumAge": { "value": 21, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": { "requirement": { "value": null, "confidence": "UNVERIFIED" } },
+  "certification": {
+    "labModel": "PGCB certifies gaming laboratories",
+    "confidence": "UNVERIFIED",
+    "notes": "Current list not retrieved."
+  },
+  "recentChanges": [
+    { "date": "FY2024-25", "change": "PGCB gaming revenue exceeded USD 7B for the first time (context only)", "confidence": "HIGH" }
+  ],
+  "verificationRequired": [
+    "Whether a distinct interactive-game minimum RTP exists (e.g. 58 Pa. Code Ch. 809a/810a) or whether 461a.7's 85% governs interactive games",
+    "PGCB approved laboratory list",
+    "PGCB retention requirements",
+    "Minimum game cycle duration, stake and win caps, autoplay treatment"
+  ],
+  "consultantNotes": [
+    "Pennsylvania has the highest confirmed RTP floor among the US states researched (85%), and unusually the technical standard states outright that non-conforming submissions will not be considered. This makes PA a good anchor market for setting a catalogue-wide minimum RTP.",
+    "The lowest-wager measurement basis is the practical trap. Verify the RTP at the minimum bet, not the headline configuration."
+  ],
+  "lastUpdated": "2026-07"
+}

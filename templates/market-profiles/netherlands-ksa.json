@@ -1,0 +1,75 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "NL",
+  "name": "Netherlands (KSA) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Kansspelautoriteit (KSA)",
+    "url": "https://www.kansspelautoriteit.nl/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    { "name": "Wet op de kansspelen (Wok) as amended by the Wet Kansspelen op Afstand, in force 2021-04-01", "confidence": "HIGH" },
+    { "name": "Besluit kansspelen op afstand (BWBR0044773)", "confidence": "HIGH" },
+    { "name": "Regeling kansspelen op afstand (Stcrt. 2021-41355)", "confidence": "HIGH" },
+    { "name": "Ksa Beleidsregels verantwoord spelen", "confidence": "MEDIUM" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": { "minimum": { "value": null, "confidence": "UNVERIFIED" }, "disclosure": { "value": null, "confidence": "UNVERIFIED" } },
+  "responsibleGaming": {
+    "limitsAndIntervention": {
+      "value": "Mandatory limit-setting with operator intervention duties. Net-loss thresholds trigger mandatory operator contact, commonly reported as EUR 350 per month for ages 18-24 and EUR 700 per month for 25 and over, from 2024-10-01.",
+      "confidence": "MEDIUM",
+      "notes": "Could not be confirmed against the Beleidsregels verantwoord spelen; wetten.overheid.nl returned 404 for the article versions attempted. NOTE the AGE-BANDED threshold, which requires player age at the monitoring layer."
+    }
+  },
+  "selfExclusion": {
+    "nationalScheme": "CRUKS (Centraal Register Uitsluiting Kansspelen), Ksa-operated",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "notes": "Checking is mandatory before granting access, both online and in arcades."
+  },
+  "playerAccount": { "minimumAge": { "value": 18, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "A controledatabank / data vault accessible to the Ksa within the EEA is referenced but unconfirmed."
+    }
+  },
+  "certification": { "labModel": null, "confidence": "UNVERIFIED" },
+  "recentChanges": [
+    { "date": "2025-07", "change": "Sports sponsorship ban", "confidence": "MEDIUM" },
+    { "date": "2025-2026", "change": "Government concluded prior advertising measures were insufficient; further restriction under consideration", "confidence": "MEDIUM" },
+    {
+      "date": "2026-07-03",
+      "change": "Dutch Supreme Court ruling on historical player-loss reclaims against Malta-licensed operators",
+      "confidence": "MEDIUM",
+      "notes": "Liability exposure, not game design. Relevant when advising clients who rely on an MGA licence to serve Dutch players."
+    }
+  ],
+  "verificationRequired": [
+    "Net-loss intervention thresholds (EUR 350 / EUR 700) against the Beleidsregels verantwoord spelen",
+    "The entire technical constraint matrix",
+    "Minimum RTP and disclosure requirements",
+    "Controledatabank location requirement",
+    "Audit retention, accepted laboratories"
+  ],
+  "consultantNotes": [
+    "The age-banded net-loss intervention threshold means player age must be available to the behaviour monitoring layer, not only to the access gate. This is the same architectural pattern as UK and German age-tiered stake caps.",
+    "The July 2026 Supreme Court ruling is a reminder that serving Dutch players from an MGA licence carries retrospective civil exposure."
+  ],
+  "lastUpdated": "2026-07"
+}

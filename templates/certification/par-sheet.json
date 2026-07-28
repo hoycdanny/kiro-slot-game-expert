@@ -1,0 +1,144 @@
+{
+  "templateType": "slot-machine-expert/par-sheet-v1",
+  "description": "PAR sheet (Probability and Accounting Report). The formal mathematics document for a slot game and the core artefact reviewed by test laboratories and regulators. See steering/math-verification.md section 3.",
+  "instructions": [
+    "Section 14 (wager configuration matrix) is the most commonly omitted section and the one most likely to fail certification. GLI-11 and GLI-19 both require the minimum RTP to hold across ALL wager configurations.",
+    "Section 8 RTP must match the in-game disclosure exactly.",
+    "Bind this document to a specific build hash (section 1). Certification applies to a build, not to a product."
+  ],
+  "section1_gameIdentification": {
+    "gameName": "",
+    "gameVersion": "",
+    "buildHash": "",
+    "hashAlgorithm": "",
+    "hashDigestBits": null,
+    "mathModelVersion": "",
+    "supplier": "",
+    "documentVersion": "",
+    "documentDate": "",
+    "author": "",
+    "notes": "GLI-11 requires a message digest of at least 128 bits where hashing is used for program identification."
+  },
+  "section2_gameConfiguration": {
+    "reels": null,
+    "rows": null,
+    "paylineCount": null,
+    "winMechanic": "lines | ways | cluster | scatter-pays",
+    "betStructure": "",
+    "currency": "",
+    "minBet": null,
+    "maxBet": null,
+    "betSteps": []
+  },
+  "section3_symbols": [
+    { "id": "", "name": "", "type": "regular | wild | scatter | bonus", "notes": "" }
+  ],
+  "section4_reelStrips": {
+    "mappingType": "physical | virtual-weighted",
+    "physicalStrips": [],
+    "virtualStrips": [],
+    "virtualMappingTable": [],
+    "notes": "Where virtual weighted mapping is used, list BOTH physical and virtual strips. Probability must be computed from the virtual positions; computing from physical symbols yields an incorrect distribution."
+  },
+  "section5_paytable": [
+    { "symbol": "", "count": null, "multiplier": null }
+  ],
+  "section6_paylineDefinitions": {
+    "lines": [],
+    "waysOrClusterRules": "",
+    "notes": "Provide coordinates for each line so probabilities can be independently recomputed."
+  },
+  "section7_rules": {
+    "wildSubstitution": "",
+    "scatterTrigger": "",
+    "multiplierApplication": "",
+    "evaluationOrder": "",
+    "notes": "Evaluation order must be explicit. The implementation and the theoretical calculation must use the same order."
+  },
+  "section8_rtpBreakdown": {
+    "baseGame": null,
+    "freeSpins": null,
+    "bonusRound": null,
+    "jackpot": null,
+    "other": null,
+    "total": null,
+    "calculationMethod": "exhaustive-enumeration | closed-form | hybrid",
+    "arithmeticPrecision": "",
+    "notes": "Compute with rational or high-precision arithmetic. 32-bit float accumulation over tens of millions of terms can shift the third decimal place, which is enough to break agreement with the laboratory's recomputation."
+  },
+  "section9_hitFrequency": {
+    "totalHitFrequency": null,
+    "effectiveHitFrequency": null,
+    "perPrizeHitRates": [],
+    "notes": "effectiveHitFrequency is the proportion of spins returning MORE than the stake. It is required because UK RTS 14F and Ontario Standard 2.20 prohibit celebrating returns at or below the stake. A product driving audio-visual feedback from total hit frequency will breach those rules."
+  },
+  "section10_volatility": {
+    "standardDeviation": null,
+    "volatilityLevel": "low | medium | high | very-high",
+    "maxWinMultiple": null,
+    "probabilityOfMaximumPrize": null,
+    "riskOfRuinCurve": [],
+    "notes": "probabilityOfMaximumPrize is MANDATORY for Germany (GlueStV section 22a(3) requires disclosing it) and is needed for Brazil (the advertised top prize must be winnable at least once per 100 million plays)."
+  },
+  "section11_simulationResults": {
+    "sampleSize": null,
+    "sampleSizeJustification": "",
+    "measuredSigma": null,
+    "simulatedRtp": null,
+    "confidenceInterval95": { "lower": null, "upper": null },
+    "theoreticalRtp": null,
+    "withinConfidenceInterval": null,
+    "usedProductionCodePath": null,
+    "usedProductionConfig": null,
+    "seedReproducible": null,
+    "longTailHandling": "",
+    "notes": "Sample size must be derived from target precision and measured sigma, not from convention. GLI-11 and GLI-19 impose no fixed sample size for software RNGs; the requirement is that the data volume can detect significant deviations with high frequency. Extremely low-frequency high-value prizes should be handled analytically rather than by brute-force simulation - state that treatment in longTailHandling."
+  },
+  "section12_featureDetails": [
+    {
+      "featureName": "",
+      "triggerCondition": "",
+      "triggerProbability": null,
+      "expectedValue": null,
+      "rtpContribution": null,
+      "usesDifferentReelStrips": null,
+      "retriggerProbability": null,
+      "expectedTotalSpinsIncludingRetrigger": null,
+      "notes": "For retriggers, expected total spins converges as n / (1 - p*k). If p*k is at or above 1 the model diverges, which is itself a design error."
+    }
+  ],
+  "section13_jackpotDetails": {
+    "applicable": false,
+    "jackpotType": "",
+    "contributionRate": null,
+    "seedValue": null,
+    "hitProbability": null,
+    "expectedReturn": null,
+    "sharedAcrossGames": null,
+    "sharedAcrossOperators": null,
+    "notes": "Germany PROHIBITS jackpots (GlueStV section 22a(8) Jackpotverbot). A German build requires a separate maths model with the jackpot contribution redistributed, not a disabled flag. See GLI-12 for progressive jackpot requirements."
+  },
+  "section14_wagerConfigurationMatrix": {
+    "configurations": [
+      { "betAmount": null, "rtp": null, "meetsMarketMinimum": null, "notes": "" }
+    ],
+    "lowestWagerRtp": null,
+    "highestWagerRtp": null,
+    "skillInfluenced": false,
+    "rtpAtOptimalPlay": null,
+    "rtpAtLowestSkill": null,
+    "rtpAtHighestSkill": null,
+    "notes": "MANDATORY AND FREQUENTLY OMITTED. GLI-11 and GLI-19 require the minimum RTP to hold for all wager configurations. Pennsylvania measures the 85% floor at the LOWEST single-play wager and the sub-100% ceiling at the HIGHEST eligible wager. Michigan requires RTP at both highest and lowest skill levels where skill affects RTP. GLI-19 section 4.7.1 requires skill-affected games to meet the floor under optimal play. Designs where RTP rises with stake commonly fail at the minimum bet."
+  },
+  "section15_changeLog": [
+    { "version": "", "date": "", "change": "", "classification": "", "rtpImpact": "", "recertificationRequired": null }
+  ],
+  "disclosureConsistency": {
+    "inGameRtpText": "",
+    "matchesSection8": null,
+    "disclosesMaxWin": null,
+    "disclosesMaxPrizeProbability": null,
+    "disclosureLocation": "",
+    "notes": "UK RTS 3C requires RTP or chance of winning to be disclosed before the player commits, and RTS 9 requires jackpot RTP disclosure. Germany section 22a(3) requires the average payout per EUR 1 stake AND the maximum-prize probability at the point the stake is placed. Ontario Standard 4.07 requires disclosure of restrictions including maximum wins."
+  }
+}

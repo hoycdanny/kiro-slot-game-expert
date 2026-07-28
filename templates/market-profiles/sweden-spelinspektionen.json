@@ -1,0 +1,139 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "SE",
+  "name": "Sweden (Spelinspektionen) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Spelinspektionen (Swedish Gambling Authority)",
+    "url": "https://www.spelinspektionen.se/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    {
+      "name": "Spellag (2018:1138), chapters 14 and 16",
+      "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/spellag-20181138_sfs-2018-1138/",
+      "confidence": "HIGH"
+    },
+    { "name": "Spelfoerordning (2018:1475)", "confidence": "HIGH" },
+    { "name": "LIFS 2018:2 on responsible gambling", "confidence": "HIGH" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "No millisecond floor in the Act. A regulation-level requirement was not confirmed."
+    },
+    "maxStakePerSpin": {
+      "value": "none",
+      "confidence": "MEDIUM",
+      "notes": "COVID-era caps have lapsed."
+    },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": {
+      "status": "prohibited",
+      "confidence": "MEDIUM",
+      "source": "Spellag ch.14 section 6",
+      "notes": "The statute requires the player to actively state and confirm the stake at each play, which is effectively an autoplay prohibition. The statutory wording is HIGH; characterising it as an outright ban is MEDIUM. Industry reporting cites a specific Spelinspektionen autoplay and reverse-withdrawal prohibition, but the instrument and commencement date could not be located."
+    },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": [
+      {
+        "item": "Near-miss game design",
+        "source": "Spellag ch.14 section 5",
+        "confidence": "HIGH",
+        "notes": "Directly constrains reel-stop presentation and symbol placement near paylines."
+      },
+      {
+        "item": "Free-play with a different outcome distribution from staked play",
+        "source": "Spellag ch.14 section 5",
+        "confidence": "HIGH",
+        "notes": "The common practice of raising win rates in demo mode to aid conversion is expressly non-compliant here."
+      },
+      { "item": "Credit-funded play", "source": "Spellag ch.14 section 8 (Lag 2026:90)", "confidence": "HIGH" },
+      { "item": "Bonuses beyond the player's FIRST occasion of play", "source": "Spellag ch.14 section 9", "confidence": "HIGH" }
+    ]
+  },
+  "rtp": {
+    "minimum": { "value": "none", "confidence": "HIGH", "source": "No floor in the Act", "notes": "Regulation-level requirement UNVERIFIED." },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": {
+    "mandatoryDepositLimit": {
+      "value": "The player MUST set an upper deposit limit for all online gambling",
+      "confidence": "HIGH",
+      "source": "Spellag ch.14 section 7",
+      "notes": "Mandatory, not merely offered. A loss limit applies instead for vaerdeautomater. Operators must contact customers setting monthly deposit limits above SEK 10,000 (MEDIUM)."
+    },
+    "selfAssessmentTool": { "value": "Mandatory online self-assessment tool", "confidence": "HIGH", "source": "Spellag ch.14 section 10" },
+    "instantSelfExclusion": {
+      "value": "A 24-hour instant self-exclusion button for online casino, online bingo and computer-simulated slots",
+      "confidence": "HIGH",
+      "source": "Spellag ch.14 section 11",
+      "notes": "This is IN ADDITION to Spelpaus. Operator self-exclusion set to indefinite is not reversible for 12 months."
+    },
+    "dutyOfCare": {
+      "value": "Continuous behaviour monitoring with a documented action plan",
+      "confidence": "HIGH",
+      "source": "Spellag ch.14 section 1",
+      "notes": "May involve health-related inferences; see steering/data-protection-privacy.md section 2.2."
+    },
+    "staffTraining": { "value": "Required", "confidence": "HIGH", "source": "Spellag ch.14 section 14" }
+  },
+  "selfExclusion": {
+    "nationalScheme": "Spelpaus.se",
+    "url": "https://www.spelpaus.se/",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "source": "Spellag ch.14 section 12",
+    "notes": "From 2026-08-01 licensees must query it using an authority-issued Actor ID / API key over a defined interface, INCLUDING BEFORE DIRECT MARKETING (MEDIUM). The marketing-time check is easy to miss if self-exclusion is only wired into login and bet placement."
+  },
+  "playerAccount": {
+    "minimumAge": { "value": 18, "confidence": "HIGH", "source": "Spellag ch.14 section 2 (Lag 2025:291)" }
+  },
+  "auditLog": {
+    "retentionPeriod": {
+      "value": "At least 5 years",
+      "confidence": "HIGH",
+      "source": "Spellag ch.16 section 5",
+      "notes": "Covers all data on gaming-system operation. One of the few retention periods confirmed at statute level in any market."
+    }
+  },
+  "dataResidency": {
+    "requirement": {
+      "value": "The gaming system MUST be located in Sweden, unless the operator is supervised by a foreign authority with a supervision agreement with Spelinspektionen, or grants satisfactory remote-access control",
+      "confidence": "HIGH",
+      "source": "Spellag ch.16 section 2",
+      "notes": "The only hard, confirmed data-residency requirement among the European markets verified. This is a DEPLOYMENT ARCHITECTURE decision and must be settled in the first phase of market-entry assessment. Note this is a gambling-law requirement, separate from GDPR transfer rules."
+    }
+  },
+  "certification": {
+    "labModel": "No named laboratory list. Conformity assessment by a body accredited under Regulation (EC) 765/2008",
+    "confidence": "HIGH",
+    "source": "Spellag ch.16 sections 3 and 4",
+    "notes": "Re-assessment on demand at the licensee's cost. Gaming software must come from a holder of a Swedish software supplier permit (ch.11 section 6a)."
+  },
+  "recentChanges": [
+    { "date": "2025", "change": "Lag 2025:291 (minimum age)", "confidence": "HIGH" },
+    { "date": "2026-04", "change": "Lag 2026:90 credit-funded play ban fully effective", "confidence": "HIGH" },
+    { "date": "2026-08-01", "change": "Spelpaus Actor ID / API key credential directive", "confidence": "MEDIUM" },
+    { "date": "2025-12-01", "change": "New vaerdeautomater framework", "confidence": "MEDIUM" },
+    { "date": "2026-03", "change": "Revised supervision fees", "confidence": "MEDIUM" },
+    { "date": "2027-01-01", "change": "Geo-blocking amendments proposed", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "The specific Spelinspektionen regulation and commencement date for the autoplay and reverse-withdrawal prohibition",
+    "Minimum game cycle duration at regulation level",
+    "Minimum RTP at regulation level, and RTP disclosure requirements",
+    "Turbo, feature buy, jackpot and multi-game treatment",
+    "Max win cap"
+  ],
+  "consultantNotes": [
+    "Sweden's distinguishing features are the mandatory (not optional) deposit limit, the near-miss design ban, the free-play parity rule, and the hard in-country gaming system requirement.",
+    "The near-miss ban is a GAME DESIGN constraint, not a platform one. It affects reel-stop presentation and must be reviewed by whoever owns the maths model and the animation spec together."
+  ],
+  "lastUpdated": "2026-07"
+}

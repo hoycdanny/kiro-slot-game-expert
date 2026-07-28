@@ -1,0 +1,163 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "DE",
+  "name": "Germany (GGL) Market Profile - Virtuelle Automatenspiele",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Gemeinsame Gluecksspielbehoerde der Laender (GGL), Halle (Saale)",
+    "url": "https://www.gluecksspiel-behoerde.de/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    {
+      "name": "Gluecksspielstaatsvertrag 2021 (GlueStV 2021) section 22a - Virtuelle Automatenspiele",
+      "url": "https://www.gesetze-bayern.de/Content/Document/StVGlueStV2021-22a",
+      "confidence": "HIGH"
+    },
+    {
+      "name": "GlueStV 2021 section 6h - parallel play, elapsed time, waiting period",
+      "url": "https://www.gesetze-bayern.de/Content/Document/StVGlueStV2021-6h",
+      "confidence": "HIGH"
+    },
+    {
+      "name": "GlueStV 2021 section 6c (Limitdatei) and section 8 (Sperrdatei / OASIS)",
+      "confidence": "HIGH"
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": {
+      "value": 5000,
+      "confidence": "HIGH",
+      "source": "GlueStV section 22a(6)",
+      "notes": "AVERAGE, not a per-round floor. Measured from the player's start declaration to display of the result. An average-based rule requires rolling-average monitoring in the game layer, which is a different implementation from a hard floor."
+    },
+    "maxStakePerSpin": {
+      "value": { "base": "EUR 1", "tiered_from_2026_07_01": { "age18to20": "EUR 1", "age21plus": "EUR 3", "age21plus_no_risk_markers_90d": "EUR 5" } },
+      "confidence": "MEDIUM",
+      "source": "GlueStV section 22a(7) sentence 1 for the EUR 1 base (HIGH); sentence 2 empowers the authority to adjust (HIGH). The tiering and its date are MEDIUM.",
+      "notes": "CRITICAL ENGINEERING IMPLICATION: the EUR 5 tier depends on no problem-gambling indicators in the preceding 90 days. Max stake therefore becomes a runtime service dependency, not a static config value. A real-time risk-scoring service must be queryable from the game session layer. Obtain the GGL Allgemeinverfuegung or licence-condition amendment, including the exact definition of the 90-day test, before building to this."
+    },
+    "maxWinPerRound": {
+      "value": "No cap, but a win must be a multiple of the stake fixed before the game starts",
+      "confidence": "HIGH",
+      "source": "GlueStV section 22a(8) sentence 1"
+    },
+    "autoplay": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "GlueStV section 22a(4)",
+      "notes": "A game may start only on the player's declaration, given only after the previous game ended. Program sequences that autonomously start a further game, and player declarations to take part in several consecutive games, are both expressly impermissible."
+    },
+    "turboSlamStop": {
+      "status": "unverified",
+      "confidence": "UNVERIFIED",
+      "notes": "No explicit ban located, but largely foreclosed by the 5s average floor and the per-game declaration rule (both HIGH)."
+    },
+    "featureBuy": {
+      "status": "unverified",
+      "confidence": "UNVERIFIED",
+      "notes": "Constrained by section 22a(8) sentence 1 (win must be a pre-fixed multiple of the stake) and the stake cap. Flag for legal review."
+    },
+    "jackpots": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "GlueStV section 22a(8) sentence 2 (Jackpotverbot)",
+      "notes": "Stakes and wins may not be accumulated to create wins for future games. Combined with sentence 1, this excludes all accumulated and non-fixed-multiple prize structures. THIS CANNOT BE HANDLED AS A CONFIG FLAG: removing a jackpot changes RTP allocation, so the German build needs a separately verified maths model with the jackpot contribution redistributed into the base game."
+    },
+    "multiGame": {
+      "status": "prohibited",
+      "confidence": "HIGH",
+      "source": "GlueStV section 22a(10) within one operator; section 6h(1)-(4) across operators",
+      "notes": "Only one game may be displayed at a time. Cross-operator parallel play is blocked via the central LUGAS activation file, with a 5-minute waiting period before switching operators and auto-deactivation after 30 minutes of inactivity. A game supplier cannot satisfy this alone; it requires operator-side LUGAS integration."
+    },
+    "celebrationOfNonWin": {
+      "status": "unverified",
+      "confidence": "UNVERIFIED"
+    },
+    "otherProhibitions": [
+      { "item": "Live table game look-alikes (roulette, blackjack, baccarat)", "source": "section 22a(2)", "confidence": "HIGH" },
+      { "item": "Non-euro currency, points or unit conversion before, during or after play", "source": "section 22a(5)", "confidence": "HIGH" },
+      { "item": "The words Casino or Casinospiele in slot operation, self-distribution or advertising", "source": "section 22a(11)", "confidence": "HIGH" },
+      { "item": "Land-based distribution of virtual slots (internet only)", "source": "section 22a(12)", "confidence": "HIGH" }
+    ]
+  },
+  "rtp": {
+    "minimum": { "value": "none", "confidence": "HIGH" },
+    "disclosure": {
+      "value": "Must display the average payout ratio per EUR 1 stake AND the probability of winning the maximum prize, at the point where the stake is placed",
+      "confidence": "HIGH",
+      "source": "GlueStV section 22a(3)",
+      "notes": "The maximum-prize probability is an unusual requirement. It must be explicitly computed and traceable in the PAR sheet."
+    }
+  },
+  "responsibleGaming": {
+    "crossOperatorDepositLimit": {
+      "value": "Monthly deposit limit shared across all operators via the central Limitdatei",
+      "confidence": "HIGH",
+      "source": "GlueStV section 6c",
+      "notes": "Cannot be implemented by a single operator; requires central system integration."
+    },
+    "mandatoryBreak": {
+      "value": "Elapsed-time display plus mandatory notice and explicit acknowledgement every 60 minutes; for virtual slots, further play is permitted only 5 MINUTES AFTER that acknowledgement",
+      "confidence": "HIGH",
+      "source": "GlueStV section 6h(7) and section 22a(9)",
+      "notes": "This is a FORCED BREAK, not a reminder. Requires a session state machine, not just a timer."
+    },
+    "parallelPlayControl": {
+      "value": "No cross-operator parallel play; central activation file; 5-minute waiting period before switching operators; auto-deactivation after 30 minutes inactivity",
+      "confidence": "HIGH",
+      "source": "GlueStV section 6h(1)-(4)"
+    }
+  },
+  "selfExclusion": {
+    "nationalScheme": "OASIS (Sperrdatei)",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "source": "GlueStV section 8",
+    "notes": "Statutory basis HIGH; portal URL MEDIUM."
+  },
+  "centralSystemIntegrations": [
+    { "name": "LUGAS", "purpose": "Cross-operator parallel play control and activation file", "confidence": "HIGH" },
+    { "name": "Limitdatei", "purpose": "Cross-operator monthly deposit limit", "confidence": "HIGH" },
+    { "name": "OASIS", "purpose": "National exclusion register", "confidence": "HIGH" }
+  ],
+  "playerAccount": {
+    "minimumAge": { "value": 18, "confidence": "MEDIUM" }
+  },
+  "auditLog": {
+    "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" },
+    "mandatoryDeletion": {
+      "value": "Parallel-play data MUST be deleted after the waiting period, and other uses are banned",
+      "confidence": "HIGH",
+      "source": "GlueStV section 6h(5)",
+      "notes": "This is a data-minimisation duty that CONFLICTS with a blanket long-retention audit design. Audit data must be classified so that this category can be deleted on schedule."
+    }
+  },
+  "dataResidency": {
+    "requirement": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "certification": {
+    "labModel": "Does not follow the usual ITL model",
+    "confidence": "HIGH",
+    "source": "GlueStV section 22a(1)",
+    "notes": "EACH INDIVIDUAL SLOT GAME requires prior GGL permission on application. A playable version must be supplied to the authority. Material changes require fresh permission. Permission is revocable at any time. Unpermitted slots constitute illegal gambling. This is a scheduling constraint on the product roadmap, not just a testing step."
+  },
+  "recentChanges": [
+    { "date": "2026-07-01", "change": "Stake cap tiering to EUR 1 / EUR 3 / EUR 5", "confidence": "MEDIUM" },
+    { "date": "2025-2026", "change": "LUGAS expanded with Dataport; GGL 2025 activity report; section 32 interim Laender evaluation in progress", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "GGL publication for the EUR 1 to EUR 3 / EUR 5 tiered stake cap, including the exact definition of the 90-day no-problem-gambling-indicator test",
+    "Turbo / slam stop explicit treatment",
+    "Feature buy treatment under section 22a(8)",
+    "Audit log retention period",
+    "Data residency requirements",
+    "Accepted test laboratories, if any, alongside the per-game GGL permission",
+    "Minimum age confirmed against statute"
+  ],
+  "consultantNotes": [
+    "Germany should be treated as a SEPARATE PRODUCT LINE, not a config variant of a UK build. Three factors cannot be expressed as flags: the jackpot ban (changes the maths model), per-game GGL permission (changes the release process), and LUGAS integration (changes the system boundary).",
+    "Germany is the only market verified here that tiers stake limits on BEHAVIOURAL RISK MARKERS, which pushes real-time risk scoring into the game session layer."
+  ],
+  "lastUpdated": "2026-07"
+}

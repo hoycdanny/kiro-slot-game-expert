@@ -1,0 +1,199 @@
+{
+  "templateType": "slot-machine-expert/compliance-gap-assessment-v1",
+  "description": "Structured compliance gap assessment for a slot game product. Used in phase 2 of the advisory engagement (see steering/advisory-engagement.md section 1).",
+  "instructions": [
+    "Score every item as one of: compliant | partial | non-compliant | unverified. Do NOT use a binary pass/fail.",
+    "Every non-compliant item MUST record where it would be caught: lab-testing | regulator-review | post-launch-audit | enforcement. This is the information a client needs most when making trade-offs.",
+    "Red flag items (see redFlags below) are not ordinary gaps. If any is present, escalate before continuing the assessment."
+  ],
+  "engagement": {
+    "client": "",
+    "assessmentDate": "",
+    "assessor": "",
+    "clientRole": "game-supplier-b2b | operator-b2c | platform | self-operated",
+    "targetMarkets": [],
+    "developmentStage": "concept | in-development | complete-pending-certification | live-needing-change",
+    "existingCertifications": [],
+    "gameEngine": "",
+    "productType": ""
+  },
+  "redFlags": [
+    {
+      "id": "RF-1",
+      "item": "Game outcome determined using a non-cryptographic RNG (Math.random, System.Random, FMath::RandRange, rand())",
+      "status": "",
+      "notes": "Product cannot be certified in any market. Requires core logic rewrite, not documentation."
+    },
+    {
+      "id": "RF-2",
+      "item": "Game outcome determined or derivable on the client",
+      "status": "",
+      "notes": "Product cannot be certified. See steering/platform-systems-compliance.md section 2."
+    },
+    {
+      "id": "RF-3",
+      "item": "Production build does not correspond to a valid certification report",
+      "status": "",
+      "notes": "Running uncertified software in production. In Germany this constitutes illegal gambling."
+    },
+    {
+      "id": "RF-4",
+      "item": "Self-excluded or under-age players are able to place bets",
+      "status": "",
+      "notes": "Licence condition breach. Treat as a P1/P2 incident, see steering/incident-malfunction-handling.md."
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "RNG and outcome determination",
+      "reference": "steering/rng-game-logic.md",
+      "items": [
+        { "check": "CSPRNG used for all outcome determination", "status": "", "source": "", "riskLevel": "", "remediationEffort": "", "caughtAt": "" },
+        { "check": "Entropy source and seeding documented and defensible", "status": "", "caughtAt": "" },
+        { "check": "Spin independence: no state carried between rounds that affects outcome", "status": "", "caughtAt": "" },
+        { "check": "Scaling and mapping free of modulo bias (rejection sampling used)", "status": "", "caughtAt": "" },
+        { "check": "Outcome determined server-side and logged before being returned to the client", "status": "", "caughtAt": "" },
+        { "check": "RNG state modified between games, or a cryptographic RNG is used", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D2",
+      "name": "Mathematics model",
+      "reference": "steering/math-model.md, steering/math-verification.md",
+      "items": [
+        { "check": "Theoretical RTP computed by exhaustive enumeration or closed form, using high-precision arithmetic", "status": "", "caughtAt": "" },
+        { "check": "Simulation uses the production code path and production config files", "status": "", "caughtAt": "" },
+        { "check": "Simulated RTP falls within the 95% confidence interval of the theoretical value", "status": "", "caughtAt": "" },
+        { "check": "Per-prize hit rates reconciled", "status": "", "caughtAt": "" },
+        { "check": "RTP computed for ALL wager configurations, including the minimum bet", "status": "", "caughtAt": "" },
+        { "check": "PAR sheet complete (all 15 sections)", "status": "", "caughtAt": "" },
+        { "check": "In-game RTP disclosure matches the PAR sheet", "status": "", "caughtAt": "" },
+        { "check": "Probability of winning the maximum prize computed (required for Germany)", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D3",
+      "name": "Product design constraints",
+      "reference": "steering/jurisdiction-matrix.md section 1",
+      "items": [
+        { "check": "Minimum game cycle time satisfied per market (hard floor vs average handled correctly)", "status": "", "caughtAt": "" },
+        { "check": "Release-and-re-press of the start button enforced; long-press does not start a new cycle", "status": "", "caughtAt": "" },
+        { "check": "Maximum stake per spin enforced, including age tiering where applicable", "status": "", "caughtAt": "" },
+        { "check": "Max stake resolvable at runtime where behavioural risk tiering applies (Germany)", "status": "", "caughtAt": "" },
+        { "check": "Autoplay disabled server-side in markets that prohibit it", "status": "", "caughtAt": "" },
+        { "check": "Turbo / quick spin / slam stop absent in markets that prohibit it", "status": "", "caughtAt": "" },
+        { "check": "Jackpot removed AND RTP redistributed for markets that prohibit jackpots (Germany)", "status": "", "caughtAt": "" },
+        { "check": "Multi-game / split-screen disabled where prohibited", "status": "", "caughtAt": "" },
+        { "check": "No win celebration where the return is at or below the stake", "status": "", "caughtAt": "" },
+        { "check": "No near-miss design (Sweden)", "status": "", "caughtAt": "" },
+        { "check": "Demo mode uses the same outcome distribution as staked play (Sweden)", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D4",
+      "name": "Responsible gambling",
+      "reference": "steering/responsible-gaming.md",
+      "items": [
+        { "check": "Deposit / loss / spend limits with correct periods and precedence", "status": "", "caughtAt": "" },
+        { "check": "Limit-setting default-on with active opt-out (UK RTS 12A/12E)", "status": "", "caughtAt": "" },
+        { "check": "Limit increase cooling-off and positive confirmation; decrease immediate", "status": "", "caughtAt": "" },
+        { "check": "National self-exclusion register integrated, fail-closed", "status": "", "caughtAt": "" },
+        { "check": "Session reminders / reality checks with acknowledgement", "status": "", "caughtAt": "" },
+        { "check": "Forced break implemented where required (Germany 5-minute wait after acknowledgement)", "status": "", "caughtAt": "" },
+        { "check": "Net position display in the correct currency", "status": "", "caughtAt": "" },
+        { "check": "Elapsed time display", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D5",
+      "name": "Audit and logging",
+      "reference": "steering/rng-game-logic.md section 6, steering/platform-systems-compliance.md section 7",
+      "items": [
+        { "check": "All required fields logged, including RNG raw values and intermediate mapping", "status": "", "caughtAt": "" },
+        { "check": "Logs immutable for the retention period", "status": "", "caughtAt": "" },
+        { "check": "Retention period meets each target market requirement", "status": "", "caughtAt": "" },
+        { "check": "Data classified so that mandatory-deletion categories can be deleted (Germany section 6h(5))", "status": "", "caughtAt": "" },
+        { "check": "Regulator access mechanism in place (e.g. Denmark SAFE / TamperToken)", "status": "", "caughtAt": "" },
+        { "check": "Clocks synchronised; consistent time base", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D6",
+      "name": "Platform and systems",
+      "reference": "steering/platform-systems-compliance.md",
+      "items": [
+        { "check": "Submission scope includes RGS, wallet, PAM, jackpot controller and logging subsystem", "status": "", "caughtAt": "" },
+        { "check": "Stake debit, outcome, payout and log write are atomic", "status": "", "caughtAt": "" },
+        { "check": "Disconnect recovery: determined outcomes are honoured", "status": "", "caughtAt": "" },
+        { "check": "Multi-stage feature progress persisted across sessions and instances", "status": "", "caughtAt": "" },
+        { "check": "Wallet transactions idempotent", "status": "", "caughtAt": "" },
+        { "check": "Game recall available with required depth and multi-stage detail", "status": "", "caughtAt": "" },
+        { "check": "Build hash recorded (>=128-bit digest) and bound to the PAR sheet", "status": "", "caughtAt": "" },
+        { "check": "Runtime integrity verification with fail-stop behaviour", "status": "", "caughtAt": "" },
+        { "check": "Interface compliance responsibility matrix agreed with the operator, no orphaned checkpoints", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D7",
+      "name": "AML / KYC",
+      "reference": "steering/aml-kyc-player-account.md",
+      "items": [
+        { "check": "Minimum age configurable (18 / 19 / 21) and correct per market", "status": "", "caughtAt": "" },
+        { "check": "Player age available to the game layer for stake tiering", "status": "", "caughtAt": "" },
+        { "check": "Identity verification completed before real-money play", "status": "", "caughtAt": "" },
+        { "check": "Duplicate account detection", "status": "", "caughtAt": "" },
+        { "check": "Account state machine covers all required states; bet acceptance checks state", "status": "", "caughtAt": "" },
+        { "check": "Game-layer log fields sufficient to support AML monitoring", "status": "", "caughtAt": "" },
+        { "check": "Payment constraints implemented (credit funding bans, reverse withdrawal ban)", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D8",
+      "name": "Data protection",
+      "reference": "steering/data-protection-privacy.md",
+      "items": [
+        { "check": "Data classified with a lawful basis per category", "status": "", "caughtAt": "" },
+        { "check": "Statutory-obligation processing not based on consent", "status": "", "caughtAt": "" },
+        { "check": "Deletion mechanism distinguishes retained-by-law from deletable data", "status": "", "caughtAt": "" },
+        { "check": "DPIA completed for problem-gambling monitoring", "status": "", "caughtAt": "" },
+        { "check": "Data residency reflected in deployment topology", "status": "", "caughtAt": "" },
+        { "check": "Cross-border transfer mechanisms in place, including backups and support access", "status": "", "caughtAt": "" },
+        { "check": "Controller / processor roles match actual processing", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D9",
+      "name": "Change management",
+      "reference": "steering/change-management-recert.md",
+      "items": [
+        { "check": "Build-to-certification mapping table maintained", "status": "", "caughtAt": "" },
+        { "check": "Pre-deployment compliance gate exists", "status": "", "caughtAt": "" },
+        { "check": "Change classification framework in use", "status": "", "caughtAt": "" },
+        { "check": "Regulatory change tracking process with a defined review cadence", "status": "", "caughtAt": "" },
+        { "check": "Hotfix path does not bypass the compliance gate", "status": "", "caughtAt": "" }
+      ]
+    },
+    {
+      "id": "D10",
+      "name": "Documentation readiness",
+      "reference": "steering/certification-prep.md section 3",
+      "items": [
+        { "check": "RNG verification report", "status": "" },
+        { "check": "RTP accuracy evidence", "status": "" },
+        { "check": "Feature logic description", "status": "" },
+        { "check": "Paytable verification", "status": "" },
+        { "check": "Responsible gambling UX design", "status": "" },
+        { "check": "Error handling specification", "status": "" },
+        { "check": "Audit log format specification", "status": "" }
+      ]
+    }
+  ],
+  "summary": {
+    "redFlagCount": 0,
+    "nonCompliantCount": 0,
+    "unverifiedCount": 0,
+    "blockingIssues": [],
+    "recommendedNextStep": ""
+  }
+}

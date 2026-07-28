@@ -1,0 +1,75 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "GI",
+  "name": "Gibraltar (Gambling Division) Market Profile",
+  "legalStatus": "in-transition",
+  "regulator": {
+    "name": "Gibraltar Gambling Division / Gambling Commissioner, HM Government of Gibraltar",
+    "url": "https://www.gibraltar.gov.gi/",
+    "confidence": "MEDIUM",
+    "notes": "The /gambling path returned 404; documents are served under /uploads/Gambling/."
+  },
+  "bindingStandards": [
+    { "name": "Gambling Act 2005 (Gibraltar)", "confidence": "MEDIUM" },
+    {
+      "name": "Remote Technical and Operating Standards (RTOS) v1.0.2012",
+      "url": "https://www.gibraltar.gov.gi/new/sites/default/files/HMGoG_Documents/RTOS%20Final%20Version%201.0.2012_0.pdf",
+      "confidence": "MEDIUM",
+      "notes": "WARNING: this is the 2012 version. A Gambling Bill 2025 and 2026 subsidiary legislation are in train and likely supersede parts of it. DO NOT TREAT AS CURRENT."
+    },
+    { "name": "AML Code for Remote Gambling (2026 update)", "confidence": "MEDIUM" },
+    {
+      "name": "Gambling Bill 2025 (parliament.gi 2025B13) and 2026 subsidiary legislation (2026/064, 2026s065, 2026s088)",
+      "confidence": "MEDIUM",
+      "notes": "Framework replacement underway."
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": { "minimum": { "value": null, "confidence": "UNVERIFIED" }, "disclosure": { "value": null, "confidence": "UNVERIFIED" } },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": {
+    "nationalScheme": "none identified for Gibraltar itself",
+    "integrationMandatory": false,
+    "confidence": "MEDIUM",
+    "notes": "Gibraltar-licensed operators serving GB customers integrate GAMSTOP by virtue of their UKGC licence, NOT their Gibraltar one. Do not conflate the two."
+  },
+  "playerAccount": { "minimumAge": { "value": 18, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "Licensees are expected to have key equipment and real presence in Gibraltar."
+    }
+  },
+  "certification": { "labModel": null, "confidence": "UNVERIFIED" },
+  "recentChanges": [
+    {
+      "date": "2025-2026",
+      "change": "Gambling Bill 2025 and 2026 subsidiary legislation - framework replacement underway",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "verificationRequired": [
+    "WHICH FRAMEWORK IS CURRENTLY IN FORCE - the 2012 RTOS or the 2025/2026 replacement. This must be resolved before any Gibraltar advice",
+    "The full technical constraint matrix under whichever framework applies",
+    "Key equipment and presence requirements",
+    "Accepted test laboratories, audit retention, RG requirements"
+  ],
+  "consultantNotes": [
+    "Gibraltar is mid-replacement. The only technical standard located is 13 years old while new primary and subsidiary legislation is in progress. Any advice based on the 2012 RTOS carries a high risk of being obsolete.",
+    "Many Gibraltar licensees also hold UKGC licences, in which case the binding product constraints in practice come from the UKGC RTS. Check the licence portfolio before assuming Gibraltar rules govern product design."
+  ],
+  "lastUpdated": "2026-07"
+}

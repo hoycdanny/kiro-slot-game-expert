@@ -1,0 +1,139 @@
+{
+  "templateType": "slot-machine-expert/rng-submission-package-v1",
+  "description": "RNG submission package for an independent test laboratory. Aligned to GLI-11 v3.0 section 3.2 and GLI-19 v3.0. See steering/rng-game-logic.md section 7 and steering/jurisdiction-matrix.md section 5.5.",
+  "standardsBasis": {
+    "gli11": { "version": "3.0", "date": "2016-09-21", "relevantSections": ["3.1.15", "3.2.1", "3.2.2", "3.2.3", "3.2.4", "3.2.5", "3.2.6"] },
+    "gli19": { "version": "3.0", "date": "2020-07-17", "relevantSections": ["4.7.1", "4.9.2"] },
+    "nist": {
+      "sp800_90a_rev1": { "status": "Final", "date": "2015-06", "use": "DRBG design basis" },
+      "sp800_90b": { "status": "Final", "date": "2018-01", "use": "Entropy source assessment", "note": "Two errata identified 2025-05-29 pending a future update" },
+      "sp800_90c": { "status": "Final", "date": "2025-09", "use": "RBG constructions (RBG1, RBG2, RBG3, RBGC); completes the 800-90 series" },
+      "sp800_22_rev1a": {
+        "status": "Final, not withdrawn, not superseded; NIST decided to revise on 2022-04-19",
+        "date": "2010-04",
+        "warning": "NIST's revision decision EXPLICITLY includes rejecting the use of this suite for assessing cryptographic random number generators. Treat any requirement resting on SP 800-22 alone as a LEGACY reference and say so to the client. Use the SP 800-90 series as the correct basis."
+      }
+    }
+  },
+  "submission": {
+    "gameName": "",
+    "rngComponentName": "",
+    "version": "",
+    "buildHash": "",
+    "submittedTo": "",
+    "labAccreditationVerified": null,
+    "labAccreditationNotes": "Confirm the laboratory holds current accreditation for the target market. Note that GLI and iTech Labs have been the same corporate group since May 2023, so they do not provide independent second opinions.",
+    "targetMarkets": [],
+    "submissionDate": ""
+  },
+  "rngImplementation": {
+    "type": "csprng | hardware-trng | hybrid",
+    "algorithm": "",
+    "platformApi": "",
+    "perEngineDetails": {
+      "unity": "System.Security.Cryptography.RandomNumberGenerator",
+      "cocosCreator": "crypto.getRandomValues (browser) / crypto.randomBytes (Node.js)",
+      "unreal": "OpenSSL RAND_bytes - NOT FMath::RandRange",
+      "godot": "Crypto.generate_random_bytes",
+      "html5Pixi": "window.crypto.getRandomValues",
+      "serverPython": "os.urandom / secrets",
+      "serverNode": "crypto.randomBytes"
+    },
+    "entropySource": "",
+    "entropyAssessmentBasis": "NIST SP 800-90B",
+    "seedingStrategy": "",
+    "reseedingPolicy": "",
+    "seedProtection": "",
+    "stateModifiedBetweenGames": null,
+    "notes": "GLI-11 section 3.2.6 requires the RNG state to be modified between every game unless a cryptographic RNG is implemented."
+  },
+  "scalingAndMapping": {
+    "method": "rejection-sampling | modulo | other",
+    "modulaBiasEliminated": null,
+    "discardedValuesDocumented": null,
+    "shufflingAlgorithm": "",
+    "biasAnalysis": "",
+    "notes": "Modulo mapping to a range that is not a power of two introduces bias toward smaller remainders. Use rejection sampling. GLI-11 section 3.2.3 expressly permits discarding RNG values to eliminate bias, and verifies scaling, mapping and shuffling for bias by SOURCE CODE REVIEW."
+  },
+  "sourceCodeReview": {
+    "scopeProvided": null,
+    "includesRandomnessAlgorithms": null,
+    "includesScalingAlgorithms": null,
+    "includesShufflingAlgorithms": null,
+    "includesAllOutcomeCriticalAlgorithms": null,
+    "publishedReferenceComparison": "",
+    "undisclosedSwitchesOrParametersDeclaration": null,
+    "notes": "GLI-11 section 3.2.1 requires review of all core randomness, scaling, shuffling and outcome-critical algorithms, including comparison to published references and examination for bias, implementation errors, malicious code and undisclosed switches or parameters. The UK additionally requires source-code review of the RNG implementation as part of Test House testing."
+  },
+  "statisticalTesting": {
+    "confidenceLevel": "99%",
+    "evaluationBasis": "Tests are selected case-by-case by the ITL for the RNG under review and its usage in the game, and are evaluated COLLECTIVELY at 99% confidence (GLI-11 section 3.2.2).",
+    "candidateTests": [
+      { "test": "Total Distribution / Chi-square", "performed": null, "result": "" },
+      { "test": "Overlaps", "performed": null, "result": "" },
+      { "test": "Coupon Collector's", "performed": null, "result": "" },
+      { "test": "Runs", "performed": null, "result": "" },
+      { "test": "Interplay Correlation", "performed": null, "result": "" },
+      { "test": "Serial Correlation", "performed": null, "result": "" },
+      { "test": "Duplicates", "performed": null, "result": "" }
+    ],
+    "testsNotRequiredByGli": {
+      "note": "Kolmogorov-Smirnov, poker and gap tests are NOT named in GLI-11 v3.0 or GLI-19 v3.0. Any claim that they are mandatory under GLI is unverified. Include them only if a specific market or laboratory requires them.",
+      "kolmogorovSmirnov": null,
+      "poker": null,
+      "gap": null
+    },
+    "sampleSize": {
+      "softwareRngSampleSize": null,
+      "softwareRngRequirement": "No fixed sample size in GLI-11 or GLI-19. The requirement is qualitative: the volume of data tested must be such that significant deviations from applicable RNG testing criteria can be detected with high frequency.",
+      "physicalDeviceSampleSize": null,
+      "physicalDeviceRequirement": "At least 10,000 game outcomes for mechanical or physical devices used to display or produce game outcomes, collected in a manner reasonably similar to intended field use, with manufacturer-recommended setup, calibration and component replacement during collection (GLI-11 section 3.1.15). Where fewer than 10,000 are used, a statement on the statistical limitations of the reduced testing is required.",
+      "statisticalLimitationStatement": ""
+    }
+  },
+  "distributionAndIndependence": {
+    "uniformDistributionVerified": null,
+    "intendedNonUniformDistributionDeclared": null,
+    "independenceVerified": null,
+    "independenceTestsUsed": ["Serial Correlation", "Interplay Correlation", "Runs"],
+    "availableOutcomesVerified": null,
+    "rngPeriod": "",
+    "notes": "GLI-11 section 3.2.5 requires the RNG period to be large enough that all outcomes are available on every draw with the appropriate likelihood. Section 3.2.4 requires that knowledge of one draw must not inform a future draw."
+  },
+  "serverAuthority": {
+    "outcomeDeterminedServerSide": null,
+    "clientCannotDeriveOutcome": null,
+    "atomicity": "Stake debit, outcome determination, payout calculation and log write are atomic",
+    "notes": "Client-side outcome determination or derivability is a blocking defect in every market."
+  },
+  "reproducibility": {
+    "seedableTestMode": null,
+    "deterministicReplay": null,
+    "intermediateValueExport": null,
+    "exportedFields": ["rngRawValues", "mappedReelPositions", "matchedPaylines", "perLinePayouts"],
+    "notes": "Seedable mode is for testing only; production MUST use a CSPRNG. Intermediate value export is decisive if a dispute arises with the laboratory - if only the final payout can be exported, correctness of the intermediate computation cannot be demonstrated."
+  },
+  "supportingDocuments": {
+    "rngVerificationReport": null,
+    "rtpAccuracyEvidence": null,
+    "featureLogicDescription": null,
+    "paytableVerification": null,
+    "responsibleGamingUxDesign": null,
+    "errorHandlingSpecification": null,
+    "auditLogFormatSpecification": null,
+    "parSheet": null,
+    "notes": "See steering/certification-prep.md section 3 for the seven document set."
+  },
+  "preSubmissionSelfCheck": [
+    { "check": "No non-cryptographic RNG anywhere in outcome determination", "passed": null },
+    { "check": "Rejection sampling used; no modulo bias", "passed": null },
+    { "check": "RNG state modified between games, or cryptographic RNG used", "passed": null },
+    { "check": "Outcome determined server-side and logged before returning to the client", "passed": null },
+    { "check": "Seedable reproducible mode available; intermediate values exportable", "passed": null },
+    { "check": "Source code scope for review assembled", "passed": null },
+    { "check": "Sample size justified from target precision and measured sigma", "passed": null },
+    { "check": "Build hash recorded and bound to the PAR sheet", "passed": null },
+    { "check": "Laboratory accreditation for the target market confirmed", "passed": null },
+    { "check": "Where an independent second opinion is required, laboratories are from different corporate groups", "passed": null }
+  ]
+}

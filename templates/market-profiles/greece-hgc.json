@@ -1,0 +1,78 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "GR",
+  "name": "Greece (HGC / EEEP) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Hellenic Gaming Commission (Epitropi Epopteias kai Elegchou Paignion)",
+    "url": "https://www.gamingcommission.gov.gr/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    { "name": "Law 4002/2011 as amended, notably by Law 4635/2019", "confidence": "MEDIUM" },
+    { "name": "Ministerial Decision on the Online Casino Regulation (MD 79292 EX 2020), Government Gazette", "confidence": "MEDIUM" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": {
+      "value": 3000,
+      "confidence": "MEDIUM",
+      "notes": "A player may not start a new game cycle within three seconds of the previous one. Online poker is excepted."
+    },
+    "maxStakePerSpin": {
+      "value": "EUR 2 per RNG game",
+      "confidence": "MEDIUM",
+      "notes": "The BASIS is unresolved: per spin, or per line/column. Confirm before configuring."
+    },
+    "maxWinPerRound": {
+      "value": "EUR 5,000 maximum prize",
+      "confidence": "MEDIUM",
+      "notes": "Secondary sources CONFLICT on whether the basis is per prize, per game round or per session. The figure is MEDIUM but the BASIS is UNVERIFIED. This materially changes the maths model, so it must be resolved before design."
+    },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED", "notes": "A EUR 5,000 win cap would materially constrain any progressive jackpot design." },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": [
+      {
+        "item": "RNG / slot games may not be advertised anywhere other than the operator's own website",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "rtp": { "minimum": { "value": null, "confidence": "UNVERIFIED" }, "disclosure": { "value": null, "confidence": "UNVERIFIED" } },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": {
+    "nationalScheme": "HGC self-exclusion register (Mitroo Aftoapokleiomenon)",
+    "integrationMandatory": true,
+    "confidence": "UNVERIFIED",
+    "notes": "Name and URL unconfirmed."
+  },
+  "playerAccount": {
+    "minimumAge": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "21 for casino-type games is reported and 18 for betting, but this must be resolved before relying on it."
+    }
+  },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": {
+    "requirement": { "value": null, "confidence": "UNVERIFIED", "notes": "HGC has historically required a regulator-accessible data warehouse or safe." }
+  },
+  "certification": { "labModel": null, "confidence": "UNVERIFIED" },
+  "recentChanges": [],
+  "verificationRequired": [
+    "The basis of the EUR 5,000 cap: per prize, per game round or per session - highest priority",
+    "The basis of the EUR 2 stake cap: per spin or per line",
+    "Exact minimum age for RNG casino games",
+    "Minimum RTP",
+    "Autoplay, turbo, feature buy, jackpot treatment",
+    "Audit log retention, data residency, accepted laboratories"
+  ],
+  "consultantNotes": [
+    "Greece imposes the tightest confirmed stake and win envelope in Europe (EUR 2 stake, EUR 5,000 win, 3s cycle). A high-volatility, high-max-win product is structurally incompatible with this market.",
+    "Historical context: a full online slots ban was proposed and then dropped from the 2019 bill in favour of these restrictions. The political baseline is restrictive."
+  ],
+  "lastUpdated": "2026-07"
+}

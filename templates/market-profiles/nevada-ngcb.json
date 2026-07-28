@@ -1,0 +1,93 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "US-NV",
+  "name": "Nevada (NGCB / NGC) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Nevada Gaming Control Board (NGCB) and Nevada Gaming Commission (NGC)",
+    "url": "https://gaming.nv.gov",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    {
+      "name": "NGC Regulation 14 - Manufacture, Sale, Distribution, and Approval of Gaming Devices and Games",
+      "url": "https://prod.gaming.nv.gov/contentassets/1a1da722f77249f3ad951853533a776a/regulation-14-manufacture-sale-distribution-and-approval-of-gaming-devices-and-games-adp-02.26.2026-eff-02.26.2026.pdf",
+      "confidence": "HIGH",
+      "notes": "Adopted and effective 2026-02-26."
+    },
+    {
+      "name": "NGC Regulation 5A (Interactive Gaming)",
+      "confidence": "MEDIUM",
+      "notes": "Nevada online authorisation is limited to POKER. There is no online slot market in Nevada."
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED", "notes": "Not addressed in Regulation 14. Absence of evidence, not confirmed absence." },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED", "notes": "No maximum found in Regulation 14." },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED", "notes": "Not addressed in Regulation 14." },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": "75%",
+      "confidence": "HIGH",
+      "source": "NGC Regulation 14.040(1)(a); same floor for new games and game variations at 14.235(1)",
+      "notes": "Applies to EACH WAGER AVAILABLE FOR PLAY, not just the headline configuration. Land-based. An online-specific figure is UNVERIFIED."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": {
+    "requirements": { "value": null, "confidence": "UNVERIFIED", "notes": "Obligations sit in NGC Regulation 5.170, which was not read." }
+  },
+  "selfExclusion": {
+    "nationalScheme": "none confirmed",
+    "confidence": "UNVERIFIED",
+    "notes": "Nevada is understood to have no statewide casino self-exclusion registry, but this was not confirmed."
+  },
+  "playerAccount": {
+    "minimumAge": { "value": 21, "confidence": "MEDIUM" }
+  },
+  "auditLog": {
+    "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "dataResidency": {
+    "requirement": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "Regulation 5 was amended in 2024 to address registered hosting centers and cloud service providers (MEDIUM), but a specific in-state server mandate was not confirmed."
+    }
+  },
+  "certification": {
+    "labModel": "Submissions must be accompanied by an independent testing laboratory package",
+    "confidence": "HIGH",
+    "source": "Regulation 14.400",
+    "notes": "The Board-registered ITL list was not retrieved. Regulation 14.400 was amended effective 2026-02-26, changing what an ITL must supply -送測包內容須依新版確認."
+  },
+  "recentChanges": [
+    { "date": "2026-02-26", "change": "Regulation 14 amended under AB 58 (2025 session): administrative approval of new gaming devices and games, revised distribution requirements (14.180/14.190), changed ITL submission content (14.400)", "confidence": "HIGH" },
+    { "date": "2026-02", "change": "NGCB recommended significant AML amendments to Regulations 5 and 25, including licensing of compliance personnel and a prohibition on business-entity funding of patron wagering", "confidence": "MEDIUM" },
+    { "date": "2026-03-17", "change": "NGCB required licensees conducting online gaming outside Nevada to file a complete list of those jurisdictions", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "Existence, version and URL of a standalone NGCB Technical Standards document for gaming devices and on-line slot metering systems",
+    "Any Nevada online/interactive RTP standard",
+    "RG obligations under NGC Regulation 5.170",
+    "Data residency and hosting centre rules under Regulation 5",
+    "Whether Nevada operates any statewide self-exclusion registry",
+    "Audit and significant event log retention",
+    "Minimum age against statute",
+    "Board-registered ITL list"
+  ],
+  "consultantNotes": [
+    "Nevada is primarily a LAND-BASED market for slots. Online authorisation is poker-only, so an online slot product cannot enter Nevada as such.",
+    "The 75% floor is the same as the GLI-11 / GLI-19 default, which makes Nevada one of the least demanding RTP jurisdictions. Commercial competitiveness, not compliance, will set the real RTP target.",
+    "Because Regulation 14 changed effective 2026-02-26 specifically including ITL submission content, any submission package prepared before that date should be re-checked."
+  ],
+  "lastUpdated": "2026-07"
+}

@@ -1,0 +1,108 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "US-WV",
+  "name": "West Virginia (WV Lottery) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "West Virginia Lottery Commission",
+    "url": "https://wvlottery.com",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    {
+      "name": "Title 179 Series 10 - West Virginia Lottery Interactive Wagering Rule (179 CSR 10)",
+      "url": "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=58895&Format=PDF",
+      "confidence": "HIGH",
+      "notes": "Passed 2026-03-14, effective 2026-04-27, terminating 2031-08-01. Entirely newly promulgated - all requirements should be re-compared against any earlier work."
+    },
+    { "name": "W.Va. Code sections 29-22E-1 et seq. (Interactive Wagering Act)", "confidence": "HIGH" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED", "notes": "Not addressed in 179 CSR 10." },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": "No numeric minimum; a RELATIVE constraint applies instead",
+      "confidence": "HIGH",
+      "source": "179 CSR 10 sections 5.11.1 and 5.11.2",
+      "notes": "5.11.1: a game substantially similar to a Commission-approved game must use a payout percentage EQUAL TO OR LESS THAN the lowest payout percentage of the approved game. 5.11.2: a non-substantially-similar game must prominently display specified information before and during play. STRATEGIC IMPLICATION: this constrains the common practice of shipping multiple RTP variants of the same title. If a 96% version is approved here, a 94% variant of the same game is blocked."
+    },
+    "disclosure": { "value": "Specified information must be prominently displayed before and during play for non-substantially-similar games", "confidence": "HIGH", "source": "179 CSR 10 section 5.11.2" }
+  },
+  "responsibleGaming": {
+    "operatorTools": {
+      "value": "Deposit limits, wager and loss limits, time limits, self-exclusion, timeouts",
+      "confidence": "HIGH",
+      "source": "wvlottery.com responsible gambling tools"
+    },
+    "selfExclusionInformation": {
+      "value": "Operators must provide information about both their own self-exclusion program and the Lottery's statewide program",
+      "confidence": "HIGH",
+      "source": "179 CSR 10 section 5.13.3"
+    },
+    "pendingWagers": { "value": "Governed on self-exclusion by section 6.6; suspension and reinstatement by section 6.20", "confidence": "HIGH" }
+  },
+  "selfExclusion": {
+    "nationalScheme": "West Virginia statewide self-exclusion",
+    "url": "https://wvlottery.com/iplay-with-purpose/self-exclusion",
+    "integrationMandatory": true,
+    "confidence": "HIGH"
+  },
+  "playerAccount": {
+    "minimumAge": {
+      "value": 21,
+      "confidence": "HIGH",
+      "source": "179 CSR 10 sections 7.2.5 and 7.2.8",
+      "notes": "Age verification and patron acknowledgement both required."
+    }
+  },
+  "auditLog": {
+    "retentionPeriod": {
+      "value": "Not less than 5 years for patron game play and account activity per session, including identity and location verifications",
+      "confidence": "HIGH",
+      "source": "179 CSR 10 section 10.4"
+    },
+    "additionalRetention": [
+      { "item": "Software and application development documentation", "period": "Life cycle plus 7 years", "source": "section 8.22", "confidence": "HIGH" },
+      { "item": "Software authentication attempt results", "period": "Retained in an electronic log", "source": "section 10.8", "confidence": "HIGH" }
+    ]
+  },
+  "dataResidency": {
+    "requirement": {
+      "value": "The data warehouse must be one or more servers LOCATED IN WEST VIRGINIA for storing transactions received from primary gaming equipment",
+      "confidence": "HIGH",
+      "source": "179 CSR 10 section 2.15",
+      "notes": "Additionally, DNS resolution and per-server requirements at section 5.7.2.b apply to EACH interactive gaming system server, INCLUDING remote gaming servers and the player account management wallet. Wagers accepted only from patrons verified as physically located in West Virginia."
+    }
+  },
+  "certification": {
+    "labModel": "An independent testing laboratory approved by the Commission, or a laboratory operating in an accredited jurisdiction approved by the Commission",
+    "confidence": "HIGH",
+    "source": "179 CSR 10 section 6.1",
+    "notes": "Named list UNVERIFIED."
+  },
+  "recentChanges": [
+    { "date": "2026-04-27", "change": "179 CSR 10 interactive wagering rule newly promulgated and effective", "confidence": "HIGH" }
+  ],
+  "verificationRequired": [
+    "Whether any numeric minimum RTP applies to interactive games at all",
+    "Full text of W.Va. Code section 29-22B-910 for the land-based limited video lottery payout band (a 92% figure is referenced but the provision was not read)",
+    "Minimum game cycle duration, stake and win caps, autoplay treatment",
+    "Named approved ITL list"
+  ],
+  "consultantNotes": [
+    "West Virginia is one of the two markets in this dataset with a CONFIRMED hard data-residency requirement (the other is Sweden). The in-state data warehouse plus per-server DNS requirements make this a deployment architecture decision.",
+    "The section 5.11.1 relative payout constraint is unusual and strategically important: it blocks lower-RTP variants of an already-approved title. Flag this to any client operating a multi-RTP catalogue strategy.",
+    "The rule terminates 2031-08-01, so a renewal or replacement should be expected."
+  ],
+  "lastUpdated": "2026-07"
+}

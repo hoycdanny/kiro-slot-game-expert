@@ -1,0 +1,121 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "US-CT",
+  "name": "Connecticut (DCP Gaming Division) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Connecticut Department of Consumer Protection (DCP), Gaming Division",
+    "url": "https://portal.ct.gov/gaming",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    {
+      "name": "CT Online Casino / Lottery / Keno EWP Technical Standards",
+      "url": "https://portal.ct.gov/gaming/-/media/dcp/gaming/ct-online-casino_lottery_keno-ewp-technical-standards_12022024.pdf",
+      "confidence": "HIGH",
+      "notes": "Published 2024-12-02. This is the most detailed PUBLICLY AVAILABLE US state-level technical standard located, and it tracks GLI-19 closely."
+    },
+    { "name": "CT DCP Live Dealer Technical Specifications", "confidence": "HIGH", "notes": "Reissued 2025-12-18." },
+    {
+      "name": "R.C.S.A. sections 12-865-1 through 12-865-x",
+      "url": "https://eregulations.ct.gov/eRegsPortal/Browse/RCSA/Title_12Subtitle_12-865/",
+      "confidence": "HIGH",
+      "notes": "Effective 2022-02-01. Statute: CGS Ch. 229b."
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": {
+      "value": "none",
+      "confidence": "HIGH",
+      "source": "Technical standards define a game cycle as wager to wager (glossary; section 3.x) but impose NO minimum elapsed time"
+    },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": {
+      "status": "restricted",
+      "confidence": "HIGH",
+      "source": "Technical standards section 4.1.50",
+      "notes": "Permitted but configurable and constrained. Must be securely controlled by a function that allows or disallows the feature reflective of jurisdictional preference. The player may set individual wager, number of autoplay wagers and/or total amount. Player-defined thresholds must persist. Remaining or used autoplay count must be displayed. Autoplay must end automatically and return to manual play at the threshold. The player must be able to terminate autoplay at the end of the current game. Player options must DEFAULT TO MANUAL MODE. This wording closely mirrors GLI-19 section 4.9.2."
+    },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "allowed", "confidence": "MEDIUM", "notes": "Progressive and incrementing jackpots are referenced as excluded from the percentage payout calculation, which implies they are permitted." },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": "80%",
+      "confidence": "HIGH",
+      "source": "Technical standards section 4.1.37",
+      "notes": "Each house-banked game shall theoretically pay out a minimum of 80% during the expected lifetime of the game. Progressive/incrementing jackpots, incentive awards and merchandise external to the game are EXCLUDED from the percentage payout unless required for operation."
+    },
+    "disclosure": {
+      "value": "Where the payout requirements cannot be met (e.g. electronic scratch ticket or lottery games), the minimum RTP must be displayed to the patron per the RTP Display section",
+      "confidence": "HIGH"
+    }
+  },
+  "responsibleGaming": {
+    "selfExcludedRestrictions": {
+      "value": "Self-excluded persons are barred from collecting winnings, recovering losses, or accepting comps",
+      "confidence": "HIGH",
+      "notes": "Relevant to incident handling: see steering/incident-malfunction-handling.md section 4.1."
+    }
+  },
+  "selfExclusion": {
+    "nationalScheme": "Connecticut statewide self-exclusion",
+    "url": "https://portal.ct.gov/selfexclusion",
+    "integrationMandatory": true,
+    "confidence": "HIGH"
+  },
+  "playerAccount": {
+    "minimumAge": { "value": 21, "confidence": "MEDIUM", "notes": "21 for online casino gaming and sports wagering; 18 for lottery/keno UNVERIFIED." }
+  },
+  "auditLog": {
+    "retentionPeriod": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "No numeric retention period is stated in the technical standards (confirmed negative). A statutory or regulatory period was not located."
+    },
+    "dataRequirements": {
+      "value": "Section 2.1.38 requires the Electronic Wagering Platform to maintain and back up all recorded data, use the system clock for all time stamping, and provide export for analysis and auditing (e.g. CSV, XLS). Section 2.1.39 enumerates per-game-play data. Section 2.1.51 covers large jackpot payout reports.",
+      "confidence": "HIGH"
+    }
+  },
+  "dataResidency": {
+    "requirement": {
+      "value": "All live online casino gaming must be conducted in a secure live game environment located in the state, not accessible by the public",
+      "confidence": "MEDIUM",
+      "source": "R.C.S.A. section 12-865-18"
+    }
+  },
+  "certification": {
+    "labModel": "The approved independent test laboratory; R.C.S.A. section 12-865-3(n) is the standard against which all ITLs test internet games and gaming equipment",
+    "confidence": "HIGH",
+    "notes": "Named list UNVERIFIED."
+  },
+  "rngTesting": {
+    "physicalDeviceSampleSize": {
+      "value": "At least 10,000 game outcomes for mechanical or physical outcome devices",
+      "confidence": "HIGH",
+      "notes": "Reproduces the GLI-11 v3.0 section 3.1.15 requirement verbatim, which suggests this is the de facto industry sample size for physical outcome devices."
+    }
+  },
+  "recentChanges": [
+    { "date": "2025-12-18", "change": "Live Dealer Technical Specifications reissued", "confidence": "HIGH" },
+    { "date": "2025-10-01", "change": "2025 HB 5269 on gaming advertisements and permissible payment mechanisms; final enactment status UNVERIFIED", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "Numeric audit log retention period",
+    "Age thresholds for online casino vs lottery/keno",
+    "Whether DCP publishes an approved ITL list",
+    "Stake and win caps, turbo, feature buy, multi-game treatment",
+    "Final enactment status of 2025 SB 1235 and HB 5269"
+  ],
+  "consultantNotes": [
+    "READ THIS STANDARD FIRST if you want to understand how GLI-19 lands at US state level. Connecticut's autoplay clause (4.1.50) is effectively GLI-19 section 4.9.2, and its physical-device sample size is GLI-11 section 3.1.15 verbatim.",
+    "Connecticut permits autoplay while the UK, Germany, Ontario and Sweden prohibit it. This is the cleanest illustration of why GLI compliance is not market compliance."
+  ],
+  "lastUpdated": "2026-07"
+}

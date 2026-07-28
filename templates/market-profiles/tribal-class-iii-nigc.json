@@ -1,0 +1,70 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "US-TRIBAL",
+  "name": "US Tribal Class III (NIGC / Tribal-State Compact) Market Profile",
+  "legalStatus": "compact-based",
+  "regulator": {
+    "name": "National Indian Gaming Commission (NIGC), alongside tribes and states",
+    "url": "https://www.nigc.gov",
+    "confidence": "HIGH",
+    "notes": "NIGC regulates alongside tribes and states, covering more than 500 gaming establishments operated by nearly 250 tribes across 29 states. Day-to-day device regulation for Class III is by the Tribal Gaming Regulatory Agency (TGRA)."
+  },
+  "bindingStandards": [
+    { "name": "25 CFR Part 543 (Minimum Internal Control Standards) - CLASS II", "url": "https://www.ecfr.gov/current/title-25/part-543", "confidence": "HIGH" },
+    { "name": "25 CFR Part 547 (Minimum Technical Standards for Class II Gaming Systems and Equipment) - CLASS II", "url": "https://www.ecfr.gov/current/title-25/chapter-III/subchapter-D/part-547", "confidence": "HIGH" },
+    {
+      "name": "Tribal-State compact or Secretarial procedures - CLASS III",
+      "confidence": "MEDIUM",
+      "notes": "THERE IS NO NIGC TECHNICAL STANDARD FOR CLASS III. Class III device standards derive from the compact and are enforced by the TGRA. Each compact must be reviewed individually."
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED", "notes": "Compact-dependent." },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED", "notes": "Compact-dependent." },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED", "notes": "Compact-dependent." },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": "No federal minimum; set by compact",
+      "confidence": "HIGH",
+      "notes": "Compact examples: Arizona Tribal-State Compact 80% to 83% for Class III over expected machine life (MEDIUM); Wisconsin compacts require electronic games of chance to pay out between 80% and 100% over the device life cycle (MEDIUM). DO NOT infer tribal requirements from state commercial standards."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED", "notes": "Compact and TGRA dependent." } },
+  "selfExclusion": { "nationalScheme": null, "confidence": "UNVERIFIED", "notes": "Compact and TGRA dependent." },
+  "playerAccount": {
+    "minimumAge": { "value": null, "confidence": "UNVERIFIED", "notes": "Compact and tribal law dependent; commonly 18 or 21." }
+  },
+  "auditLog": {
+    "retentionPeriod": { "value": null, "confidence": "UNVERIFIED", "notes": "25 CFR 543/547 for Class II; Class III per compact." }
+  },
+  "dataResidency": { "requirement": { "value": null, "confidence": "UNVERIFIED" } },
+  "certification": {
+    "labModel": "25 CFR 547 requires submission to a testing laboratory (Class II)",
+    "confidence": "HIGH",
+    "notes": "Per NIGC's Technical Standards Q&A Bulletin, a gaming system need only be submitted to a testing laboratory once. https://www.nigc.gov/wp-content/uploads/2025/01/Tech-Stds-QA-Bulletin.pdf"
+  },
+  "recentChanges": [
+    { "date": "FY2025", "change": "NIGC announced gross gaming revenue of USD 46.2B, up 5.3% (context)", "confidence": "HIGH" },
+    { "date": "2024", "change": "DOI revised its Class III compact review regulations", "confidence": "MEDIUM" },
+    { "date": "2026-07", "change": "Ninth Circuit litigation over prediction-market sports-event contracts on tribal lands active", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "The current legal status of 25 CFR Part 542 MICS as applied to Class III following the Colorado River Indian Tribes litigation - MUST be confirmed by counsel, as it determines whether NIGC MICS bind Class III operations",
+    "The specific Tribal-State compact for each target tribe: RTP, stake caps, age, RG requirements, retention",
+    "TGRA-specific technical requirements and approval process"
+  ],
+  "consultantNotes": [
+    "This is not a single market. It is a per-compact, per-TGRA patchwork. Any engagement must be scoped to specific tribes, and the compact obtained.",
+    "The Class II / Class III distinction is decisive: Class II has federal technical standards (25 CFR 547), Class III does not. Confirm which class the product targets before anything else."
+  ],
+  "lastUpdated": "2026-07"
+}

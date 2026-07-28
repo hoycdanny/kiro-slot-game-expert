@@ -16,13 +16,34 @@ Transform your IDE into a slot machine game development expert consultant. This 
 > • **GLI-19**: Global standard for interactive/remote gaming systems (online slots)
 > • **Virtual Reel**: Weighted mapping system that controls actual symbol probabilities, independent of physical reel layout
 
+## What this Power is
+
+This is a **compliance advisor**, not a code generator. When you ask for a feature, it first tells you whether that feature is lawful in your target markets, then shows you a compliant way to build it.
+
+That distinction shapes every answer:
+
+| | Accelerator | This Power (Expert) |
+|---|---|---|
+| Asked for a feature | Implements it | Asks whether it is lawful in your market first |
+| Asked for a number | Gives a usable value | Gives the value **plus a confidence level, the legal source, and how to verify it** |
+| Success looks like | It works | You know what risk you are carrying |
+
+Every regulatory value carries a confidence level: `HIGH` (read from the official instrument), `MEDIUM` (authoritative secondary source), or `UNVERIFIED` (**not confirmed — never guessed**). A compliance advisor that invents a number is worse than one that leaves a blank, because a blank triggers verification while a wrong number goes straight into a product spec.
+
 ## Features
 
-- 🎰 **Math Model Design** — Paytable design, reel strip configuration, RTP calculation, volatility tuning, hit frequency analysis, bonus feature RTP contribution
-- 🔐 **RNG & Game Logic** — CSPRNG selection (per engine), seed management, 6-stage spin lifecycle, rule engine, audit logging
-- 📋 **Certification Prep** — GLI-11/GLI-19 compliance, 7 certification documents, market regulatory info, timeline & cost estimates
-- 🛡️ **Responsible Gaming** — Deposit limits, self-exclusion, session time limits, win/loss tracking, autoplay controls, risk messages
-- 🌍 **Multi-Market Support** — UK, Malta, Ontario, Nevada, New Jersey, Sweden, Denmark, Philippines, and more
+- 🌍 **Jurisdiction Matrix** — Per-market hard constraints across 26 markets: minimum game cycle time, stake caps, autoplay, turbo/slam stop, jackpots, multi-game, RTP floors, data residency, retention periods — each with legal citation and confidence level
+- 🧭 **Advisory Workflow** — Five-phase engagement: intake, gap assessment, risk register, remediation roadmap, deliverables. Includes a B2B/B2C/platform responsibility matrix
+- 🎰 **Math Model Design** — Paytable design, reel strip configuration, RTP calculation, volatility tuning, hit frequency, bonus feature RTP contribution
+- 🔬 **Math Verification** — Monte Carlo sample size derived from target precision and measured sigma (not folklore), theoretical-vs-simulated reconciliation, 15-section PAR sheet spec, eight common verification failure modes
+- 🔐 **RNG & Game Logic** — CSPRNG selection per engine, seed management, 6-stage spin lifecycle, rule engine, audit logging
+- 🖧 **Platform & Systems** — GLI-19 system scope, server-authoritative outcomes, disconnect recovery, wallet idempotency, game recall, regulator central-system integrations (LUGAS, OASIS, Spelpaus, CRUKS, ROFUS, GAMSTOP, iGO, SAFE/TamperToken)
+- 📋 **Certification Prep** — GLI-11/GLI-19 compliance, 7 certification documents, lab selection, timeline & cost estimates
+- 🔁 **Change Management** — Change classification framework, which changes trigger recertification, build-to-certification mapping, regulatory change tracking
+- 🚨 **Incident Handling** — Severity classification, stop-preserve-scope-then-fix sequencing, player remediation, regulator notification
+- 🛡️ **Responsible Gaming** — Deposit limits, self-exclusion, session limits, win/loss tracking, autoplay controls, risk messaging
+- 🔍 **AML/KYC & Data Protection** — Age tiering, account state machine, and the conflict between gambling retention duties and data-protection minimisation
+- ⛔ **Prohibited market register** — Explicitly warns where online slots are unlawful (Australia, Japan, South Korea, Singapore, India, South Africa) instead of implying certification can make entry possible
 - 🎮 **Multi-Engine** — Unity, Cocos Creator, Unreal Engine, Godot, HTML5/PixiJS with engine-specific CSPRNG guidance
 
 ## Architecture
@@ -31,19 +52,40 @@ Transform your IDE into a slot machine game development expert consultant. This 
 Developer (Natural Language)
     → AI Layer (Intent Understanding & Planning)
         → Slot Machine Expert Power (Domain Knowledge)
-            → Certified Game Implementation
+            → Risk-informed decision, then compliant implementation
 
 Slot Machine Expert (Intelligence Layer)
-├── POWER.md          → Main document defining workflows & references
-├── steering/         → 4 domain knowledge files
-├── templates/        → Reusable configuration templates
-│   ├── paytable/     → Paytable templates (by volatility)
-│   ├── reel-strip/   → Virtual reel configurations
-│   ├── certification/→ GLI submission checklists
-│   └── market-profiles/ → Regulatory market profiles (UK, Malta, Ontario)
-├── hooks/            → IDE automation hooks
-└── tests/            → Property-based tests (fast-check + vitest)
+├── POWER.md              → Main document defining workflows & references
+├── steering/             → 12 domain knowledge files
+│   ├── jurisdiction-matrix.md          → Cross-market technical constraints
+│   ├── advisory-engagement.md          → Consultant workflow & responsibility boundaries
+│   ├── math-model.md                   → Model design
+│   ├── math-verification.md            → Verification & PAR sheet
+│   ├── rng-game-logic.md               → RNG & spin lifecycle
+│   ├── platform-systems-compliance.md  → RGS, wallet, central systems
+│   ├── certification-prep.md           → GLI standards & documents
+│   ├── responsible-gaming.md           → Player protection features
+│   ├── change-management-recert.md     → Change control & recertification
+│   ├── incident-malfunction-handling.md→ Incident & malfunction response
+│   ├── aml-kyc-player-account.md       → AML/KYC & account lifecycle
+│   └── data-protection-privacy.md      → GDPR & retention conflicts
+├── templates/
+│   ├── market-profiles/  → 26 market compliance profiles + schema + prohibited register
+│   ├── certification/    → PAR sheet, RNG submission package, change request, GLI checklist
+│   ├── advisory/         → Gap assessment, risk register, roadmap, incident report
+│   ├── paytable/         → Paytable templates (by volatility)
+│   └── reel-strip/       → Virtual reel configurations
+├── hooks/                → IDE automation hooks
+└── tests/                → Property-based tests (fast-check + vitest)
 ```
+
+## Market coverage
+
+**Regulated, with verified constraints:** United Kingdom (UKGC), Germany (GGL), Sweden (Spelinspektionen), Denmark (Spillemyndigheden), Malta (MGA), Ontario (AGCO), Nevada, New Jersey, Michigan, Pennsylvania, West Virginia, Connecticut, Delaware, US Tribal Class III, Brazil (SPA), Philippines (PAGCOR), Greece, Belgium, Italy, Spain, Netherlands, Romania, Portugal, Isle of Man, Gibraltar, Curaçao (LOK), Colombia, Peru, Kahnawà:ke
+
+**Flagged as prohibited or grey:** Australia, Japan, South Korea, Singapore, India, South Africa, Mexico, Costa Rica
+
+Profiles vary in depth. Markets where official sources could not be reached are shipped as **research skeletons with explicit `UNVERIFIED` markers and a verification checklist**, rather than filled in with plausible-looking numbers.
 
 ## Prerequisites
 
@@ -133,8 +175,9 @@ kiro-slot-game-expert/
 ├── templates/
 │   ├── paytable/                     # Paytable templates
 │   ├── reel-strip/                   # Virtual reel configurations
-│   ├── certification/                # GLI submission checklists
-│   └── market-profiles/              # Market regulatory profiles
+│   ├── certification/                # PAR sheet, RNG submission, change request, GLI checklist
+│   ├── advisory/                     # Gap assessment, risk register, roadmap, incident report
+│   └── market-profiles/              # 26 market profiles + _schema + prohibited register
 ├── hooks/
 │   └── pre-slot-tool.kiro.hook       # Auto-guidance hook
 ├── tests/                            # Property-based tests (fast-check + vitest)
@@ -162,8 +205,30 @@ All domain knowledge in this Power is sourced from verified official documentati
 | iTech Labs | https://itechlabs.com/ | Testing Lab |
 | eCOGRA | https://ecogra.org/ecogra-certification/ | Testing Lab |
 | GamStop (UK) | https://www.gamstop.co.uk/ | Self-Exclusion |
+| UKGC Remote Technical Standards (RTS) | https://www.gamblingcommission.gov.uk/standards/remote-gambling-and-software-technical-standards | UK product constraints |
+| German GlüStV 2021 §22a | https://www.gesetze-bayern.de/Content/Document/StVGlueStV2021-22a | Virtual slot constraints |
+| Swedish Spellag (2018:1138) | https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/spellag-20181138_sfs-2018-1138/ | Sweden regulation |
+| Danish certification programme | https://spillemyndigheden.dk/en-us/businesses-and-associations/games-which-require-a-licence/online-casino/certification-programme-for-online-casino | SCP.00–SCP.07 |
+| AGCO Registrar's Standards for Internet Gaming | https://www.agco.ca/en/lottery-and-gaming/guides/registrars-standards-internet-gaming | Ontario product constraints |
+| Nevada Gaming Control Board | https://gaming.nv.gov | Regulation 14 |
+| Connecticut DCP Gaming | https://portal.ct.gov/gaming | US state technical standards |
+| NIST SP 800-90C | https://csrc.nist.gov/pubs/sp/800/90/c/final | RBG constructions (final 2025-09) |
+| NIST decision to revise SP 800-22 | https://csrc.nist.gov/News/2022/decision-to-revise-nist-sp-800-22-rev-1a | ⚠️ Rejects use for crypto RNG assessment |
+| Brazil SPA / Ministério da Fazenda | https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas | Brazil regulation |
+| Curaçao Gaming Authority | https://gamingcontrolcuracao.org | LOK transition |
+| PAGCOR | https://www.pagcor.ph | Philippines regulation |
+| ACMA / Interactive Gambling Act 2001 | https://www.legislation.gov.au/C2004A00851 | ⛔ Australia prohibition |
 
-See POWER.md for the complete list of 24 verified references.
+See POWER.md for the complete reference list.
+
+### Two corrections worth knowing
+
+Research for this Power surfaced two claims that circulate widely in the industry and could not be substantiated:
+
+1. **Malta's "92% minimum RTP" could not be confirmed** in any current MGA instrument, and the MGA has published a policy paper contemplating 85%. This Power records Malta's minimum RTP as `UNVERIFIED` rather than repeating the figure.
+2. **NIST's own position is that SP 800-22 should not be used to assess cryptographic RNGs**, yet it is still commonly cited as a gaming RNG compliance basis. This Power flags that mismatch instead of propagating it.
+
+It also discloses that **GLI and iTech Labs have been the same corporate group since May 2023**, which matters whenever a market or contract requires laboratory independence.
 
 ## Troubleshooting
 

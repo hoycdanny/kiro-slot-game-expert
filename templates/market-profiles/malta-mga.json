@@ -1,66 +1,91 @@
 {
-  "templateType": "slot-machine-expert/market-profile-v1",
-  "name": "Malta (MGA) Market Profile",
+  "templateType": "slot-machine-expert/market-profile-v2",
   "marketCode": "MT",
-  "regulator": "Malta Gaming Authority (MGA)",
-  "regulatorUrl": "https://www.mga.org.mt/",
-  "applicableStandards": ["GLI-19", "MGA Technical Standards"],
-  "certificationLabs": ["GLI", "BMM Testlabs", "eCOGRA", "iTech Labs", "NMi"],
-  "rtpRequirements": {
-    "minimumRtp": null,
-    "mustDisplayRtp": true,
-    "rtpDisplayLocation": "Game rules or information page",
-    "notes": "No statutory minimum RTP, but must be clearly stated in game rules"
+  "name": "Malta (MGA) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Malta Gaming Authority (MGA)",
+    "url": "https://www.mga.org.mt/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    { "name": "Gaming Act (Cap. 583)", "confidence": "HIGH" },
+    { "name": "Gaming Authorisations Regulations (S.L. 583.05)", "confidence": "HIGH" },
+    {
+      "name": "MGA Directive 3 of 2018 (Gaming Authorisations and Compliance)",
+      "confidence": "MEDIUM",
+      "notes": "Version 2, October 2021 cited; current version not confirmed. THIS IS THE DOCUMENT THAT WOULD CONTAIN ANY MINIMUM RTP."
+    },
+    { "name": "MGA Directive 2 of 2018 (Player Protection)", "confidence": "MEDIUM", "notes": "PDF retrieved but text extraction failed." },
+    { "name": "Technical Infrastructure hosting Gaming and Control Systems (Remote Gaming)", "confidence": "MEDIUM" }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "source": null,
+      "notes": "CRITICAL WARNING. The widely cited 92% figure COULD NOT BE CONFIRMED in MGA instruments, and the MGA has published a \"Policy Paper on Amending the Return to Player Minimum Percentage\" contemplating 85%. This is the most frequently mis-cited number in the industry. DO NOT design to 92% on the basis of secondary sources. Retrieve the current text of Directive 3 of 2018 before setting any Malta RTP baseline."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
   },
   "responsibleGaming": {
-    "depositLimits": {
-      "required": true,
-      "mustPromptOnRegistration": false,
-      "cooldownForIncrease": "Recommended 24-72 hours",
-      "types": ["daily", "weekly", "monthly"]
-    },
-    "selfExclusion": {
-      "required": true,
-      "nationalScheme": null,
-      "minimumPeriod": "6 months",
-      "mustIntegrate": false,
-      "notes": "Operator-level self-exclusion required"
-    },
-    "sessionTimeReminder": {
-      "required": true,
-      "interval": "Operator discretion, recommended 60 minutes"
-    },
-    "netWinLossDisplay": {
-      "required": false,
-      "recommended": true
-    },
-    "helplineLinks": [
-      { "name": "Responsible Gaming Foundation Malta", "url": "https://www.rgf.org.mt/" }
-    ]
+    "playerLimits": {
+      "value": "Limits offered at registration; cooling-off before self-exclusion reversal; cross-brand registration blocking after self-exclusion",
+      "confidence": "MEDIUM",
+      "source": "MGA Thematic Review on Self-Exclusion Practices"
+    }
   },
-  "autoplay": {
-    "allowed": true,
-    "restrictions": [
-      "Must provide stop conditions (loss limit, win limit, spin count)",
-      "Player must be able to set parameters before starting"
-    ]
+  "selfExclusion": {
+    "nationalScheme": "none",
+    "integrationMandatory": false,
+    "confidence": "MEDIUM",
+    "notes": "No national register. Operator-level self-exclusion with MGA supervision. Cross-brand blocking within the same operator group is expected."
   },
-  "ageVerification": {
-    "minimumAge": 18,
-    "verificationRequired": true
+  "playerAccount": {
+    "minimumAge": { "value": 18, "confidence": "MEDIUM" }
   },
   "auditLog": {
-    "retentionPeriod": "5 years minimum",
-    "mustBeImmutable": true,
-    "regulatorAccessRequired": true
+    "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" }
   },
-  "dataProtection": {
-    "gdprCompliant": true,
-    "dataStorageRestrictions": "EU/EEA preferred"
+  "dataResidency": {
+    "requirement": {
+      "value": "Principles-based rather than a Malta-only rule",
+      "confidence": "MEDIUM",
+      "notes": "MGA hosting guidelines set integrity, availability, traceability and accessibility principles."
+    }
   },
-  "licensing": {
-    "types": ["B2C Gaming Service Licence", "B2B Critical Supply Licence"],
-    "notes": "B2C required for any Malta/EU entity offering gaming services from Malta"
+  "certification": {
+    "labModel": "No closed public list of accepted laboratories confirmed",
+    "confidence": "UNVERIFIED"
   },
-  "lastUpdated": "2025-06"
+  "recentChanges": [
+    { "date": "2026-10", "change": "Gaming tax overhaul replacing the flat 5%", "confidence": "MEDIUM" },
+    { "date": "2025", "change": "MGA 2025 Annual Report: 30 administrative penalties totalling EUR 162,520, 1 suspension, 2 cancellations", "confidence": "MEDIUM" }
+  ],
+  "verificationRequired": [
+    "MINIMUM RTP - highest priority. Retrieve current Directive 3 of 2018 text and the status of the RTP policy paper",
+    "The entire technical constraint matrix: min cycle time, stake and win caps, autoplay, turbo, feature buy, jackpots, multi-game",
+    "Audit log retention period",
+    "Accepted test laboratories",
+    "Player protection parameters from Directive 2 of 2018",
+    "Minimum age confirmed against statute"
+  ],
+  "consultantNotes": [
+    "Malta's value is as a B2B supplier-licence hub and an EU base, not as a source of strict technical constraints. The technical constraint data here is the thinnest of the major markets.",
+    "A MGA licence does NOT imply the right to serve other EU markets. The Dutch Supreme Court ruling of 2026-07-03 on historical player-loss claims against Malta-licensed operators shows the cross-border legal exposure is real (MEDIUM).",
+    "Because so much is UNVERIFIED here, a Malta engagement should budget explicit time for retrieving MGA instruments rather than assuming the constraints are lax."
+  ],
+  "lastUpdated": "2026-07"
 }

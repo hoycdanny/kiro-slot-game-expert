@@ -1,0 +1,141 @@
+{
+  "templateType": "slot-machine-expert/incident-report-v1",
+  "description": "Incident and malfunction report for a slot game system, including regulator notification content. See steering/incident-malfunction-handling.md.",
+  "instructions": [
+    "Sequence is: STOP the affected game or feature, PRESERVE evidence, SCOPE the impact, THEN fix. Fixing first risks deploying an uncertified build and destroying the evidence needed to scope player impact.",
+    "Answer the three impact questions separately. 'Did it affect game fairness', 'did it affect player funds' and 'did it affect a compliance function' have different notification consequences.",
+    "Do not minimise. Regulators tolerate proactive, complete and timely notification far better than the later discovery that something was concealed."
+  ],
+  "severityLevels": {
+    "P1": "Affects game fairness or outcome correctness. RNG anomaly, payout calculation error, RTP deviating from the declared value, uncertified build in production. Notify immediately.",
+    "P2": "Affects player funds or a compliance function. Wallet balance error, double debit, self-exclusion failure, limits not enforced, excluded player able to play. Notify immediately.",
+    "P3": "Affects service availability but not outcome correctness. Game will not load, abnormal disconnect rate, game recall unavailable. Notification depends on the market.",
+    "P4": "Presentation layer only. Animation or text defect not involving rules or disclosure. Record only."
+  },
+  "alwaysP1OrP2": [
+    "Non-CSPRNG used for outcome determination, however limited the scope",
+    "Client able to influence outcome",
+    "Self-excluded player able to bet, including via central system fail-open",
+    "Under-age player able to bet",
+    "Actual RTP systematically deviating from the declared value",
+    "Uncertified build running in production",
+    "Audit log lost or found to be mutable",
+    "Stake limit not enforced (UK GBP 5 / GBP 2, German tiering)"
+  ],
+  "incident": {
+    "incidentId": "",
+    "detectedAt": "",
+    "occurredAt": "",
+    "notifiedAt": "",
+    "severity": "P1 | P2 | P3 | P4",
+    "severityRationale": "",
+    "title": "",
+    "description": "",
+    "detectionMethod": "monitoring-alert | player-report | internal-testing | operator-report | regulator-enquiry | audit",
+    "affectedMarkets": [],
+    "affectedGames": [],
+    "affectedBuildHash": ""
+  },
+  "impactAssessment": {
+    "affectedGameFairness": { "answer": "yes | no | under-investigation", "detail": "" },
+    "affectedPlayerFunds": { "answer": "yes | no | under-investigation", "detail": "" },
+    "affectedComplianceFunction": { "answer": "yes | no | under-investigation", "detail": "" },
+    "affectedPlayerCount": null,
+    "affectedRoundCount": null,
+    "financialExposure": { "amount": null, "currency": "" },
+    "scopingLimitations": "State explicitly if the impact could not be fully scoped, and why"
+  },
+  "immediateActions": {
+    "serviceStopped": { "done": false, "at": "", "scope": "" },
+    "evidencePreserved": {
+      "done": false,
+      "at": "",
+      "checklist": {
+        "auditLogsForAffectedPeriodIncludingRawRngValues": false,
+        "productionBuildHashAndBinary": false,
+        "activeConfigFiles": false,
+        "systemSettingsAndCapabilityFlagState": false,
+        "walletTransactionRecords": false,
+        "affectedPlayerAccountStateSnapshot": false,
+        "centralSystemRequestResponseRecords": false,
+        "monitoringAndAlertRecords": false,
+        "deploymentRecords": false
+      }
+    },
+    "operatorNotified": { "done": false, "at": "" }
+  },
+  "rootCause": {
+    "status": "under-investigation | identified",
+    "summary": "",
+    "contributingFactors": [],
+    "whyNotCaughtEarlier": ""
+  },
+  "playerRemediation": {
+    "principle": "Where facts are unclear, the cost should be absorbed by the operator. Treatment favourable to the player carries materially lower regulatory risk than the reverse.",
+    "decisions": [
+      {
+        "situation": "Player under-paid due to the fault",
+        "treatment": "Pay the difference and notify the player proactively",
+        "applied": false
+      },
+      {
+        "situation": "Player over-paid due to the fault",
+        "treatment": "Normally do not claw back. Assess regulatory and reputational risk before attempting recovery.",
+        "applied": false
+      },
+      {
+        "situation": "Incomplete round, outcome already determined",
+        "treatment": "Honour the determined outcome",
+        "applied": false
+      },
+      {
+        "situation": "Incomplete round, outcome not determined",
+        "treatment": "Refund the stake",
+        "applied": false
+      },
+      {
+        "situation": "Multi-stage feature progress lost",
+        "treatment": "Reconstruct reasonably from the interruption point; where reconstruction is impossible, resolve in the player's favour",
+        "applied": false
+      },
+      {
+        "situation": "Bets by a self-excluded player",
+        "treatment": "Refund stakes. Treatment of winnings varies by market and must be checked per profile: Connecticut bars collection of winnings, Delaware provides for forfeiture, Ontario requires cancellation and refund within 24 hours.",
+        "applied": false
+      },
+      {
+        "situation": "Bets by an under-age player",
+        "treatment": "Refund stakes, forfeit winnings, close the account",
+        "applied": false
+      }
+    ],
+    "remediationRecords": [
+      { "playerId": "", "affectedRounds": null, "originalOutcome": "", "remediationAmount": null, "basis": "", "approvedBy": "", "executedAt": "" }
+    ]
+  },
+  "regulatorNotification": {
+    "obligationSource": "Usually the licence conditions rather than public regulation. B2B suppliers normally notify the operator, who notifies the regulator - but confirm the contractual time limit, since the operator's deadline flows back to the supplier.",
+    "notifications": [
+      { "market": "", "regulator": "", "notifiedAt": "", "method": "", "reference": "", "deadlineMet": null }
+    ]
+  },
+  "remediation": {
+    "fixDescription": "",
+    "changeClassification": "A-maths | B-rng | C-rules | D-product-constraint | E-rg | F-systems | G-disclosure | H-presentation | I-defect-fix | J-security",
+    "recertificationRequired": null,
+    "recertificationRationale": "",
+    "parSheetUpdated": null,
+    "newBuildHash": "",
+    "deployedAt": "",
+    "complianceGatePassed": null
+  },
+  "preventiveMeasures": [
+    { "measure": "", "owner": "", "dueDate": "", "riskRegisterId": "" }
+  ],
+  "closure": {
+    "closedAt": "",
+    "closedBy": "",
+    "lessonsLearned": "",
+    "riskRegisterUpdated": null
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "templateType": "slot-machine-expert/prohibited-grey-market-register-v1",
+  "description": "Markets where online slots are prohibited, effectively prohibited, or operate in a grey or offshore-only status. This register exists so that the advisory WARNS the user rather than implying technical compliance can make entry possible.",
+  "advisoryPrinciple": "Technical compliance CANNOT resolve a legal status problem. For the markets below, no amount of RNG certification, RTP configuration or responsible gambling tooling makes the offering lawful. See steering/advisory-engagement.md section 4, scenario five.",
+  "markets": [
+    {
+      "marketCode": "AU",
+      "name": "Australia",
+      "legalStatus": "prohibited",
+      "confidence": "HIGH",
+      "basis": "Online slots / online casino are a prohibited interactive gambling service under the Interactive Gambling Act 2001 (Cth), including s 15. It is an offence to PROVIDE them to a person physically present in Australia. There is NO Australian online casino licence. The player commits no offence.",
+      "regulator": { "name": "ACMA", "url": "https://www.acma.gov.au" },
+      "statute": "https://www.legislation.gov.au/C2004A00851",
+      "recentChange": "No legalisation. A parliamentary recommendation to KEEP the prohibition. Enforcement escalated: approximately 1,751 illegal gambling and affiliate sites blocked cumulatively since November 2019, with further batches blocked through 2026 (latest 2026-07-15).",
+      "consultantNote": "State land-based EGM (pokies) rules are a separate regime and must not be cited as evidence that online slots are permitted."
+    },
+    {
+      "marketCode": "JP",
+      "name": "Japan",
+      "legalStatus": "prohibited",
+      "confidence": "HIGH",
+      "basis": "Gambling at an online casino from within Japan is a crime under Penal Code arts. 185-186 EVEN IF the operator holds an overseas licence. There is no licensing regime.",
+      "regulator": { "name": "No gambling regulator for online casino. Enforcement: National Police Agency", "url": "https://www.npa.go.jp" },
+      "recentChange": "MAJOR. Act No. 76 of 2025, in force 2025-09-25, amended the gambling-addiction measures act to criminalise online dissemination of information inducing people in Japan to gamble illegally, and to prohibit launching or operating new online casino sites and apps, reach sites, affiliate links and social media promotion. MIC issued a revised Article 26 guideline the same day. Arrests occurred on day one. Reported ~34% contraction of the Japanese online betting market.",
+      "consultantNote": "The 2025 amendment extends criminal exposure to MARKETING and AFFILIATE activity, not just operation. Advise clients that Japanese-language marketing and affiliate arrangements now carry direct risk."
+    },
+    {
+      "marketCode": "KR",
+      "name": "South Korea",
+      "legalStatus": "prohibited",
+      "confidence": "MEDIUM",
+      "basis": "Online casino and slots are illegal. Gambling is criminal under Criminal Act arts. 246-247, with narrow state-authorised exceptions (lottery, Sports Toto, racing, one locals-permitted land casino). Extraterritorial reach to Koreans gambling abroad.",
+      "regulator": { "name": "National Gambling Control Commission (NGCC); site blocking by the Korea Communications Standards Commission", "url": "https://www.ngcc.go.kr" },
+      "recentChange": "No legalisation. SNI-based filtering for faster blocking. A seven-month NPA cyber-gambling crackdown to approximately April 2026 produced 2,319 arrests, 1,746 cases and KRW 107.2bn seized.",
+      "consultantNote": "Enforcement intensity is high and includes pursuit of Korean players gambling on offshore sites."
+    },
+    {
+      "marketCode": "SG",
+      "name": "Singapore",
+      "legalStatus": "prohibited",
+      "confidence": "HIGH",
+      "basis": "Unlicensed remote gambling in or from Singapore, or from abroad to persons in Singapore, is unlawful under the Gambling Control Act 2022. Singapore Pools is the ONLY GRA-licensed remote operator and its remote products are lottery and sports betting. There is NO lawful online slots channel.",
+      "regulator": { "name": "Gambling Regulatory Authority of Singapore (GRA)", "url": "https://www.gra.gov.sg" },
+      "statute": "https://sso.agc.gov.sg/Act/GCA2022",
+      "recentChange": "None identified for online casino policy."
+    },
+    {
+      "marketCode": "IN",
+      "name": "India",
+      "legalStatus": "prohibited",
+      "confidence": "HIGH",
+      "basis": "The Promotion and Regulation of Online Gaming Act, 2025 (Act 32 of 2025, gazetted 2025-08-22) bans online money games - any online game played by paying money in expectation of monetary gain, IRRESPECTIVE OF SKILL OR CHANCE - with extraterritorial application to offshore operators. No central online casino licence exists.",
+      "regulator": { "name": "Online Gaming Authority of India (OGAI) under MeitY", "url": "https://www.meity.gov.in", "notes": "OGAI created by the PROG Rules 2026, notified 2026-04-22, in force 2026-05-01. OGAI's own URL is UNVERIFIED." },
+      "recentChange": "Two-stage: the PROG Act 2025 banned money gaming, its advertising and payment facilitation, and leading real-money gaming operators shut down. Then the PROG Rules 2026, effective 2026-05-01, established OGAI, game classification, user-safety safeguards and enforcement.",
+      "consultantNote": "The skill-versus-chance distinction that previously supported some Indian real-money products is now IRRELEVANT under the 2025 Act. Earlier state carve-outs (Sikkim 2008, Nagaland 2016) are overridden or in tension. Constitutional challenges are pending before the Supreme Court, so the position could change - track it, but do not plan on it."
+    },
+    {
+      "marketCode": "MX",
+      "name": "Mexico",
+      "legalStatus": "grey",
+      "confidence": "MEDIUM",
+      "basis": "Trending prohibited. The DOF decree of 2023-11-16 amending the Reglamento de la Ley Federal de Juegos y Sorteos PROHIBITS SLOT MACHINE OPERATION and removes card, dice, roulette and slot games from the sorteo category that was the legal hook for casino-style and online casino content. Pre-existing slot permits survive but are capped at a NON-EXTENDABLE 15 years from publication.",
+      "regulator": { "name": "SEGOB - Direccion General de Juegos y Sorteos", "url": "https://www.sitios.segob.gob.mx/es/Juegos_y_Sorteos" },
+      "recentChange": "In November 2025 SEGOB suspended 13 betting and casino platforms and venues across eight states on AML grounds. The President publicly called for new digital casino rules. Signals of no new permits pending a comprehensive new gaming law (January 2026). A 2026 package proposed raising IEPS on betting from 30% to 50% of GGR; enactment UNVERIFIED.",
+      "openQuestion": "Whether the slot prohibition expressly reaches ONLINE / VIRTUAL slots is NOT STATED in any source reached, and is UNVERIFIED. The official DOF text was unreachable. This must be resolved by Mexican counsel before any Mexican slot plan proceeds.",
+      "consultantNote": "Do not present Mexico as an accessible slot market. At minimum the permit path is closing; at worst online slots are already prohibited."
+    },
+    {
+      "marketCode": "ZA",
+      "name": "South Africa",
+      "legalStatus": "prohibited",
+      "confidence": "HIGH",
+      "basis": "Section 11 of the National Gambling Act 7 of 2004 prohibits unauthorised interactive gambling, and offering it also breaches s 8 (unlicensed gambling). Only land-based casinos (provincially licensed) and online sports / fixed-odds betting via provincial bookmaker licences are lawful. The National Gambling Amendment Act 2008, which would have licensed interactive gambling, was assented to but NEVER PROCLAIMED.",
+      "regulator": { "name": "National Gambling Board (NGB); licensing and enforcement are provincial", "url": "https://www.ngb.org.za" },
+      "recentChange": "NGB issued an Expression of Interest (approximately 2026-06-30) to appoint a provider to monitor and BLOCK illegal online gambling websites. NGB compliance drive directing provinces to enforce the online casino ban. An October 2025 Supreme Court of Appeal ruling held that Gauteng bookmakers may not offer fixed-odds bets on casino-game outcomes, closing the live-streamed roulette-as-sport loophole. The Remote Gambling Bill 2024 (private member's bill, gazetted 2024-11-08) is still not enacted.",
+      "consultantNote": "The October 2025 SCA ruling specifically closed the workaround of dressing casino outcomes as betting events. Flag this if a client proposes a betting-on-slot-outcome structure."
+    },
+    {
+      "marketCode": "CR",
+      "name": "Costa Rica",
+      "legalStatus": "offshore-only",
+      "confidence": "MEDIUM",
+      "basis": "Grey / offshore-only. No gaming licence and no interactive gaming regime exists. Operators incorporate locally, host back-office in Costa Rica, and must serve non-residents. The operating permit is a MUNICIPAL DATA PROCESSING BUSINESS PATENTE, not a gaming licence. Land-based hotel casinos are separately permitted.",
+      "regulator": { "name": "No gambling regulator. Nearest touchpoints: Ministerio de Seguridad Publica (land-based, Ley 9050) and Junta de Proteccion Social (state lotteries)", "url": "https://www.seguridadpublica.go.cr" },
+      "minimumRtp": "none - no statute imposes one",
+      "certification": "none - no RNG or game testing requirement and no approved-lab list",
+      "recentChange": "Bill 25.057, which would have created a licensing framework, was reported failed or shelved in January 2026. It was replaced by Bill 25.600 (Strengthening and Modernization of the JPS, filed around May 2026), which cites approximately 53% of the market as illegal (~USD 300m per year) and proposes real-time transaction monitoring and mandatory software and algorithm examination. NEITHER IS LAW.",
+      "consultantNote": "A Costa Rica 'licence' does not exist as a gaming authorisation, and there is no certification requirement. Clients citing Costa Rica as their compliance basis have, in substance, no gaming regulator. Advise them that this provides no technical assurance to players or payment partners, and that Bill 25.600 signals future examination requirements."
+    }
+  ],
+  "otherJurisdictionsWithLocalisedModels": [
+    {
+      "marketCode": "CA-KAH",
+      "name": "Kahnawake (Kahnawa:ke Gaming Commission)",
+      "legalStatus": "regulated",
+      "confidence": "HIGH",
+      "basis": "Legal and regulated under the Kahnawa:ke Gaming Law and the Regulations concerning Interactive Gaming. NOTE: this is NOT a Canadian federal or provincial licence. Canadian lawful online gambling is provincially conducted-and-managed; the KGC asserts inherent Indigenous jurisdiction.",
+      "regulator": { "name": "Kahnawa:ke Gaming Commission", "url": "https://gamingcommission.ca" },
+      "minimumRtp": "none. The 2026-03-25 Regulations contain no minimum payout percentage. They require regular internal statistical review of game performance and payout percentages, documented procedures, and investigation of material variances (ss. 77-78, Part XXXV).",
+      "certification": "Games may run only under a Commission-approved control system (ss. 208-221), assessed with KGC Approved Agents against KGC technical standards (Internet RNG Requirements, Report Requirements, Network Infrastructure and Computer Systems, Wagering Application, System Integrity, Games General), with continuous compliance under Part XXI. Approved labs listed: iTech Labs, Gaming Associates Europe, Quinel, Asensi Technologies, RNG Labs, eCOGRA.",
+      "hosting": "MUST BE IN-TERRITORY. A Client Provider Authorization holder may conduct interactive gaming only from the co-location facility of the single Interactive Gaming Licence holder (s. 34). Casino Software Provider Authorization holders must site their equipment at that same facility (s. 117A). Only ONE Interactive Gaming Licence may exist at a time (s. 28).",
+      "recentChange": "Consolidated Regulations edition dated 2026-03-25 restructured around five permit types. MOU with the Six Nations Gaming Commission in June 2026. In November 2025 an Ontario court held that cross-border liquidity pooling can be lawful, and MCK withdrew its Supreme Court of Canada appeal in 2026.",
+      "consultantNote": "The mandatory in-Territory co-location at a single facility is an unusual and binding architectural constraint. It also means capacity and resilience depend on one facility."
+    }
+  ],
+  "regulatedLatamMarkets": [
+    {
+      "marketCode": "CO",
+      "name": "Colombia (Coljuegos)",
+      "legalStatus": "regulated",
+      "confidence": "HIGH",
+      "regulator": { "name": "Coljuegos", "url": "https://www.coljuegos.gov.co" },
+      "basis": "Internet games of chance operated under a Coljuegos concession (Ley 643/2001 art. 38 as amended by Ley 1753/2015 art. 93).",
+      "minimumRtp": "none found - UNVERIFIED",
+      "certification": "Mandatory. A compliance certificate for internet-game technical requirements must be issued by a COLJUEGOS-AUTHORISED LABORATORY. The requirement is confirmed; the authorised lab names are UNVERIFIED.",
+      "localEntity": "Required - Colombian company or registered branch, Colombian certificate of existence, local accountant and revisor fiscal, and a Colombian bank account certification for player funds. Server location rule UNVERIFIED.",
+      "recentChange": "Decreto 0175/2025 applied 19% VAT to online-only gambling (deposit as base) as a temporary measure through 2025-12-31. A 16% national consumption tax on online GGR via Decreto 0240 was reported in 2026 (single source). The Council of State provisionally suspended Coljuegos advertising restrictions in mid-2026."
+    },
+    {
+      "marketCode": "PE",
+      "name": "Peru (MINCETUR)",
+      "legalStatus": "regulated",
+      "confidence": "HIGH",
+      "regulator": { "name": "MINCETUR - Direccion General de Juegos de Casino y Maquinas Tragamonedas", "url": "https://www.gob.pe/mincetur" },
+      "basis": "Ley 31557 as amended by Ley 31806, plus Reglamento DS 005-2023-MINCETUR. Regime live since February 2024.",
+      "minimumRtp": "none found - UNVERIFIED",
+      "certification": "Mandatory. Platforms, gaming modalities, gaming programmes, live-casino games and progressive systems must be registered or approved by MINCETUR with certificates from MINCETUR-AUTHORISED LABORATORIES. Confirmed accredited labs: BMM Testlabs (first), eCOGRA, Asensi Technologies. Trade press reports nine labs accredited in year one.",
+      "localEntity": "Six-year non-transferable licence. Foreign operators need a Peruvian entity or branch plus a resident legal representative (MEDIUM). A data-residency claim exists from a single vendor source only - UNVERIFIED.",
+      "recentChange": "A 1% ISC excise on wagers stacked on the 12% GGR tax, reportedly pushing the effective burden above 50% of GGR, now in active dispute. Approximately 60 authorised operators and 280 registered suppliers after year one."
+    }
+  ],
+  "lastUpdated": "2026-07",
+  "sourceNote": "Content from web sources was rephrased for compliance with licensing restrictions."
+}

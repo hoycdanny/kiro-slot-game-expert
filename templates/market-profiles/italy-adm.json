@@ -1,0 +1,70 @@
+{
+  "templateType": "slot-machine-expert/market-profile-v2",
+  "marketCode": "IT",
+  "name": "Italy (ADM) Market Profile",
+  "legalStatus": "regulated",
+  "regulator": {
+    "name": "Agenzia delle Dogane e dei Monopoli (ADM)",
+    "url": "https://www.adm.gov.it/",
+    "confidence": "HIGH"
+  },
+  "bindingStandards": [
+    {
+      "name": "Distance-gaming concession framework plus ADM determinazioni direttoriali including payout determinations",
+      "confidence": "MEDIUM",
+      "notes": "The specific instrument holding slot parameters was not located."
+    },
+    {
+      "name": "ADM determinazione direttoriale on payout, ref. 17670, dated 2026-01-12",
+      "confidence": "HIGH",
+      "notes": "Existence confirmed, CONTENT UNVERIFIED. Directly relevant to slot RTP configuration and MUST be read before setting an Italian RTP baseline."
+    }
+  ],
+  "productConstraints": {
+    "minGameCycleMs": { "value": null, "confidence": "UNVERIFIED" },
+    "maxStakePerSpin": { "value": null, "confidence": "UNVERIFIED" },
+    "maxWinPerRound": { "value": null, "confidence": "UNVERIFIED" },
+    "autoplay": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "turboSlamStop": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "featureBuy": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "jackpots": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "multiGame": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "celebrationOfNonWin": { "status": "unverified", "confidence": "UNVERIFIED" },
+    "otherProhibitions": []
+  },
+  "rtp": {
+    "minimum": {
+      "value": null,
+      "confidence": "UNVERIFIED",
+      "notes": "90% is commonly cited but the governing determination was not located. Read ADM determinazione 17670 of 2026-01-12 before relying on any figure."
+    },
+    "disclosure": { "value": null, "confidence": "UNVERIFIED" }
+  },
+  "responsibleGaming": { "requirements": { "value": null, "confidence": "UNVERIFIED" } },
+  "selfExclusion": {
+    "nationalScheme": "ADM central autoesclusione dal gioco a distanza",
+    "url": "https://www.adm.gov.it/portale/en/-/autoesclusione-dal-gioco-a-distan-2",
+    "integrationMandatory": true,
+    "confidence": "HIGH",
+    "notes": "Existence and central nature HIGH; integration mechanics MEDIUM."
+  },
+  "playerAccount": { "minimumAge": { "value": 18, "confidence": "MEDIUM" } },
+  "auditLog": { "retentionPeriod": { "value": null, "confidence": "UNVERIFIED" } },
+  "dataResidency": { "requirement": { "value": null, "confidence": "UNVERIFIED" } },
+  "certification": { "labModel": null, "confidence": "UNVERIFIED" },
+  "recentChanges": [
+    { "date": "2026-01-12", "change": "ADM determinazione direttoriale on payout, ref. 17670", "confidence": "HIGH" }
+  ],
+  "verificationRequired": [
+    "Content of ADM determinazione 17670 of 2026-01-12 (payout) - highest priority",
+    "Minimum RTP",
+    "The entire technical constraint matrix",
+    "Audit retention, data residency, accepted laboratories",
+    "Minimum age against statute"
+  ],
+  "consultantNotes": [
+    "Italy is a large regulated market but its slot technical parameters sit in directorial determinations that are not easy to locate. Budget retrieval time.",
+    "The January 2026 payout determination is the single most important document for an Italian RTP decision."
+  ],
+  "lastUpdated": "2026-07"
+}

@@ -1,0 +1,108 @@
+{
+  "templateType": "slot-machine-expert/change-management-request-v1",
+  "description": "Change request and recertification assessment for a certified slot game. See steering/change-management-recert.md.",
+  "governingPrinciple": "Certification binds a BUILD, not a product. Every deployment must be able to answer: does this build hash correspond to a valid certification report, and if not, does the change fall within a permitted no-notification scope? The default position is that recertification IS required, because the cost of unnecessary re-testing is far lower than the cost of running uncertified software.",
+  "referenceStandards": [
+    { "name": "GLI Change Management Program Guide", "version": "1.0" },
+    { "name": "GLI Composite Submission Requirements", "version": "2.0" },
+    { "name": "Danish certification programme SCP.06 (change management)", "note": "Publicly available and usable as an internal process skeleton" },
+    { "name": "AGCO Internet Gaming Notification Matrix, March 2026 v1.6", "note": "Item-by-item notification requirements; useful as a template even outside Ontario" }
+  ],
+  "changeRequest": {
+    "requestId": "",
+    "raisedBy": "",
+    "raisedDate": "",
+    "gameName": "",
+    "currentVersion": "",
+    "currentBuildHash": "",
+    "proposedVersion": "",
+    "changeDescription": "",
+    "changeReason": "feature | defect-fix | regulatory-change | security | performance | commercial",
+    "affectedMarkets": [],
+    "relatedIncidentId": ""
+  },
+  "classification": {
+    "category": "A | B | C | D | E | F | G | H | I | J",
+    "categoryDefinitions": {
+      "A": "Mathematics model: paytable, reel strips, RTP target, volatility, feature probabilities, jackpot contribution rate. Recertification REQUIRED.",
+      "B": "RNG: algorithm, entropy source, seeding, scaling or mapping logic. Recertification REQUIRED.",
+      "C": "Game rules: wild substitution, scatter determination, payline definitions, multiplier application, evaluation order. Recertification REQUIRED.",
+      "D": "Product constraints: game cycle time, stake limits or tiers, autoplay, turbo, multi-game. Recertification REQUIRED.",
+      "E": "Responsible gambling functions: limits, self-exclusion integration, session reminders, net position display, forced breaks. Market-dependent.",
+      "F": "System architecture: RGS, wallet, PAM, jackpot controller, logging subsystem, deployment location. Market-dependent.",
+      "G": "Disclosure content: RTP text, rules description, maximum-prize probability. Market-dependent.",
+      "H": "Presentation layer only: art assets, sound, animation, localisation not touching rules or disclosure. Usually exempt.",
+      "I": "Defect fix: classify by the scope of the fix.",
+      "J": "Security update: dependency upgrades, patches. Assess by impact."
+    },
+    "classificationRationale": "",
+    "classifiedBy": "",
+    "reviewedBy": ""
+  },
+  "misclassificationChecks": {
+    "description": "Changes that look like category H but are not. Each must be answered before a change can be treated as presentation-only.",
+    "checks": [
+      { "question": "Does the change reduce the time from game start to result, or the game cycle duration?", "answer": null, "consequence": "Category D. May breach UK RTS 14D 2500 ms, German 5000 ms average, Ontario 2.18." },
+      { "question": "Does the change add or alter any ability to shorten the time to result (skip animation, tap to stop)?", "answer": null, "consequence": "Category D. Prohibited by UK RTS 14E and Ontario 2.19." },
+      { "question": "Does the change alter when win audio or visual feedback is triggered?", "answer": null, "consequence": "Category D. Celebrating returns at or below the stake breaches UK RTS 14F and Ontario 2.20." },
+      { "question": "Does the localisation touch rules text, RTP disclosure or maximum-prize probability?", "answer": null, "consequence": "Category G." },
+      { "question": "Does the change alter demo or free-play behaviour?", "answer": null, "consequence": "Sweden Spellag 14:5 requires free play to share the same outcome distribution as staked play." },
+      { "question": "Does the change add a currency, points or unit conversion display?", "answer": null, "consequence": "Prohibited in Germany by section 22a(5)." },
+      { "question": "Does the change alter reel-stop presentation or symbol positioning near paylines?", "answer": null, "consequence": "Sweden Spellag 14:5 prohibits near-miss design." },
+      { "question": "Does the change only hide an autoplay control in the UI while the server still accepts consecutive spin requests?", "answer": null, "consequence": "The feature still exists for audit purposes. Must be enforced server-side." },
+      { "question": "Does the change upgrade any dependency, altering the build hash?", "answer": null, "consequence": "Category J. Build no longer matches the certified hash." }
+    ]
+  },
+  "impactAssessment": {
+    "affectsOutcomeDetermination": null,
+    "affectsPayoutCalculation": null,
+    "affectsRtp": null,
+    "rtpBefore": null,
+    "rtpAfter": null,
+    "affectsAnyWagerConfigurationRtp": null,
+    "affectsRegulatorReviewedFunction": null,
+    "parSheetUpdateRequired": null,
+    "mathVerificationRerunRequired": null,
+    "verificationEvidence": "Reference the re-run results from steering/math-verification.md section 6 checklist"
+  },
+  "perMarketDetermination": [
+    {
+      "market": "",
+      "recertificationRequired": null,
+      "notificationRequired": null,
+      "priorApprovalRequired": null,
+      "notificationDeadline": "",
+      "basis": "",
+      "notes": ""
+    }
+  ],
+  "marketSpecificNotes": {
+    "germany": "Each individual slot game requires prior GGL permission, a playable version must be supplied, and MATERIAL CHANGES REQUIRE FRESH PERMISSION. Permission is revocable at any time and unpermitted slots constitute illegal gambling. Treat German changes as a sequential external dependency in the schedule.",
+    "ontario": "Standard 4.08 expressly covers SUBSEQUENT MODIFICATIONS to games, RNGs and system components. Consult the AGCO Internet Gaming Notification Matrix for the applicable notification route.",
+    "unitedKingdom": "Games and RNG results must be filed to the Games Register before release. Annual games-testing audit and annual independent security audit also apply.",
+    "denmark": "SCP.06 governs change management. Since 2025 licence holders and game suppliers each submit their own certifications directly.",
+    "brazil": "Certification filings are in Portuguese via SIGAP. Confirm the certifier's current accreditation standing before engaging, as authorisations have been revoked."
+  },
+  "approval": {
+    "complianceGatePassed": null,
+    "approvedBy": "",
+    "approvalDate": "",
+    "conditions": []
+  },
+  "execution": {
+    "labSubmitted": null,
+    "labSubmissionDate": "",
+    "newCertificationReportId": "",
+    "regulatorNotified": null,
+    "newBuildHash": "",
+    "deployedDate": "",
+    "buildCertificationMappingUpdated": null,
+    "previousVersionRetired": null
+  },
+  "buildCertificationMappingTable": {
+    "description": "The record most frequently requested during an audit. If the current production build cannot be tied to a certification report on demand, the audit outcome is usually adverse.",
+    "entries": [
+      { "buildHash": "", "certificationReportId": "", "validMarkets": [], "effectiveFrom": "", "retiredOn": "" }
+    ]
+  }
+}
