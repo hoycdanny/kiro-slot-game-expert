@@ -91,12 +91,23 @@ Slot Machine Expert (Intelligence Layer)
 
 ### Step 2 — 安裝自動引導 Hook（建議）
 
-此 Hook 確保 AI 在每次對話時自動載入 Power 並選擇正確的 Steering File：
+此 Hook 會把問題導向正確的 Steering File，並強制顧問行為準則：先確認司法管轄區、不把未驗證的法規數值當成事實、主動提出紅旗風險。
+
+提供兩種格式，依你的 Kiro 版本擇一安裝：
 
 ```bash
 mkdir -p .kiro/hooks
+
+# 現行 agent hook 格式（v1 schema：version + hooks[] + UserPromptSubmit）
+cp hooks/slot-expert-guidance.json .kiro/hooks/
+
+# 舊格式，供讀取 .kiro.hook 的舊版 Kiro 使用
 cp hooks/pre-slot-tool.kiro.hook .kiro/hooks/
 ```
+
+**只裝一個**。不確定的話先用 `slot-expert-guidance.json`，再確認 Power 是否會自動啟動。
+
+沒有安裝 Hook 時，你可能需要手動提醒 AI 使用專家知識。
 
 ### Step 3 — 驗證連線
 
@@ -131,7 +142,8 @@ kiro-slot-game-expert/
 │   ├── certification/                # 認證提交清單
 │   └── market-profiles/              # 市場監管配置檔
 ├── hooks/
-│   └── pre-slot-tool.kiro.hook       # 自動引導 Hook
+│   ├── slot-expert-guidance.json     # 自動引導 Hook（現行 v1 格式）
+│   └── pre-slot-tool.kiro.hook       # 自動引導 Hook（舊格式）
 ├── tests/                            # 屬性測試（fast-check + vitest）
 ├── package.json
 ├── tsconfig.json
@@ -191,7 +203,7 @@ npx tsc --noEmit     # TypeScript 型別檢查
 
 | 問題 | 解決方案 |
 |------|----------|
-| AI 未以專家模式回應 | 確認 Hook 已複製到 `.kiro/hooks/` 目錄 |
+| AI 未以專家模式回應 | 確認已複製一個 Hook 到 `.kiro/hooks/`。若 `pre-slot-tool.kiro.hook` 沒有觸發，你的 Kiro 版本可能需要 v1 schema，改用 `slot-expert-guidance.json` |
 | 測試失敗 | 執行 `npm install` 後重試 `npm test` |
 | TypeScript 型別錯誤 | 執行 `npx tsc --noEmit`，確認已安裝依賴 |
 

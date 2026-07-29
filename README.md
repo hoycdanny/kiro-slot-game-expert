@@ -100,14 +100,23 @@ Open Kiro → Left panel click Powers icon → Click "+" → Select "Add Custom 
 
 ### Step 2 — Install Auto-Guidance Hook (Recommended)
 
-This hook ensures the AI automatically loads the correct Steering File before processing each request:
+This hook routes each question to the right Steering File and enforces the advisory posture: confirm the jurisdiction first, never state an unverified regulatory value as fact, and surface red flags proactively.
+
+Two formats are shipped. Use the one matching your Kiro version:
 
 ```bash
 mkdir -p .kiro/hooks
+
+# Current agent-hook format (v1 schema: version + hooks[] + UserPromptSubmit)
+cp hooks/slot-expert-guidance.json .kiro/hooks/
+
+# Legacy format, for older Kiro builds that read .kiro.hook files
 cp hooks/pre-slot-tool.kiro.hook .kiro/hooks/
 ```
 
-Without this hook, you may need to manually remind the AI to use expert knowledge.
+Install only one. If you are unsure, start with `slot-expert-guidance.json` and check whether the Power activates automatically.
+
+Without a hook, you may need to manually remind the AI to use expert knowledge.
 
 ### Verify Installation
 
@@ -179,7 +188,8 @@ kiro-slot-game-expert/
 │   ├── advisory/                     # Gap assessment, risk register, roadmap, incident report
 │   └── market-profiles/              # 26 market profiles + _schema + prohibited register
 ├── hooks/
-│   └── pre-slot-tool.kiro.hook       # Auto-guidance hook
+│   ├── slot-expert-guidance.json     # Auto-guidance hook (current v1 format)
+│   └── pre-slot-tool.kiro.hook       # Auto-guidance hook (legacy format)
 ├── tests/                            # Property-based tests (fast-check + vitest)
 ├── package.json
 ├── tsconfig.json
@@ -234,7 +244,7 @@ It also discloses that **GLI and iTech Labs have been the same corporate group s
 
 | Problem | Solution |
 |---------|----------|
-| AI not responding as expert | Ensure hook is copied to `.kiro/hooks/` directory |
+| AI not responding as expert | Ensure a hook is copied to `.kiro/hooks/`. If `pre-slot-tool.kiro.hook` does not fire, your Kiro build likely expects the v1 schema — use `slot-expert-guidance.json` instead |
 | Tests failing | Run `npm install` then retry `npm test` |
 | TypeScript type errors | Run `npx tsc --noEmit` after `npm install` |
 
