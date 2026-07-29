@@ -1,10 +1,14 @@
 # Slot Machine Expert — Kiro Power
 
-[English](README.md) | [繁體中文](README_TW.md)
+[English](README.md) | [繁體中文](README_ZH.md) | [简体中文](README_CN.md) | [日本語](README_JP.md) | [한국어](README_KR.md)
 
-> Note on language availability: README is available in English and Traditional Chinese.
-> Steering files (domain knowledge) are in Traditional Chinese with industry-standard
-> English terminology. The Power responds in the developer's preferred language.
+> Note on language availability: README files are available in 5 languages. Steering files
+> (domain knowledge) are written in Traditional Chinese, deliberately retaining
+> English legal and technical terms — clause references such as `RTS 14D`,
+> `GlüStV §22a(6)`, `AGCO Standard 2.18` and `GLI-11 §3.2.2` are kept verbatim because you
+> need those exact strings to retrieve the source instrument and to talk to a test
+> laboratory. The Power responds in your language regardless of the steering file language.
+> If you hit a language barrier, please open an issue.
 
 Transform your IDE into a slot machine game development expert consultant. This Power provides AI-assisted guidance on RNG implementation, mathematical model design, regulatory certification compliance, and responsible gaming — covering the full development lifecycle from concept to GLI certification.
 
@@ -167,7 +171,7 @@ Once installed, just talk to Kiro in natural language. The AI will automatically
 
 ```bash
 npm install
-npm test              # Run all tests (13 property-based tests)
+npm test              # Run all tests (14 suites, 69 tests)
 npx tsc --noEmit     # TypeScript type checking
 ```
 
@@ -176,11 +180,19 @@ npx tsc --noEmit     # TypeScript type checking
 ```
 kiro-slot-game-expert/
 ├── POWER.md                          # Power main definition (entry point)
-├── steering/
-│   ├── math-model.md                 # Math model design guide
-│   ├── rng-game-logic.md             # RNG & game logic guide
-│   ├── certification-prep.md         # Certification prep guide
-│   └── responsible-gaming.md         # Responsible gaming guide
+├── steering/                         # 12 domain knowledge guides
+│   ├── jurisdiction-matrix.md        # Cross-market technical constraints
+│   ├── advisory-engagement.md        # Consultant workflow
+│   ├── math-model.md                 # Math model design
+│   ├── math-verification.md          # Verification & PAR sheet
+│   ├── rng-game-logic.md             # RNG & game logic
+│   ├── platform-systems-compliance.md# Platform & systems compliance
+│   ├── certification-prep.md         # Certification prep
+│   ├── responsible-gaming.md         # Responsible gaming
+│   ├── change-management-recert.md   # Change management & recertification
+│   ├── incident-malfunction-handling.md # Incident & malfunction handling
+│   ├── aml-kyc-player-account.md     # AML/KYC & player account
+│   └── data-protection-privacy.md    # Data protection & privacy
 ├── templates/
 │   ├── paytable/                     # Paytable templates
 │   ├── reel-strip/                   # Virtual reel configurations

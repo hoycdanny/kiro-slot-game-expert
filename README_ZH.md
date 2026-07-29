@@ -1,8 +1,10 @@
 # 老虎機開發專家 Kiro Power
 
-[English](README.md) | [繁體中文](README_TW.md)
+[English](README.md) | [繁體中文](README_ZH.md) | [简体中文](README_CN.md) | [日本語](README_JP.md) | [한국어](README_KR.md)
 
-使 Kiro 成為老虎機遊戲開發的專業顧問，涵蓋 RNG 實作、數學模型設計、認證合規與負責任遊戲。
+使 Kiro 成為老虎機遊戲開發的合規顧問，涵蓋 26 個司法管轄區的法規約束、RNG 實作、數學模型設計與驗證、認證合規與負責任遊戲。
+
+> **關於語言**：README 提供 5 種語言。Steering 指引以繁體中文撰寫，但**刻意保留英文法律與技術術語**——像 `RTS 14D`、`GlüStV §22a(6)`、`AGCO Standard 2.18`、`GLI-11 §3.2.2` 這類條號一律原文保留，因為你需要用這些字串去調閱法源、以及跟測試實驗室對話。不論 Steering 用什麼語言，Power 都會以你的語言回應。
 
 ## 名詞解釋
 
@@ -131,16 +133,25 @@ cp hooks/pre-slot-tool.kiro.hook .kiro/hooks/
 ```
 kiro-slot-game-expert/
 ├── POWER.md                          # Power 主定義檔（進入點）
-├── steering/
-│   ├── math-model.md                 # 數學模型設計指引
-│   ├── rng-game-logic.md             # RNG 與遊戲邏輯指引
-│   ├── certification-prep.md         # 認證準備指引
-│   └── responsible-gaming.md         # 負責任遊戲指引
+├── steering/                         # 12 份領域知識指引
+│   ├── jurisdiction-matrix.md        # 司法管轄區合規矩陣
+│   ├── advisory-engagement.md        # 顧問參與流程
+│   ├── math-model.md                 # 數學模型設計
+│   ├── math-verification.md          # 數學模型驗證與 PAR sheet
+│   ├── rng-game-logic.md             # RNG 與遊戲邏輯
+│   ├── platform-systems-compliance.md# 平台與系統層合規
+│   ├── certification-prep.md         # 認證準備
+│   ├── responsible-gaming.md         # 負責任遊戲
+│   ├── change-management-recert.md   # 變更管理與重新認證
+│   ├── incident-malfunction-handling.md # 事故與故障處理
+│   ├── aml-kyc-player-account.md     # AML/KYC 與玩家帳戶
+│   └── data-protection-privacy.md    # 資料保護與隱私
 ├── templates/
 │   ├── paytable/                     # 賠率表模板
 │   ├── reel-strip/                   # 虛擬捲軸配置模板
-│   ├── certification/                # 認證提交清單
-│   └── market-profiles/              # 市場監管配置檔
+│   ├── certification/                # PAR sheet、RNG 送測包、變更申請、GLI 檢查清單
+│   ├── advisory/                     # 落差評估、風險登記冊、路線圖、事故通報
+│   └── market-profiles/              # 26 個市場設定檔 + _schema + 禁止市場登記冊
 ├── hooks/
 │   ├── slot-expert-guidance.json     # 自動引導 Hook（現行 v1 格式）
 │   └── pre-slot-tool.kiro.hook       # 自動引導 Hook（舊格式）
@@ -197,7 +208,7 @@ npm test              # 執行所有測試
 npx tsc --noEmit     # TypeScript 型別檢查
 ```
 
-共 9 個測試檔案、13 個屬性測試，驗證數學模型公式、資料結構完整性與映射一致性。
+共 13 個測試檔案、59 個測試，驗證數學模型公式、資料結構完整性、映射一致性，以及三項防漂移約束：市場設定檔 schema（標為 `UNVERIFIED` 的欄位不得帶具體數值）、POWER.md 與 steering 檔案的註冊一致性、hook 與 steering 的同步（新增 steering 忘記更新 hook 會直接測試失敗）。
 
 ## 疑難排解
 
